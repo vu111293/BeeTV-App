@@ -46,7 +46,7 @@ class TasksFragment : Fragment() {
 
     private val viewModel by viewModels<TasksViewModel> { getViewModelFactory() }
 
-    private val args: TasksFragmentArgs by navArgs()
+//    private val args: TasksFragmentArgs by navArgs()
 
     private lateinit var viewDataBinding: TasksFragBinding
 
@@ -109,7 +109,7 @@ class TasksFragment : Fragment() {
     private fun setupSnackbar() {
         view?.setupSnackbar(this, viewModel.snackbarText, Snackbar.LENGTH_SHORT)
         arguments?.let {
-            viewModel.showEditResultMessage(args.userMessage)
+//            viewModel.showEditResultMessage(args.userMessage)
         }
     }
 
@@ -141,17 +141,17 @@ class TasksFragment : Fragment() {
     }
 
     private fun navigateToAddNewTask() {
-        val action = TasksFragmentDirections
-            .actionTasksFragmentToAddEditTaskFragment(
-                null,
-                resources.getString(R.string.add_task)
-            )
-        findNavController().navigate(action)
+//        val action = TasksFragmentDirections
+//            .actionTasksFragmentToAddEditTaskFragment(
+//                null,
+//                resources.getString(R.string.add_task)
+//            )
+//        findNavController().navigate(action)
     }
 
     private fun openTaskDetails(taskId: String) {
-        val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
-        findNavController().navigate(action)
+//        val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
+//        findNavController().navigate(action)
     }
 
     private fun setupListAdapter() {

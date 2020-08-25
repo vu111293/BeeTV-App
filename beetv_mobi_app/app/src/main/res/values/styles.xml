@@ -29,6 +29,7 @@
         <item name="fontFamily">@font/opensans_font</item>
         <!-- sets the style for the overflow button -->
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
+        <item name="android:windowBackground">@color/black</item>
     </style>
 
     <!-- This style defines the tint color of the overflow menu button -->
@@ -37,4 +38,5 @@
     </style>
 
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

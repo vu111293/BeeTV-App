@@ -25,5 +25,15 @@
     <dimen name="header_height">192dp</dimen>
     <dimen name="header_padding">16dp</dimen>
     <dimen name="header_image_width">100dp</dimen>
+    <dimen name="size_10">10dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_200">200dp</dimen>
+    <dimen name="size_70">70dp</dimen>
+    <dimen name="size_30">30dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="text_size_36">36sp</dimen>
+    <dimen name="size_60">60dp</dimen>
+    <dimen name="size_14">14dp</dimen>
+    <dimen name="size_5">5dp</dimen>
 
 </resources>

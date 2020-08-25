@@ -17,15 +17,16 @@ package com.example.android.architecture.blueprints.todoapp.tasks
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.android.architecture.blueprints.todoapp.R
+import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.google.android.material.navigation.NavigationView
 
 /**
@@ -39,6 +40,9 @@ class TasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tasks_act)
+
+
+
         setupNavigationDrawer()
         setSupportActionBar(findViewById(R.id.toolbar))
 
@@ -47,7 +51,7 @@ class TasksActivity : AppCompatActivity() {
             AppBarConfiguration.Builder(R.id.tasks_fragment_dest, R.id.statistics_fragment_dest)
                 .setDrawerLayout(drawerLayout)
                 .build()
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         findViewById<NavigationView>(R.id.nav_view)
             .setupWithNavController(navController)
     }
@@ -63,6 +67,12 @@ class TasksActivity : AppCompatActivity() {
                 setStatusBarBackground(R.color.colorPrimaryDark)
             }
     }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return super.onKeyDown(keyCode, event)
+
+    }
+
 }
 
 // Keys for navigation

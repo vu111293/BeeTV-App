@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:background="@drawable/bg_mineshaft_radius_30"
+    android:gravity="center"
+    android:paddingHorizontal="@dimen/size_30"
+    android:layout_marginHorizontal="@dimen/size_5"
+    android:layout_height="@dimen/size_60">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_icon"/>
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="@color/alto"
+       android:id="@+id/tv_name"
+       android:layout_marginStart="@dimen/size_16"
+       android:textAppearance="@style/TextAppearance.AppCompat.Large"
+       android:layout_marginLeft="@dimen/size_16" />
+</LinearLayout>

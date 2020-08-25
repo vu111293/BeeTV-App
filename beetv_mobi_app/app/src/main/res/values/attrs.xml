@@ -19,4 +19,14 @@
     <declare-styleable name="ScrollChildSwipeRefreshLayout">
         <attr name="refreshing" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="CategoryItemView">
+        <attr name="categoryName" format="string" />
+        <attr name="icon" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="FuctionItemView">
+        <attr name="functionName" format="string" />
+        <attr name="functionIcon" format="reference" />
+    </declare-styleable>
+
 </resources>

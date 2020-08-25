@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.android.architecture.blueprints.todoapp.home.HomeViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvClock"
+            android:textColor="@color/alto"
+            android:textSize="35sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/alto"
+            android:id="@+id/tvDateExpried"
+            android:layout_marginTop="@dimen/size_8"
+            android:text="서비스 남은 기간: 7일"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvClock"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/tvDateExpried"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/layoutFuction"
+            android:gravity="end"
+            android:layout_height="wrap_content">
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_search"
+                app:functionIcon="@drawable/ic_search"
+                app:functionName="@string/search"
+                />
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:functionIcon="@drawable/ic_scrap"
+                android:id="@+id/bt_favorite"
+                app:functionName="@string/favorites"
+                />
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:functionIcon="@drawable/ic_search"
+                android:id="@+id/bt_playback"
+                app:functionName="@string/playback_record"
+                />
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_setting"
+                app:functionIcon="@drawable/ic_setting"
+                app:functionName="@string/setting"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/sunsetOrange"
+            android:id="@+id/tvNoti"
+            android:layout_marginTop="@dimen/size_8"
+            android:text="알림:날씨 영향으로 서비스가 원활하지 않습니다."
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutFuction"
+            />
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:paddingHorizontal="@dimen/size_14"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           android:orientation="horizontal">
+
+           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               app:icon="@drawable/ic_tv"
+               android:id="@+id/bt_tv"
+               app:categoryName="@string/realtime_broadcasting"/>
+
+           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:icon="@drawable/ic_movie"
+               android:id="@+id/bt_movie"
+               android:layout_weight="1"
+               app:categoryName="@string/movie"/>
+
+
+           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:icon="@drawable/ic_drama"
+               android:layout_weight="1"
+               android:id="@+id/bt_drama"
+               app:categoryName="@string/drama"/>
+
+           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:id="@+id/bt_entertainment"
+               app:icon="@drawable/ic_entertainment"
+               app:categoryName="@string/entertainment"/>
+           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:icon="@drawable/ic_current_affairs"
+               android:layout_weight="1"
+               android:id="@+id/bt_education"
+               app:categoryName="@string/preview_education"/>
+           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:id="@+id/bt_children"
+               android:layout_height="wrap_content"
+               app:icon="@drawable/ic_childrentv"
+               app:categoryName="@string/child"/>
+       </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

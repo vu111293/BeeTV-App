@@ -62,4 +62,17 @@
     <string name="tasks_header_image_content_description">Tasks header image</string>
     <string name="no_tasks_image_content_description">No tasks image</string>
 
+
+
+    <string name="realtime_broadcasting">실시간방송</string>
+    <string name="movie">영화</string>
+    <string name="drama">드라마</string>
+    <string name="entertainment">예능</string>
+    <string name="preview_education">시사교양</string>
+    <string name="child">어린이</string>
+    <string name="search">검색</string>
+    <string name="favorites">즐겨찾기</string>
+    <string name="playback_record">재생기록</string>
+    <string name="setting">설정</string>
+
 </resources>

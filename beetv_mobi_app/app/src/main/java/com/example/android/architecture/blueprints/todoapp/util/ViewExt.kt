@@ -19,7 +19,10 @@ package com.example.android.architecture.blueprints.todoapp.util
  * Extension functions and Binding Adapters.
  */
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
@@ -77,4 +80,20 @@ fun Fragment.setupRefreshLayout(
     scrollUpChild?.let {
         refreshLayout.scrollUpChild = it
     }
+}
+
+fun ViewGroup.setContentView(@LayoutRes id: Int) :View{
+   return LayoutInflater.from(context).inflate(id, this, true)
+}
+
+
+fun View.show() {
+    visibility = View.VISIBLE
+}
+
+fun View.hide() {
+    visibility = View.GONE
+}
+fun View.invisible() {
+    visibility = View.INVISIBLE
 }

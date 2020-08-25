@@ -25,6 +25,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.savedstate.SavedStateRegistryOwner
 import com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTaskViewModel
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
+import com.example.android.architecture.blueprints.todoapp.home.HomeViewModel
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsViewModel
 import com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailViewModel
 import com.example.android.architecture.blueprints.todoapp.tasks.TasksViewModel
@@ -53,6 +54,8 @@ class ViewModelFactory constructor(
                 AddEditTaskViewModel(tasksRepository)
             isAssignableFrom(TasksViewModel::class.java) ->
                 TasksViewModel(tasksRepository, handle)
+            isAssignableFrom(HomeViewModel::class.java) ->
+                HomeViewModel(tasksRepository, handle)
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
