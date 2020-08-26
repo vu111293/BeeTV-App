@@ -21,136 +21,364 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tvClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvClock"
             android:textColor="@color/alto"
             android:textSize="35sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
+            android:id="@+id/tvDateExpried"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/alto"
-            android:id="@+id/tvDateExpried"
             android:layout_marginTop="@dimen/size_8"
             android:text="서비스 남은 기간: 7일"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/alto"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvClock"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/tvClock" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toEndOf="@+id/tvDateExpried"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/layoutFuction"
-            android:gravity="end"
-            android:layout_height="wrap_content">
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center"
+            android:layout_marginBottom="@dimen/size_16"
+            android:clipToPadding="false"
+            android:focusable="false">
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_search"
-                app:functionIcon="@drawable/ic_search"
-                app:functionName="@string/search"
-                />
-
-            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:functionIcon="@drawable/ic_scrap"
+                android:layout_toStartOf="@+id/bt_favorite"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:focusable="true"
+                android:layout_toLeftOf="@+id/bt_favorite">
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_search"
+                    app:functionName="@string/search" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_favorite"
-                app:functionName="@string/favorites"
-                />
-
-            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:functionIcon="@drawable/ic_search"
+                android:layout_marginLeft="5dp"
+                android:layout_toStartOf="@+id/bt_playback"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:focusable="true"
+                android:layout_toLeftOf="@+id/bt_playback">
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_scrap"
+                    app:functionName="@string/favorites" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_playback"
-                app:functionName="@string/playback_record"
-                />
-
-            <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toStartOf="@+id/bt_setting"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:focusable="true"
+                android:layout_toLeftOf="@+id/bt_setting">
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_search"
+                    app:functionName="@string/playback_record" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_setting"
-                app:functionIcon="@drawable/ic_setting"
-                app:functionName="@string/setting"
-                />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/sunsetOrange"
-            android:id="@+id/tvNoti"
-            android:layout_marginTop="@dimen/size_8"
-            android:text="알림:날씨 영향으로 서비스가 원활하지 않습니다."
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutFuction"
-            />
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           app:layout_constraintBottom_toBottomOf="parent"
-           android:paddingHorizontal="@dimen/size_14"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintEnd_toEndOf="parent"
-           android:orientation="horizontal">
-
-           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
-               android:layout_width="0dp"
-               android:layout_weight="1"
-               android:layout_height="wrap_content"
-               app:icon="@drawable/ic_tv"
-               android:id="@+id/bt_tv"
-               app:categoryName="@string/realtime_broadcasting"/>
-
-           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               app:icon="@drawable/ic_movie"
-               android:id="@+id/bt_movie"
-               android:layout_weight="1"
-               app:categoryName="@string/movie"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:focusable="true"
+                android:layout_alignParentRight="true">
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_setting"
+                    app:functionName="@string/setting" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
 
 
-           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               app:icon="@drawable/ic_drama"
-               android:layout_weight="1"
-               android:id="@+id/bt_drama"
-               app:categoryName="@string/drama"/>
+            <TextView
+                android:id="@+id/tvNoti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_8"
+                android:text="알림:날씨 영향으로 서비스가 원활하지 않습니다."
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/sunsetOrange"
+                android:layout_below="@+id/bt_setting"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" />
 
-           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:id="@+id/bt_entertainment"
-               app:icon="@drawable/ic_entertainment"
-               app:categoryName="@string/entertainment"/>
-           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               app:icon="@drawable/ic_current_affairs"
-               android:layout_weight="1"
-               android:id="@+id/bt_education"
-               app:categoryName="@string/preview_education"/>
-           <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
-               android:layout_width="0dp"
-               android:layout_weight="1"
-               android:id="@+id/bt_children"
-               android:layout_height="wrap_content"
-               app:icon="@drawable/ic_childrentv"
-               app:categoryName="@string/child"/>
-       </LinearLayout>
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_tv"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/border_shape"
+                android:focusable="true"
+                app:radius="4dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_tv" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:text="@string/realtime_broadcasting"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/alto" />
+                </LinearLayout>
+
+
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_movie"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/bt_tv"
+                android:layout_toRightOf="@+id/bt_tv"
+                android:background="@drawable/border_shape"
+                android:focusable="true"
+                app:radius="4dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_movie" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:text="@string/movie"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/alto" />
+                </LinearLayout>
+
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_drama"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/bt_movie"
+                android:layout_toRightOf="@+id/bt_movie"
+                android:background="@drawable/border_shape"
+                android:focusable="true"
+                app:radius="4dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_drama" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:text="@string/drama"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/alto" />
+                </LinearLayout>
+
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_entertainment"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/bt_drama"
+                android:layout_toRightOf="@+id/bt_drama"
+                android:background="@drawable/border_shape"
+                android:focusable="true"
+                app:radius="4dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_entertainment" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:text="@string/entertainment"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/alto" />
+                </LinearLayout>
+
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_education"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/bt_entertainment"
+                android:layout_toRightOf="@+id/bt_entertainment"
+                android:background="@drawable/border_shape"
+                android:focusable="true"
+                app:radius="4dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_current_affairs" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:text="@string/preview_education"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/alto" />
+                </LinearLayout>
+
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_children"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/bt_education"
+                android:layout_toRightOf="@+id/bt_education"
+                android:background="@drawable/border_shape"
+                android:focusable="true"
+                app:radius="4dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_childrentv" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:text="@string/child"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/alto" />
+                </LinearLayout>
+
+
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/tvNoti"
+                android:id="@+id/rv_movie"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                android:layout_above="@+id/bt_tv"
+                tools:listitem="@layout/item_movie"
+                android:layout_height="wrap_content"/>
+        </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
