@@ -9,11 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
+import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Movie
-import com.example.android.architecture.blueprints.todoapp.databinding.HomeFragmentBinding
+import com.example.android.architecture.blueprints.todoapp.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderImpl
@@ -24,13 +25,13 @@ import java.util.*
 class HomeFragment : BaseFragment() {
     private val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
 
-    private lateinit var viewDataBinding: HomeFragmentBinding
+    private lateinit var viewDataBinding: FragmentHomeBinding
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        viewDataBinding = HomeFragmentBinding.inflate(inflater, container, false).apply {
+        viewDataBinding = FragmentHomeBinding.inflate(inflater, container, false).apply {
             viewmodel = viewModel
         }
         return viewDataBinding.root
@@ -100,4 +101,15 @@ class HomeFragment : BaseFragment() {
         viewDataBinding.rvMovie.scrollToPosition(0)
 
     }
+    private fun setupNavigation() {
+        viewModel.openMenuEvent.observe(this, EventObserver {
+            openMenu(it)
+        })
+
+    }
+    private fun openMenu(category: String) {
+        val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
+        findNavController().navigate(action)
+    }
+
 }
