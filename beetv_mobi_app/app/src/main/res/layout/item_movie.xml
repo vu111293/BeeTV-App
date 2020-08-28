@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cv="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view"
-    android:layout_width="208dp"
+    android:layout_width="150dp"
     android:layout_height="250dp"
     android:layout_margin="5dp"
     android:focusable="true"
@@ -21,20 +21,40 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:tag="top"
-        cv:cv_background_color="#5EB335"
+        cv:cv_background_color="@color/fern"
         cv:cv_fill_triangle="true"
         cv:cv_gravity="TOP_LEFT"
         cv:cv_text="VIP"
         cv:cv_text_size="15sp" />
 
-    <TextView
-        android:id="@+id/tv_name"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
         android:layout_gravity="bottom"
-        android:gravity="center|left"
-        android:padding="15px"
-        android:text="魔兽：最强游戏IP电影"
-        android:textColor="@color/white"
-        android:textSize="18dp" />
+        android:gravity="center"
+        android:background="#85000000"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:padding="15px"
+            android:text="魔兽：最强游戏IP电影"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:padding="15px"
+            android:text="5.0"
+            android:textColor="@color/sunsetOrange"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
 </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>

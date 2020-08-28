@@ -375,6 +375,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
                 android:layout_above="@+id/bt_tv"
+                android:layout_marginTop="@dimen/size_16"
                 tools:listitem="@layout/item_movie"
                 android:layout_height="wrap_content"/>
         </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>

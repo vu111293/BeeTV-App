@@ -108,8 +108,8 @@ class HomeFragment : BaseFragment() {
 
     }
     private fun openMenu(category: String) {
-        val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
-        findNavController().navigate(action)
+//        val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
+//        findNavController().navigate(action)
     }
 
 }
