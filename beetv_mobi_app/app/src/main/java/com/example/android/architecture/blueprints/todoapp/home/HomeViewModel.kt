@@ -13,4 +13,10 @@ class HomeViewModel(
 ) : ViewModel() {
     private val _openMenuEvent = MutableLiveData<Event<String>>()
     val openMenuEvent: LiveData<Event<String>> = _openMenuEvent
+
+
+    fun openMenu(category: String) {
+        _openMenuEvent.value = Event(category)
+    }
+
 }

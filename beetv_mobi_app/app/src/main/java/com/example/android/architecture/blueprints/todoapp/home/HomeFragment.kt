@@ -21,9 +21,12 @@ import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroVi
 import java.text.SimpleDateFormat
 import java.util.*
 
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.android.architecture.blueprints.todoapp.util.Constants
 
 class HomeFragment : BaseFragment() {
-    private val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
+     val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
 
     private lateinit var viewDataBinding: FragmentHomeBinding
     override fun onCreateView(
@@ -32,6 +35,7 @@ class HomeFragment : BaseFragment() {
             savedInstanceState: Bundle?
     ): View? {
         viewDataBinding = FragmentHomeBinding.inflate(inflater, container, false).apply {
+            click = ClickProxy(viewModel)
             viewmodel = viewModel
         }
         return viewDataBinding.root
@@ -80,7 +84,7 @@ class HomeFragment : BaseFragment() {
             override fun onAnimationRepeat(animation: Animator) {}
         })
         showMovieList()
-
+        setupNavigation()
     }
 
 
@@ -107,9 +111,51 @@ class HomeFragment : BaseFragment() {
         })
 
     }
-    private fun openMenu(category: String) {
-//        val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
-//        findNavController().navigate(action)
+    private fun openMenu(category:String) {
+        val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
+        findNavController().navigate(action)
+    }
+
+    public class ClickProxy(val viewModel: HomeViewModel){
+        fun openSearch(){
+
+        }
+
+        fun openFavorite(){
+
+        }
+        fun openSetting(){
+
+        }
+        fun openPlayback(){
+
+        }
+
+        fun openLiveMenu(){
+
+            viewModel.openMenu(Constants.TYPE_CATEGORY.TV.name)
+        }
+        fun openMovieMenu(){
+
+            viewModel.openMenu(Constants.TYPE_CATEGORY.MOVIE.name)
+        }
+        fun openDramaMenu(){
+
+            viewModel.openMenu(Constants.TYPE_CATEGORY.DRAMA.name)
+        }
+        fun openEntertainmentMenu(){
+
+            viewModel.openMenu(Constants.TYPE_CATEGORY.ENTERTAINMENT.name)
+        }
+        fun openEducationMenu(){
+
+            viewModel.openMenu(Constants.TYPE_CATEGORY.EDUCATION.name)
+        }
+        fun openChildrenMenu(){
+            viewModel.openMenu(Constants.TYPE_CATEGORY.CHILDRENTV.name)
+
+        }
+
     }
 
 }

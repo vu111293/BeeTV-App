@@ -11,11 +11,7 @@ class Constants {
         DRAMA,
         ENTERTAINMENT,
         EDUCATION,
-        CHILDRENTV,
-        SEARCH,
-        FAVORITE,
-        PLAYBACK,
-        SETTING
+        CHILDRENTV
     }
 
 }
