@@ -50,9 +50,10 @@ class HomeFragment : BaseFragment() {
 
         val metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
         metroViewBorderImpl.setBackgroundResource(R.drawable.border_color)
-
+        val metroViewBorderImpl2 = MetroViewBorderImpl(context)
+        metroViewBorderImpl2.setBackgroundResource(R.drawable.border_color_red)
         metroViewBorderImpl.attachTo(viewDataBinding.list)
-        metroViewBorderImpl.attachTo(viewDataBinding.rvMovie)
+        metroViewBorderImpl2.attachTo(viewDataBinding.rvMovie)
         metroViewBorderImpl.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
 
             override fun onFocusChanged(oldFocus: View, newFocus: View) {

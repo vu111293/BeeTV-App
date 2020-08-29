@@ -28,14 +28,14 @@ import android.view.ViewTreeObserver;
  * Created by hejunlin on 2015/10/19.
  * blog: http://blog.csdn.net/hejjunlin
  */
-public class MetroViewBorderImpl<X extends View> implements ViewTreeObserver.OnGlobalFocusChangeListener, ViewTreeObserver.OnScrollChangedListener, ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
+public class MetroViewBorderImpl implements ViewTreeObserver.OnGlobalFocusChangeListener, ViewTreeObserver.OnScrollChangedListener, ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
 
     private static final String TAG = MetroViewBorderImpl.class.getSimpleName();
 
     private ViewGroup mViewGroup;
     private IMetroViewBorder mMetroViewBorder;
 
-    private X mView;
+    private View mView;
     private View mLastView;
 
     public MetroViewBorderImpl(Context context) {
@@ -52,24 +52,24 @@ public class MetroViewBorderImpl<X extends View> implements ViewTreeObserver.OnG
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mMetroViewBorder = new MetroViewBorderHandler();
-        mView = (X) new View(context, attrs, defStyleAttr);
+        mView =  new View(context, attrs, defStyleAttr);
     }
 
-    public MetroViewBorderImpl(X view) {
+    public MetroViewBorderImpl(View view) {
         this.mView = view;
         mMetroViewBorder = new MetroViewBorderHandler();
     }
 
-    public MetroViewBorderImpl(X view, IMetroViewBorder border) {
+    public MetroViewBorderImpl(View view, IMetroViewBorder border) {
         this.mView = view;
         mMetroViewBorder = border;
     }
 
     public MetroViewBorderImpl(Context context, int resId) {
-        this((X) LayoutInflater.from(context).inflate(resId, null, false));
+        this((View) LayoutInflater.from(context).inflate(resId, null, false));
     }
 
-    public X getView() {
+    public View getView() {
         return mView;
     }
 

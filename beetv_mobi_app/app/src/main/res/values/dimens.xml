@@ -35,5 +35,10 @@
     <dimen name="size_60">60dp</dimen>
     <dimen name="size_14">14dp</dimen>
     <dimen name="size_5">5dp</dimen>
+    <dimen name="size_400">400dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_25">25dp</dimen>
+    <dimen name="size_55">55dp</dimen>
+    <dimen name="size_24">24dp</dimen>
 
 </resources>

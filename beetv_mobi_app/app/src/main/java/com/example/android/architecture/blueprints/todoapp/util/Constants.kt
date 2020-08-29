@@ -14,4 +14,12 @@ class Constants {
         CHILDRENTV
     }
 
+    enum class TYPE_MENU(val type  : Int){
+        MENU(1),
+        CHANNEL(2),
+        PROGRAM(3),
+        CHAPTER(4)
+
+    }
+
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,53 +14,175 @@
 
     </data>
 
-
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:clipChildren="false"
-        android:orientation="vertical">
+        android:focusable="false">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:focusable="false"
-            android:id="@+id/ry_menu_item"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:clipToPadding="false"
-            android:paddingBottom="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="38dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginTop="45dp"
-            android:paddingTop="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="35dp"
-            android:layout_alignParentLeft="true" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:focusable="false"
-            android:id="@+id/ry_detail_list"
+        <TextView
+            android:id="@+id/tvClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clipToPadding="false"
-            android:paddingBottom="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="38dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginTop="45dp"
-            android:paddingTop="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/ry_menu_item"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="35dp"
-            android:layout_toRightOf="@+id/ry_menu_item" />
+            android:layout_marginStart="@dimen/size_16"
+            android:focusable="false"
+            android:textColor="@color/alto"
+            android:textSize="35sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginTop="@dimen/size_8"
+            android:focusable="false"
+            android:text="월요일\n2020.06.22"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/alto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvClock" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_menu_item"
+            android:layout_width="@dimen/size_200"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:focusable="false"
+            android:orientation="vertical"
+            android:paddingTop="0dp"
+            android:paddingBottom="15dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/tv_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+
+
+        <com.example.android.architecture.blueprints.todoapp.widgets.DynamicListView
+            android:id="@+id/dynamicList"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rv_menu_item"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+            android:id="@+id/list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/size_16"
+            android:clipToPadding="false"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rv_menu_item"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toStartOf="@+id/bt_favorite"
+                android:layout_toLeftOf="@+id/bt_favorite"
+                android:focusable="true">
+
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    app:functionIcon="@drawable/ic_search"
+                    app:functionName="@string/search" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toStartOf="@+id/bt_playback"
+                android:layout_toLeftOf="@+id/bt_playback"
+                android:focusable="true">
+
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_scrap"
+                    app:functionName="@string/favorites" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_playback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toStartOf="@+id/bt_setting"
+                android:layout_toLeftOf="@+id/bt_setting"
+                android:focusable="true">
+
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_search"
+                    app:functionName="@string/playback_record" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+                android:id="@+id/bt_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:focusable="true">
+
+                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:functionIcon="@drawable/ic_setting"
+                    app:functionName="@string/setting" />
+            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_detail_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clipToPadding="false"
+                android:background="@color/mineShaft"
+                android:layout_below="@+id/bt_search"
+                android:focusable="false" />
+
+        </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="@dimen/size_200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:background="@color/black"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="01/55"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/sunsetOrange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_menu_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
