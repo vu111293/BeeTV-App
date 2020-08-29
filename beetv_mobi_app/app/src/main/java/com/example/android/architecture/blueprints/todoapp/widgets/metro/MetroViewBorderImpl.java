@@ -19,10 +19,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+
+import timber.log.Timber;
 
 /**
  * Created by hejunlin on 2015/10/19.
@@ -108,6 +111,7 @@ public class MetroViewBorderImpl implements ViewTreeObserver.OnGlobalFocusChange
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            Timber.tag("yenyen").d(ex.toString());
         }
 
     }

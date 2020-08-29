@@ -9,24 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentHomeBinding
+import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
+import com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderImpl
 import java.text.SimpleDateFormat
 import java.util.*
 
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.android.architecture.blueprints.todoapp.util.Constants
-
 class HomeFragment : BaseFragment() {
-     val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
+    val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
 
     private lateinit var viewDataBinding: FragmentHomeBinding
     override fun onCreateView(
@@ -40,6 +40,7 @@ class HomeFragment : BaseFragment() {
         }
         return viewDataBinding.root
     }
+    private var lastView : View ?= null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -47,6 +48,7 @@ class HomeFragment : BaseFragment() {
         showTime()
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
+
 
         val metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
         metroViewBorderImpl.setBackgroundResource(R.drawable.border_color)
@@ -56,13 +58,27 @@ class HomeFragment : BaseFragment() {
         metroViewBorderImpl2.attachTo(viewDataBinding.rvMovie)
         metroViewBorderImpl.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
 
-            override fun onFocusChanged(oldFocus: View, newFocus: View) {
+
+            override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
                 metroViewBorderImpl.getView().setTag(newFocus)
+                changeBackgroundButton(oldFocus, newFocus)
+                lastView = newFocus
+            }
+        })
+
+        metroViewBorderImpl2.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
+            
+
+            override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
+                if (lastView != null){
+                    changeBackgroundButton(lastView, null)
+                    lastView = null
+                }
             }
         })
         metroViewBorderImpl.getViewBorder().addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {
-                val t: View ?= metroViewBorderImpl.getView().findViewWithTag("top")
+                val t: View? = metroViewBorderImpl.getView().findViewWithTag("top")
                 if (t != null) {
                     (t.parent as ViewGroup).removeView(t)
                     (metroViewBorderImpl.getView().getTag(metroViewBorderImpl.getView().getId()) as ViewGroup).addView(t)
@@ -88,6 +104,23 @@ class HomeFragment : BaseFragment() {
         setupNavigation()
     }
 
+    private fun changeBackgroundButton(oldView: View?, newView: View?) {
+
+        if(oldView != null)
+        if (oldView is MetroItemFrameLayout) {
+            if (oldView.getChildAt(0) is CategoryItemView) {
+                (oldView.getChildAt(0) as CategoryItemView).setColor(R.color.mineShaft)
+            }
+        }
+        if(newView != null)
+        if (newView is MetroItemFrameLayout) {
+            if (newView.getChildAt(0) is CategoryItemView) {
+                (newView.getChildAt(0) as CategoryItemView).setColor(R.color.alto)
+            }
+        }
+
+
+    }
 
     private fun showTime() {
         val someHandler = Handler(getMainLooper())
@@ -100,59 +133,68 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun showMovieList() {
-        val movieAdapter = TopMovieAdapter(Movie.mocks(),context!!)
+        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!)
         viewDataBinding.rvMovie.adapter = movieAdapter
 
         viewDataBinding.rvMovie.scrollToPosition(0)
 
     }
+
     private fun setupNavigation() {
         viewModel.openMenuEvent.observe(this, EventObserver {
             openMenu(it)
         })
 
     }
-    private fun openMenu(category:String) {
+
+    private fun openMenu(category: String) {
         val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
         findNavController().navigate(action)
     }
 
-    public class ClickProxy(val viewModel: HomeViewModel){
-        fun openSearch(){
+    public class ClickProxy(val viewModel: HomeViewModel) {
+        fun openSearch() {
 
         }
 
-        fun openFavorite(){
-
-        }
-        fun openSetting(){
-
-        }
-        fun openPlayback(){
+        fun openFavorite() {
 
         }
 
-        fun openLiveMenu(){
+        fun openSetting() {
+
+        }
+
+        fun openPlayback() {
+
+        }
+
+        fun openLiveMenu() {
 
             viewModel.openMenu(Constants.TYPE_CATEGORY.TV.name)
         }
-        fun openMovieMenu(){
+
+        fun openMovieMenu() {
 
             viewModel.openMenu(Constants.TYPE_CATEGORY.MOVIE.name)
         }
-        fun openDramaMenu(){
+
+        fun openDramaMenu() {
 
             viewModel.openMenu(Constants.TYPE_CATEGORY.DRAMA.name)
         }
-        fun openEntertainmentMenu(){
+
+        fun openEntertainmentMenu() {
 
             viewModel.openMenu(Constants.TYPE_CATEGORY.ENTERTAINMENT.name)
         }
-        fun openEducationMenu(){
+
+        fun openEducationMenu() {
 
             viewModel.openMenu(Constants.TYPE_CATEGORY.EDUCATION.name)
         }
-        fun openChildrenMenu(){
+
+        fun openChildrenMenu() {
             viewModel.openMenu(Constants.TYPE_CATEGORY.CHILDRENTV.name)
 
         }

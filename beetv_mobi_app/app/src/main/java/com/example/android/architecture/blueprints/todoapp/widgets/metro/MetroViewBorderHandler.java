@@ -28,6 +28,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class MetroViewBorderHandler implements IMetroViewBorder {
     }
 
     public interface FocusListener {
-        void onFocusChanged(View oldFocus, View newFocus);
+        void onFocusChanged(@Nullable View oldFocus, View newFocus);
     }
 
     protected List<FocusListener> mFocusListener = new ArrayList<FocusListener>(1);

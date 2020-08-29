@@ -17,13 +17,15 @@ package com.example.android.architecture.blueprints.todoapp.widgets.metro;
 
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 /**
  * Created by hejunlin on 2016/10/13.
  * blog: http://blog.csdn.net/hejjunlin
  */
 public interface IMetroViewBorder {
 
-    void onFocusChanged(View target, View oldFocus, View newFocus);
+    void onFocusChanged(View target, @Nullable View oldFocus, View newFocus);
 
     void onScrollChanged(View target, View attachView);
 

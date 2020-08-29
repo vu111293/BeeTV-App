@@ -69,7 +69,6 @@
                 <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     app:functionIcon="@drawable/ic_search"
                     app:functionName="@string/search" />
             </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
@@ -152,13 +151,13 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="@dimen/size_5"
                 android:layout_marginVertical="@dimen/size_5"
-                android:background="@drawable/border_shape"
+                android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openLiveMenu()}">
 
                 <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:categoryName="@string/realtime_broadcasting"
                     app:icon="@drawable/ic_tv" />
@@ -175,13 +174,13 @@
                 android:layout_marginVertical="@dimen/size_5"
                 android:layout_toEndOf="@+id/bt_tv"
                 android:layout_toRightOf="@+id/bt_tv"
-                android:background="@drawable/border_shape"
+                android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openMovieMenu()}">
 
                 <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:categoryName="@string/movie"
                     app:icon="@drawable/ic_movie" />
@@ -198,13 +197,13 @@
                 android:layout_marginVertical="@dimen/size_5"
                 android:layout_toEndOf="@+id/bt_movie"
                 android:layout_toRightOf="@+id/bt_movie"
-                android:background="@drawable/border_shape"
+                android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openDramaMenu()}">
 
                 <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:categoryName="@string/drama"
                     app:icon="@drawable/ic_drama" />
@@ -222,13 +221,13 @@
                 android:layout_marginVertical="@dimen/size_5"
                 android:layout_toEndOf="@+id/bt_drama"
                 android:layout_toRightOf="@+id/bt_drama"
-                android:background="@drawable/border_shape"
+                android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openEntertainmentMenu()}">
 
                 <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:categoryName="@string/entertainment"
                     app:icon="@drawable/ic_entertainment" />
@@ -246,14 +245,14 @@
                 android:layout_marginVertical="@dimen/size_5"
                 android:layout_toEndOf="@+id/bt_entertainment"
                 android:layout_toRightOf="@+id/bt_entertainment"
-                android:background="@drawable/border_shape"
+                android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openEducationMenu()}">
 
 
                 <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:categoryName="@string/preview_education"
                     app:icon="@drawable/ic_current_affairs" />
@@ -270,12 +269,12 @@
                 android:layout_marginVertical="@dimen/size_5"
                 android:layout_toEndOf="@+id/bt_education"
                 android:layout_toRightOf="@+id/bt_education"
-                android:background="@drawable/border_shape"
+                android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openChildrenMenu()}">
                 <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:categoryName="@string/child"
                     app:icon="@drawable/ic_childrentv" />
