@@ -40,5 +40,6 @@
     <dimen name="size_25">25dp</dimen>
     <dimen name="size_55">55dp</dimen>
     <dimen name="size_24">24dp</dimen>
+    <dimen name="size_150">150dp</dimen>
 
 </resources>

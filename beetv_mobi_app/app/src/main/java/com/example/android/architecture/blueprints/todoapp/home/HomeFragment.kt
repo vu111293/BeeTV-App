@@ -67,7 +67,7 @@ class HomeFragment : BaseFragment() {
         })
 
         metroViewBorderImpl2.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
-            
+
 
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
                 if (lastView != null){

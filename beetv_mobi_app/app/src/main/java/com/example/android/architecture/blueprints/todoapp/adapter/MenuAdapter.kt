@@ -12,9 +12,9 @@ import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Category
 
 class MenuAdapter(val categorys: MutableList<Category>, val context: Context) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
-    var mOnClickListener : ((Category) -> Unit) ?= null
-    var mCategorySelected : Category ?= null
-    var positionLast : Int = -1
+    var mOnClickListener: ((Category) -> Unit)? = null
+    var mCategorySelected: Category? = null
+    var positionLast: Int = 0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_menu, parent, false)
@@ -35,16 +35,18 @@ class MenuAdapter(val categorys: MutableList<Category>, val context: Context) : 
             val temp = positionLast
 
             positionLast = position
-            if (temp != -1){
+            notifyItemChanged(temp)
 
-                notifyItemChanged(temp)
-            }
         }
 
-        if(mCategorySelected != null && item.equals(mCategorySelected)){
+        if (mCategorySelected == null) {
+            mCategorySelected = item
+            mOnClickListener?.invoke(item)
+        }
+        if (mCategorySelected != null && item.equals(mCategorySelected)) {
             holder.tvName.setTextColor(ContextCompat.getColor(context, R.color.sunsetOrange))
             holder.main.setBackgroundColor(ContextCompat.getColor(context, R.color.mineShaft))
-        }else{
+        } else {
             holder.tvName.setTextColor(ContextCompat.getColor(context, R.color.alto))
             holder.main.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
         }
