@@ -42,24 +42,21 @@ class DynamicListView : LinearLayout {
         val adapter = CategoryAdapter(list, type, context)
         this.listHashSet.put(type, list)
 
+        if (recyclerView == null) {
 
-        if (recyclerView != null) {
-            recyclerView.adapter = adapter
-        } else {
             val line = View(context)
             line.isFocusable = false
             line.layoutParams = LinearLayout.LayoutParams(context.resources.getDimensionPixelOffset(R.dimen.size_0_5), LinearLayout.LayoutParams.MATCH_PARENT)
             line.setBackgroundColor(ContextCompat.getColor(context, R.color.alto))
             addView(line)
             recyclerView = RecyclerView(context)
-            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             val layoutParams = LinearLayout.LayoutParams(context.resources.getDimensionPixelOffset(R.dimen.size_200), LinearLayout.LayoutParams.WRAP_CONTENT)
             layoutParams.gravity = Gravity.CENTER
             recyclerView.layoutParams = layoutParams
-            recyclerView.adapter = adapter
             recyclerView.isFocusable = false
+            recyclerView.adapter = adapter
             addView(recyclerView)
-
             recyclerHashSet.put(type, recyclerView)
             lineHashSet.put(type, line)
         }
@@ -69,7 +66,7 @@ class DynamicListView : LinearLayout {
         }
         if (type == Constants.TYPE_MENU.CHANNEL) {
             if (recyclerHashSet.get(Constants.TYPE_MENU.PROGRAM) != null) {
-                mOnRemoveListener?.invoke(Constants.TYPE_MENU.PROGRAM, recyclerHashSet.get(Constants.TYPE_MENU.PROGRAM)!!)
+//                mOnRemoveListener?.invoke(Constants.TYPE_MENU.PROGRAM, recyclerHashSet.get(Constants.TYPE_MENU.PROGRAM)!!)
                 removeView(recyclerHashSet.get(Constants.TYPE_MENU.PROGRAM))
                 recyclerHashSet.remove(Constants.TYPE_MENU.PROGRAM)
                 removeView(lineHashSet.get(Constants.TYPE_MENU.PROGRAM))
@@ -81,7 +78,7 @@ class DynamicListView : LinearLayout {
         if (type == Constants.TYPE_MENU.PROGRAM) {
 
             if (recyclerHashSet.get(Constants.TYPE_MENU.CHAPTER) != null) {
-                mOnRemoveListener?.invoke(Constants.TYPE_MENU.CHAPTER, recyclerHashSet.get(Constants.TYPE_MENU.CHAPTER)!!)
+//                mOnRemoveListener?.invoke(Constants.TYPE_MENU.CHAPTER, recyclerHashSet.get(Constants.TYPE_MENU.CHAPTER)!!)
                 removeView(recyclerHashSet.get(Constants.TYPE_MENU.CHAPTER))
                 recyclerHashSet.remove(Constants.TYPE_MENU.CHAPTER)
                 removeView(lineHashSet.get(Constants.TYPE_MENU.CHAPTER))
@@ -89,7 +86,7 @@ class DynamicListView : LinearLayout {
             }
         }
 
-
+        recyclerView.adapter = adapter
 
         return recyclerView
     }

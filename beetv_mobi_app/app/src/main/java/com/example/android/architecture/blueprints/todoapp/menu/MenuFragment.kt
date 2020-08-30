@@ -24,6 +24,7 @@ import com.example.android.architecture.blueprints.todoapp.databinding.FragmentM
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.util.hide
+import com.example.android.architecture.blueprints.todoapp.util.show
 import com.example.android.architecture.blueprints.todoapp.widgets.AutoLayoutManager
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderImpl
@@ -45,6 +46,7 @@ class MenuFragment : BaseFragment() {
     private var lastView4: View? = null
     private var lastView5: View? = null
     private var lastView6: View? = null
+    private var isInit = false
     private val args: MenuFragmentArgs by navArgs()
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -68,15 +70,17 @@ class MenuFragment : BaseFragment() {
         metroViewBorderImpl.setBackgroundResource(R.drawable.border_color)
         metroViewBorderImpl2 = MetroViewBorderImpl(context)
         metroViewBorderImpl2.setBackgroundResource(R.drawable.border_color_red)
-        display()
+
         getListMenu()
+        display()
+
         showTime()
         setListener()
     }
 
     private fun display() {
         metroViewBorderImpl3.attachTo(viewDataBinding.rvMenuItem)
-        if (args.category.equals(Constants.TYPE_CATEGORY.TV.name)) {
+        if (args.category == Constants.TYPE_CATEGORY.TV.name) {
             viewDataBinding.list.hide()
 
         } else {
@@ -85,9 +89,29 @@ class MenuFragment : BaseFragment() {
             metroViewBorderImpl2.attachTo(viewDataBinding.rvDetailList)
 
         }
+
+        viewDataBinding.rvMenuItem.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+                if(!recyclerView.canScrollVertically(-1)){
+                    viewDataBinding.ivTop.hide()
+                } else {
+                    viewDataBinding.ivTop.show()
+                }
+
+                if (!recyclerView.canScrollVertically(1) && newState==RecyclerView.SCROLL_STATE_IDLE) {
+                    viewDataBinding.ivBottom.hide()
+
+                }else{
+                    viewDataBinding.ivBottom.show()
+                }
+            }
+
+        })
         metroViewBorderImpl3.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
-                Log.d("yenyen", "old focus "+ newFocus +" new focus"+newFocus )
                   if (lastView3 != null) {
                     changeBackgroundButton(lastView3, null)
                 }
@@ -97,8 +121,14 @@ class MenuFragment : BaseFragment() {
                 metroViewBorderImpl3.getView().setTag(newFocus)
                 val tag = newFocus?.tag as? Category
                 if (tag != null) {
-                    val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
-                    metroViewBorderImpl4.attachTo(recyclerView)
+                    if (isInit){
+                        val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
+                        metroViewBorderImpl4.attachTo(recyclerView)
+                    }else{
+                       isInit = true
+                    }
+
+
                 }
 
             }
@@ -155,18 +185,14 @@ class MenuFragment : BaseFragment() {
 
         if (oldView != null)
 
-            Log.d("yenyen", "vao cai new focus"+oldView )
             if (oldView is LinearLayout) {
-                Log.d("yenyen", "vao cai old focus")
                 if (oldView.getChildAt(0) is TextView) {
                     (oldView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.alto))
                 }
             }
         if (newView != null)
-            Log.d("yenyen", "vao cai new focus"+newView )
             if (newView is LinearLayout) {
 
-                Log.d("yenyen", "vao cai new focus" )
                 if (newView.getChildAt(0) is TextView) {
                     (newView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.sunsetOrange))
                 }
@@ -224,10 +250,11 @@ class MenuFragment : BaseFragment() {
 
     private fun getListMenu() {
         mAdapter = MenuAdapter(Category.mocks(), context!!)
+        viewDataBinding.rvMenuItem.layoutManager = GridLayoutManager(context,1)
         viewDataBinding.rvMenuItem.adapter = mAdapter
-        if (args.category.equals(Constants.TYPE_CATEGORY.TV.name)) {
-//            val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
-//            metroViewBorderImpl4.attachTo(recyclerView)
+        if (args.category == Constants.TYPE_CATEGORY.TV.name) {
+            val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
+            metroViewBorderImpl4.attachTo(recyclerView)
         } else {
             getListMovie()
         }

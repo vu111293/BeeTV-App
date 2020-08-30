@@ -42,9 +42,7 @@ class CategoryAdapter(val category: MutableList<Category>, val type: Constants.T
 
         holder.tvName.text = item.name
 
-        holder.itemView.setOnClickListener {
-            mOnClickListener?.invoke(type, item.id)
-        }
+
         holder.itemView.tag = item
     }
 

@@ -399,7 +399,7 @@ public class MetroViewBorderHandler implements IMetroViewBorder {
                 oldLastFocus = scope.oldFocus;
             }
 
-            if (isScrolling || newFocus == null || newFocus.getWidth() <= 0 || newFocus.getHeight() <= 0)
+            if (newFocus == null || newFocus.getWidth() <= 0 || newFocus.getHeight() <= 0)
                 return;
 
             mAnimatorList.clear();

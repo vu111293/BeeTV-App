@@ -45,4 +45,5 @@
     <dimen name="size_50">50dp</dimen>
 
     <dimen name="size_0_5">0.5dp</dimen>
+    <dimen name="size_20">20dp</dimen>
 </resources>
