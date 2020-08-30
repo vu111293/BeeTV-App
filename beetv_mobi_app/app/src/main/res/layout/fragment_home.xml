@@ -291,7 +291,7 @@
                 android:layout_marginVertical="@dimen/size_16"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_movie" />
+                tools:listitem="@layout/item_top_movie" />
         </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
 
 

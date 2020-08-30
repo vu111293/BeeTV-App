@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Movie
+import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
 
-class TopMovieAdapter(val movieList: MutableList<Movie>, val context : Context) : RecyclerView.Adapter<TopMovieAdapter.ViewHolder>() {
+class TopMovieAdapter(val movieList: MutableList<Movie>, val context : Context,
+                      val widthItem : Int,  val heightItem : Int) : RecyclerView.Adapter<TopMovieAdapter.ViewHolder>() {
+    var mOnItemClickListener : ((Movie) -> Unit) ?= null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_movie, parent, false)
+                .inflate(R.layout.item_top_movie, parent, false)
         return ViewHolder(view)
     }
 
@@ -25,10 +28,14 @@ class TopMovieAdapter(val movieList: MutableList<Movie>, val context : Context) 
         val item = movieList.get(position)
         Glide.with(context).load(item.coverImage).into(holder.ivIcon)
         holder.tvName.text = item.name
+        holder.main.layoutParams.width = widthItem
+        holder.main.layoutParams.height = heightItem
+        holder.itemView.setOnClickListener { mOnItemClickListener?.invoke(item) }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivIcon = view.findViewById<ImageView>(R.id.iv_cover)
         val tvName = view.findViewById<TextView>(R.id.tv_name)
+        val main = view.findViewById<MetroItemFrameLayout>(R.id.main)
     }
 }

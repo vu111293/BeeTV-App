@@ -131,7 +131,9 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun showMovieList() {
-        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!)
+        val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_150)
+        val heightItem = widthItem*406/280
+        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!,widthItem,heightItem)
         viewDataBinding.rvMovie.adapter = movieAdapter
 
         viewDataBinding.rvMovie.scrollToPosition(0)

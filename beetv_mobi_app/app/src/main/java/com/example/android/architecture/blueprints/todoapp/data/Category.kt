@@ -139,5 +139,37 @@ data class Category(
                         "24 수요일")
 
         )
+
+        fun mocksChapterMovie()= mutableListOf<Category>(
+                Category("001",
+                        "제1회"),
+                Category("002",
+                        "제2회"),
+                Category("003",
+                        "제3회"),
+                Category("004",
+                        "제4회"),
+                Category("005",
+                        "제5회"),
+                Category("006",
+                        "제6회"),
+                Category("007",
+                        "제7회"),
+                Category("008",
+                        "제8회"),
+                Category("009",
+                        "제9회"),
+                Category("010",
+                        "제10회"),
+                Category("011",
+                        "제11회"),
+                Category("012",
+                        "제12회"),
+                Category("013",
+                        "제13회"),
+                Category("014",
+                        "제14회")
+
+        )
     }
 }

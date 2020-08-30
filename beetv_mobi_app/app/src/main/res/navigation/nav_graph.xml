@@ -85,6 +85,9 @@
         <action
             android:id="@+id/action_home_fragment_dest_to_menu_fragment_dest"
             app:destination="@id/menu_fragment_dest" />
+        <action
+            android:id="@+id/action_home_fragment_dest_to_movie_detail_fragment_dest"
+            app:destination="@id/movie_detail_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/menu_fragment_dest"
@@ -97,8 +100,23 @@
         <action
             android:id="@+id/action_menu_fragment_dest_to_home_fragment_dest"
             app:destination="@id/home_fragment_dest" />
+        <action
+            android:id="@+id/action_menu_fragment_dest_to_movie_detail_fragment_dest"
+            app:destination="@id/movie_detail_fragment_dest" />
     </fragment>
+    <fragment
+        android:id="@+id/movie_detail_fragment_dest"
+        android:name="com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailFragment"
+        android:label="Movie Detail">
 
+        <argument
+            android:name="movieID"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movie_detail_fragment_dest_to_home_fragment_dest"
+            app:destination="@id/home_fragment_dest" />
+
+    </fragment>
     <argument
         android:name="userMessage"
         android:defaultValue="0" />

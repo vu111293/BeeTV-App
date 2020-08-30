@@ -11,9 +11,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.adapter.MenuAdapter
 import com.example.android.architecture.blueprints.todoapp.adapter.TopMovieAdapter
@@ -21,6 +23,7 @@ import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Category
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentMenuBinding
+import com.example.android.architecture.blueprints.todoapp.home.HomeFragmentDirections
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.util.hide
@@ -67,7 +70,6 @@ class MenuFragment : BaseFragment() {
         metroViewBorderImpl4 = MetroViewBorderImpl(context)
         metroViewBorderImpl5 = MetroViewBorderImpl(context)
         metroViewBorderImpl6 = MetroViewBorderImpl(context)
-        metroViewBorderImpl.setBackgroundResource(R.drawable.border_color)
         metroViewBorderImpl2 = MetroViewBorderImpl(context)
         metroViewBorderImpl2.setBackgroundResource(R.drawable.border_color_red)
 
@@ -76,6 +78,7 @@ class MenuFragment : BaseFragment() {
 
         showTime()
         setListener()
+        setupNavigation()
     }
 
     private fun display() {
@@ -121,13 +124,17 @@ class MenuFragment : BaseFragment() {
                 metroViewBorderImpl3.getView().setTag(newFocus)
                 val tag = newFocus?.tag as? Category
                 if (tag != null) {
-                    if (isInit){
-                        val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
-                        metroViewBorderImpl4.attachTo(recyclerView)
-                    }else{
-                       isInit = true
-                    }
+                    if (args.category == Constants.TYPE_CATEGORY.TV.name){
+                        if (isInit){
+                            val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
+                            metroViewBorderImpl4.attachTo(recyclerView)
+                        }else{
+                            isInit = true
+                        }
 
+                    }else{
+                        getListMovie(tag)
+                    }
 
                 }
 
@@ -256,20 +263,27 @@ class MenuFragment : BaseFragment() {
             val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
             metroViewBorderImpl4.attachTo(recyclerView)
         } else {
-            getListMovie()
+            getListMovie(Category.mocks().get(0))
         }
 
 
     }
 
 
-    private fun getListMovie() {
+    private fun getListMovie(category: Category) {
         val gridlayoutManager: GridLayoutManager = AutoLayoutManager(context, 5)
         gridlayoutManager.setOrientation(GridLayoutManager.VERTICAL)
         viewDataBinding.rvDetailList.setLayoutManager(gridlayoutManager)
         metroViewBorderImpl.attachTo(viewDataBinding.rvDetailList)
-        val adapter = TopMovieAdapter(Movie.mocks(), context!!)
-        viewDataBinding.rvDetailList.adapter = adapter
+        val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_130)
+        val heightItem = widthItem*377/260
+        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!,widthItem,heightItem)
+
+        movieAdapter.mOnItemClickListener={
+            viewModel.openMovieDetail(it.id)
+        }
+        viewDataBinding.rvDetailList.adapter = movieAdapter
+
     }
 
     private fun showTime() {
@@ -283,6 +297,7 @@ class MenuFragment : BaseFragment() {
         viewDataBinding.tvDate.setText(SimpleDateFormat("EEEE").format(Date()) + "\n" + SimpleDateFormat("yyyy.MM.dd").format(Date()))
     }
 
+
     private fun setListener() {
         viewDataBinding.dynamicList.mOnRemoveListener = { typeMenu: Constants.TYPE_MENU, recyclerView: RecyclerView ->
 //            if (typeMenu == Constants.TYPE_MENU.CHAPTER) {
@@ -293,5 +308,17 @@ class MenuFragment : BaseFragment() {
 //                metroViewBorderImpl5.detach()
 //            }
         }
+    }
+
+    private fun openMoviewDetail(movieID: String) {
+        val action = MenuFragmentDirections.actionMenuFragmentDestToMovieDetailFragmentDest(movieID)
+        findNavController().navigate(action)
+    }
+
+    private fun setupNavigation() {
+        viewModel.openMovieDetailEvent.observe(this, EventObserver {
+            openMoviewDetail(it)
+        })
+
     }
 }

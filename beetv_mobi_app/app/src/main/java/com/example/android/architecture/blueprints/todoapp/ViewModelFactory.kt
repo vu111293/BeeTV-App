@@ -27,6 +27,7 @@ import com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTa
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
 import com.example.android.architecture.blueprints.todoapp.home.HomeViewModel
 import com.example.android.architecture.blueprints.todoapp.menu.MenuViewModel
+import com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailViewModel
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsViewModel
 import com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailViewModel
 import com.example.android.architecture.blueprints.todoapp.tasks.TasksViewModel
@@ -59,7 +60,8 @@ class ViewModelFactory constructor(
                 HomeViewModel(tasksRepository, handle)
             isAssignableFrom(MenuViewModel::class.java) ->
                 MenuViewModel(tasksRepository, handle)
-
+            isAssignableFrom(MovieDetailViewModel::class.java) ->
+                MovieDetailViewModel(tasksRepository, handle)
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }

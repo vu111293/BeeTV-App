@@ -2,12 +2,11 @@
 <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cv="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/view"
+    android:id="@+id/main"
     android:layout_width="150dp"
     android:layout_height="250dp"
     android:layout_margin="5dp"
-    android:focusable="true"
-    app:radius="4dp">
+    android:focusable="true">
 
     <ImageView
         android:id="@+id/iv_cover"
