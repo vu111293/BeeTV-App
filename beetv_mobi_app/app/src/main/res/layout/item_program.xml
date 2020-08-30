@@ -3,8 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:focusable="true"
     android:id="@+id/main"
-
     android:paddingHorizontal="@dimen/size_16"
+    android:paddingVertical="@dimen/size_8"
     android:gravity="center_vertical"
     android:layout_height="wrap_content">
 

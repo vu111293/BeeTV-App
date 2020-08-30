@@ -27,6 +27,7 @@
     <color name="mineShaft">#1F1F1F</color>
     <color name="sunsetOrange">#FF513D</color>
     <color name="fern">#59AF5A</color>
+    <color name="deepCerulean">#006EB3</color>
     <drawable name="completedTaskBackground">#CCCCCC</drawable>
 
     <drawable name="touchFeedback">#CFD8DC</drawable>

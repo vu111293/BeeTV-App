@@ -4,13 +4,13 @@
     android:focusable="true"
     android:id="@+id/main"
     android:gravity="center_vertical"
-    android:layout_height="@dimen/size_60">
+    android:paddingHorizontal="@dimen/size_24"
+    android:layout_height="@dimen/size_50">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_name"
-        android:paddingHorizontal="@dimen/size_16"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/alto"/>
 </LinearLayout>

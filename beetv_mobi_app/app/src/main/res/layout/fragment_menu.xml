@@ -24,8 +24,7 @@
             android:id="@+id/layoutTime"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/size_16"
-            android:layout_marginLeft="@dimen/size_16"
+            android:layout_marginVertical="@dimen/size_24"
             android:background="@color/black"
             android:orientation="vertical">
 
@@ -33,6 +32,7 @@
                 android:id="@+id/tvClock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/size_24"
                 android:focusable="false"
                 android:textColor="@color/alto"
                 android:textSize="35sp" />
@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_8"
                 android:focusable="false"
+                android:paddingHorizontal="@dimen/size_24"
                 android:text="월요일\n2020.06.22"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/alto" />
@@ -52,6 +53,7 @@
                 android:layout_width="@dimen/size_150"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginVertical="@dimen/size_16"
                 android:clipToPadding="false"
                 android:focusable="false"
                 android:orientation="vertical"
@@ -64,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/black"
                 android:focusable="false"
+                android:paddingHorizontal="@dimen/size_24"
                 android:text="01/55"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/sunsetOrange" />

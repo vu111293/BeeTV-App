@@ -10,11 +10,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Category
+import com.example.android.architecture.blueprints.todoapp.util.Constants
 
 class MenuAdapter(val categorys: MutableList<Category>, val context: Context) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
     var mOnClickListener: ((Category) -> Unit)? = null
-    var mCategorySelected: Category? = null
-    var positionLast: Int = 0
+    var positionNew: Int = 0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_menu, parent, false)
@@ -27,29 +27,17 @@ class MenuAdapter(val categorys: MutableList<Category>, val context: Context) : 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = categorys.get(position)
         holder.tvName.text = item.name
-        holder.itemView.setOnClickListener {
-            mCategorySelected = item
+
+
+        if (positionNew == position) {
             holder.tvName.setTextColor(ContextCompat.getColor(context, R.color.sunsetOrange))
-            holder.main.setBackgroundColor(ContextCompat.getColor(context, R.color.mineShaft))
-            mOnClickListener?.invoke(item)
-            val temp = positionLast
-
-            positionLast = position
-            notifyItemChanged(temp)
-
-        }
-
-        if (mCategorySelected == null) {
-            mCategorySelected = item
-            mOnClickListener?.invoke(item)
-        }
-        if (mCategorySelected != null && item.equals(mCategorySelected)) {
-            holder.tvName.setTextColor(ContextCompat.getColor(context, R.color.sunsetOrange))
-            holder.main.setBackgroundColor(ContextCompat.getColor(context, R.color.mineShaft))
+//            holder.main.setBackgroundColor(ContextCompat.getColor(context, R.color.mineShaft))
         } else {
             holder.tvName.setTextColor(ContextCompat.getColor(context, R.color.alto))
-            holder.main.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
+//            holder.main.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
         }
+
+        holder.itemView.tag = item
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

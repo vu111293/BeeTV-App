@@ -57,8 +57,6 @@ class HomeFragment : BaseFragment() {
         metroViewBorderImpl.attachTo(viewDataBinding.list)
         metroViewBorderImpl2.attachTo(viewDataBinding.rvMovie)
         metroViewBorderImpl.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
-
-
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
                 metroViewBorderImpl.getView().setTag(newFocus)
                 changeBackgroundButton(oldFocus, newFocus)
