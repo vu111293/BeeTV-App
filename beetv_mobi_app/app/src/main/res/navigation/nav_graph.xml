@@ -88,6 +88,9 @@
         <action
             android:id="@+id/action_home_fragment_dest_to_movie_detail_fragment_dest"
             app:destination="@id/movie_detail_fragment_dest" />
+        <action
+            android:id="@+id/action_home_fragment_dest_to_search_fragment_dest"
+            app:destination="@id/search_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/menu_fragment_dest"
@@ -103,6 +106,12 @@
         <action
             android:id="@+id/action_menu_fragment_dest_to_movie_detail_fragment_dest"
             app:destination="@id/movie_detail_fragment_dest" />
+        <action
+            android:id="@+id/action_menu_fragment_dest_to_search_fragment_dest"
+            app:destination="@id/search_fragment_dest" />
+        <action
+            android:id="@+id/action_menu_fragment_dest_to_search_fragment_dest2"
+            app:destination="@id/search_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/movie_detail_fragment_dest"
@@ -116,6 +125,20 @@
             android:id="@+id/action_movie_detail_fragment_dest_to_home_fragment_dest"
             app:destination="@id/home_fragment_dest" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_fragment_dest"
+        android:name="com.example.android.architecture.blueprints.todoapp.search.SearchFragment"
+        android:label="Search">
+
+
+        <action
+            android:id="@+id/action_search_fragment_dest_to_home_fragment_dest"
+            app:destination="@id/home_fragment_dest" />
+        <action
+            android:id="@+id/action_search_fragment_dest_to_menu_fragment_dest"
+            app:destination="@id/menu_fragment_dest" />
     </fragment>
     <argument
         android:name="userMessage"

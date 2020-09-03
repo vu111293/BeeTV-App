@@ -24,6 +24,10 @@
         <attr name="categoryName" format="string" />
         <attr name="icon" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="KeyboardItemView">
+        <attr name="character" format="string" />
+    </declare-styleable>
     <declare-styleable name="FuctionItemView">
         <attr name="functionName" format="string" />
         <attr name="functionIcon" format="reference" />

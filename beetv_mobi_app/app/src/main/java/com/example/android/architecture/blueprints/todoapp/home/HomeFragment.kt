@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
@@ -16,6 +17,7 @@ import com.example.android.architecture.blueprints.todoapp.adapter.TopMovieAdapt
 import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentHomeBinding
+import com.example.android.architecture.blueprints.todoapp.dialogs.NotiDialog
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
@@ -35,7 +37,7 @@ class HomeFragment : BaseFragment() {
             savedInstanceState: Bundle?
     ): View? {
         viewDataBinding = FragmentHomeBinding.inflate(inflater, container, false).apply {
-            click = ClickProxy(viewModel)
+            click = ClickProxy(viewModel, this@HomeFragment)
             viewmodel = viewModel
         }
         return viewDataBinding.root
@@ -45,6 +47,7 @@ class HomeFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+//        showDialog()
         showTime()
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
@@ -152,9 +155,14 @@ class HomeFragment : BaseFragment() {
         findNavController().navigate(action)
     }
 
-    public class ClickProxy(val viewModel: HomeViewModel) {
-        fun openSearch() {
+    private fun showDialog(){
+        val dialog = NotiDialog()
+        dialog.show(childFragmentManager,"abc")
+    }
 
+    public class ClickProxy(val viewModel: HomeViewModel, val fragment : HomeFragment) {
+        fun openSearch() {
+            fragment.findNavController ().navigate(HomeFragmentDirections.actionHomeFragmentDestToSearchFragmentDest())
         }
 
         fun openFavorite() {

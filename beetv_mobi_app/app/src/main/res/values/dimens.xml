@@ -50,4 +50,8 @@
     <dimen name="size_130">130dp</dimen>
     <dimen name="size_100">100dp</dimen>
     <dimen name="size_180">180dp</dimen>
+    <dimen name="size_140">140dp</dimen>
+    <dimen name="size_200dp">200dp</dimen>
+    <dimen name="size_220dp">220dp</dimen>
+    <dimen name="size_80">80dp</dimen>
 </resources>
