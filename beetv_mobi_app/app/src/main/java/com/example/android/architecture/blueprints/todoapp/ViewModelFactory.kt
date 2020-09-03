@@ -28,6 +28,7 @@ import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepo
 import com.example.android.architecture.blueprints.todoapp.home.HomeViewModel
 import com.example.android.architecture.blueprints.todoapp.menu.MenuViewModel
 import com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailViewModel
+import com.example.android.architecture.blueprints.todoapp.player.PlayerViewModel
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsViewModel
 import com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailViewModel
 import com.example.android.architecture.blueprints.todoapp.tasks.TasksViewModel
@@ -48,20 +49,14 @@ class ViewModelFactory constructor(
             handle: SavedStateHandle
     ) = with(modelClass) {
         when {
-            isAssignableFrom(StatisticsViewModel::class.java) ->
-                StatisticsViewModel(tasksRepository)
-            isAssignableFrom(TaskDetailViewModel::class.java) ->
-                TaskDetailViewModel(tasksRepository)
-            isAssignableFrom(AddEditTaskViewModel::class.java) ->
-                AddEditTaskViewModel(tasksRepository)
-            isAssignableFrom(TasksViewModel::class.java) ->
-                TasksViewModel(tasksRepository, handle)
-            isAssignableFrom(HomeViewModel::class.java) ->
-                HomeViewModel(tasksRepository, handle)
-            isAssignableFrom(MenuViewModel::class.java) ->
-                MenuViewModel(tasksRepository, handle)
-            isAssignableFrom(MovieDetailViewModel::class.java) ->
-                MovieDetailViewModel(tasksRepository, handle)
+            isAssignableFrom(StatisticsViewModel::class.java) -> StatisticsViewModel(tasksRepository)
+            isAssignableFrom(TaskDetailViewModel::class.java) -> TaskDetailViewModel(tasksRepository)
+            isAssignableFrom(AddEditTaskViewModel::class.java) -> AddEditTaskViewModel(tasksRepository)
+            isAssignableFrom(TasksViewModel::class.java) -> TasksViewModel(tasksRepository, handle)
+            isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(tasksRepository, handle)
+            isAssignableFrom(MenuViewModel::class.java) -> MenuViewModel(tasksRepository, handle)
+            isAssignableFrom(PlayerViewModel::class.java) -> PlayerViewModel()
+            isAssignableFrom(MovieDetailViewModel::class.java) -> MovieDetailViewModel(tasksRepository, handle)
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
