@@ -1,9 +1,11 @@
 package com.example.android.architecture.blueprints.todoapp.home
 
 import android.animation.Animator
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper.getMainLooper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,7 @@ import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.todoapp.dialogs.NotiDialog
+import com.example.android.architecture.blueprints.todoapp.player.ExoPlayerActivity
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
@@ -29,6 +32,7 @@ import java.util.*
 
 class HomeFragment : BaseFragment() {
     val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
+    val TAG = "Home Fragment"
 
     private lateinit var viewDataBinding: FragmentHomeBinding
     override fun onCreateView(
@@ -137,10 +141,13 @@ class HomeFragment : BaseFragment() {
         val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_150)
         val heightItem = widthItem*406/280
         val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!,widthItem,heightItem)
+        movieAdapter.mOnItemClickListener = ({
+            Log.d(TAG, it.title)
+            val intent = Intent(activity, ExoPlayerActivity::class.java)
+            startActivity(intent)
+        })
         viewDataBinding.rvMovie.adapter = movieAdapter
-
         viewDataBinding.rvMovie.scrollToPosition(0)
-
     }
 
     private fun setupNavigation() {
@@ -151,8 +158,16 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun openMenu(category: String) {
-        val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
-        findNavController().navigate(action)
+        if (category?.equals(Constants.TYPE_CATEGORY.ENTERTAINMENT.name)) {
+//            val action = HomeFragmentDirections.actionHomeFragmentDestToPlayerFragment(Movie.mocks().first())
+//            findNavController().navigate(action)
+
+            val intent = Intent(activity, ExoPlayerActivity::class.java)
+            startActivity(intent)
+        } else {
+            val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
+            findNavController().navigate(action)
+        }
     }
 
     private fun showDialog(){

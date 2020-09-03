@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2019 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +16,7 @@
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/home_fragment_dest">
 
@@ -40,8 +40,7 @@
         android:label="@string/app_name">
         <action
             android:id="@+id/action_statisticsFragment_to_tasksFragment"
-            app:destination="@id/tasks_fragment_dest"
-            />
+            app:destination="@id/tasks_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/tasks_fragment_dest"
@@ -75,27 +74,33 @@
             app:nullable="false" />
         <action
             android:id="@+id/action_addEditTaskFragment_to_tasksFragment"
-            app:destination="@id/tasks_fragment_dest"
-            />
+            app:destination="@id/tasks_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/home_fragment_dest"
         android:name="com.example.android.architecture.blueprints.todoapp.home.HomeFragment"
-        android:label="Home">
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_home_fragment_dest_to_menu_fragment_dest"
             app:destination="@id/menu_fragment_dest" />
         <action
             android:id="@+id/action_home_fragment_dest_to_movie_detail_fragment_dest"
             app:destination="@id/movie_detail_fragment_dest" />
+
         <action
             android:id="@+id/action_home_fragment_dest_to_search_fragment_dest"
             app:destination="@id/search_fragment_dest" />
+
+        <action
+            android:id="@+id/action_home_fragment_dest_to_player_fragment"
+            app:destination="@id/player_fragment" />
     </fragment>
     <fragment
         android:id="@+id/menu_fragment_dest"
         android:name="com.example.android.architecture.blueprints.todoapp.menu.MenuFragment"
-        android:label="Menu">
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
 
         <argument
             android:name="category"
@@ -126,7 +131,6 @@
             app:destination="@id/home_fragment_dest" />
 
     </fragment>
-
     <fragment
         android:id="@+id/search_fragment_dest"
         android:name="com.example.android.architecture.blueprints.todoapp.search.SearchFragment"
@@ -140,6 +144,31 @@
             android:id="@+id/action_search_fragment_dest_to_menu_fragment_dest"
             app:destination="@id/menu_fragment_dest" />
     </fragment>
+    <fragment
+        android:label="Player"
+        android:name="com.example.android.architecture.blueprints.todoapp.player.ExoPlayerFragment"
+        android:id="@+id/player_fragment">
+        <argument
+            android:name="movie"
+            app:argType="com.example.android.architecture.blueprints.todoapp.data.Movie" />
+        <action
+            android:id="@+id/action_player_fragment_to_home_fragment_dest"
+            app:destination="@id/home_fragment_dest" />
+    </fragment>
+
+    <!--    <fragment-->
+    <!--        tools:label="Movie Detail"-->
+    <!--        android:name="com.example.android.architecture.blueprints.todoapp.moviedetail.MovieDetailFragment"-->
+    <!--        android:id="@+id/movie_detail_fragment"-->
+    <!--        tools:layout="@layout/fragment_movie_detail">-->
+    <!--        <argument-->
+    <!--            android:name="movie"-->
+    <!--            app:argType="com.example.android.architecture.blueprints.todoapp.data.Movie" />-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_movie_detail_fragment_to_home_fragment_dest"-->
+    <!--            app:destination="@id/home_fragment_dest" />-->
+    <!--    </fragment>-->
+
     <argument
         android:name="userMessage"
         android:defaultValue="0" />
