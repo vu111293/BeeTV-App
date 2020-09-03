@@ -44,7 +44,7 @@ public class MetroViewBorderHandler implements IMetroViewBorder {
 
     private String TAG = MetroViewBorderHandler.class.getSimpleName();
     protected boolean mScalable = true;
-    protected float mScale = 1.1f;
+    protected float mScale = 1.05f;
 
     protected long mDurationTraslate = 200;
     protected int mMargin = 0;

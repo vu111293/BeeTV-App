@@ -3,7 +3,6 @@ package com.example.android.architecture.blueprints.todoapp.menu
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +22,6 @@ import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Category
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentMenuBinding
-import com.example.android.architecture.blueprints.todoapp.home.HomeFragmentDirections
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.util.hide
@@ -50,6 +48,7 @@ class MenuFragment : BaseFragment() {
     private var lastView5: View? = null
     private var lastView6: View? = null
     private var isInit = false
+    private var total: String =""
     private val args: MenuFragmentArgs by navArgs()
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -85,6 +84,10 @@ class MenuFragment : BaseFragment() {
         metroViewBorderImpl3.attachTo(viewDataBinding.rvMenuItem)
         if (args.category == Constants.TYPE_CATEGORY.TV.name) {
             viewDataBinding.list.hide()
+            viewDataBinding.btSearch.isFocusable =false
+            viewDataBinding.btSetting.isFocusable =false
+            viewDataBinding.btPlayback.isFocusable =false
+            viewDataBinding.btFavorite.isFocusable =false
 
         } else {
             viewDataBinding.dynamicList.hide()
@@ -93,21 +96,21 @@ class MenuFragment : BaseFragment() {
 
         }
 
-        viewDataBinding.rvMenuItem.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+        viewDataBinding.rvMenuItem.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
 
-                if(!recyclerView.canScrollVertically(-1)){
+                if (!recyclerView.canScrollVertically(-1)) {
                     viewDataBinding.ivTop.hide()
                 } else {
                     viewDataBinding.ivTop.show()
                 }
 
-                if (!recyclerView.canScrollVertically(1) && newState==RecyclerView.SCROLL_STATE_IDLE) {
+                if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
                     viewDataBinding.ivBottom.hide()
 
-                }else{
+                } else {
                     viewDataBinding.ivBottom.show()
                 }
             }
@@ -115,27 +118,30 @@ class MenuFragment : BaseFragment() {
         })
         metroViewBorderImpl3.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
-                  if (lastView3 != null) {
+                if (lastView3 != null) {
                     changeBackgroundButton(lastView3, null)
                 }
                 lastView3 = newFocus
 
                 changeBackgroundButton(oldFocus, newFocus)
                 metroViewBorderImpl3.getView().setTag(newFocus)
-                val tag = newFocus?.tag as? Category
+                val tag = newFocus?.tag as? Pair<*, *>
                 if (tag != null) {
-                    if (args.category == Constants.TYPE_CATEGORY.TV.name){
-                        if (isInit){
+                    if (args.category == Constants.TYPE_CATEGORY.TV.name) {
+                        if (isInit) {
                             val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
                             metroViewBorderImpl4.attachTo(recyclerView)
-                        }else{
+                        } else {
                             isInit = true
                         }
 
-                    }else{
-                        getListMovie(tag)
+                    } else {
+                        getListMovie((tag.second as Category).movies)
                     }
 
+
+                    val position = if ((tag.first as Int).plus(1) < 10) "0" + (tag.first as Int).plus(1) else (tag.first as Int).plus(1).toString()
+                    updateNumber(position, total)
                 }
 
             }
@@ -257,29 +263,29 @@ class MenuFragment : BaseFragment() {
 
     private fun getListMenu() {
         mAdapter = MenuAdapter(Category.mocks(), context!!)
-        viewDataBinding.rvMenuItem.layoutManager = GridLayoutManager(context,1)
+        viewDataBinding.rvMenuItem.layoutManager = GridLayoutManager(context, 1)
         viewDataBinding.rvMenuItem.adapter = mAdapter
         if (args.category == Constants.TYPE_CATEGORY.TV.name) {
             val recyclerView = viewDataBinding.dynamicList.initView(Constants.TYPE_MENU.CHANNEL, Category.mocksChannel())
             metroViewBorderImpl4.attachTo(recyclerView)
         } else {
-            getListMovie(Category.mocks().get(0))
+            getListMovie(Category.mocks().get(0).movies)
         }
-
-
+        total = if (Category.mocks().size < 10) "0" + Category.mocks().size else Category.mocks().size.toString()
+        updateNumber("01", total)
     }
 
 
-    private fun getListMovie(category: Category) {
+    private fun getListMovie(movie :MutableList<Movie>) {
         val gridlayoutManager: GridLayoutManager = AutoLayoutManager(context, 5)
         gridlayoutManager.setOrientation(GridLayoutManager.VERTICAL)
         viewDataBinding.rvDetailList.setLayoutManager(gridlayoutManager)
         metroViewBorderImpl.attachTo(viewDataBinding.rvDetailList)
         val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_130)
-        val heightItem = widthItem*377/260
-        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!,widthItem,heightItem)
+        val heightItem = widthItem * 377 / 260
+        val movieAdapter = TopMovieAdapter(movie, context!!, widthItem, heightItem)
 
-        movieAdapter.mOnItemClickListener={
+        movieAdapter.mOnItemClickListener = {
             viewModel.openMovieDetail(it.id)
         }
         viewDataBinding.rvDetailList.adapter = movieAdapter
@@ -320,5 +326,9 @@ class MenuFragment : BaseFragment() {
             openMoviewDetail(it)
         })
 
+    }
+
+    private fun updateNumber(currentPosition: String, totalPage: String) {
+        viewDataBinding.tvNumber.text = "${currentPosition}/ ${totalPage} "
     }
 }

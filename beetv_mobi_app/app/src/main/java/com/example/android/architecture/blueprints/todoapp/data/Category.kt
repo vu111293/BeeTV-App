@@ -1,13 +1,12 @@
 package com.example.android.architecture.blueprints.todoapp.data
 
-import com.example.android.architecture.blueprints.todoapp.util.Constants
-
 data class Category(
         val id: String,
         val name: String,
         val content : String= "",
         val channel : String = "",
-        val time: String = ""
+        val time: String = "",
+        val movies:MutableList<Movie> = mutableListOf()
 
 
 ) {
@@ -15,37 +14,41 @@ data class Category(
     companion object {
         fun mocks() = mutableListOf<Category>(
                 Category("1",
-                        "지상파"),
+                        "지상파",
+                        movies = Movie.mocks()),
                 Category("2",
-                        "종편/뉴스"),
+                        "종편/뉴스" , movies = Movie.mocks1()),
                 Category("3",
-                        "오락/음악"),
+                        "오락/음악", movies = Movie.mocks2()),
                 Category("4",
-                        "영화/시리즈"),
+                        "영화/시리즈", movies = Movie.mocks()),
                 Category("5",
-                        "레저/다큐"),
+                        "레저/다큐", movies = Movie.mocks1()),
                 Category("6",
-                "스포츠"),
+                "스포츠", movies = Movie.mocks2()),
                 Category("7",
-                "지상파")
-                , Category("8",
-                "지상파")
-                , Category("9",
-                "지상파")
-                ,
+                "지상파", movies = Movie.mocks()),
+                Category("8",
+                "지상파", movies = Movie.mocks1()),
+                Category("9",
+                "지상파", movies = Movie.mocks2()),
                 Category("10",
-                        "지상파"), Category("17",
-                "지상파"),
+                        "지상파", movies = Movie.mocks()) ,
+                Category("17",
+                "지상파", movies = Movie.mocks1()),
                 Category("11",
-                        "지상파"),
+                        "지상파", movies = Movie.mocks2()),
                 Category("12",
-                        "지상파"),
+                        "지상파", movies = Movie.mocks()),
                 Category("13",
-                        "지상파"), Category("14",
-                "지상파"),
+                        "지상파", movies = Movie.mocks1()),
+                Category("14",
+                "지상파", movies = Movie.mocks2()),
                 Category("15",
-                "지상파"), Category("16",
-                "지상파")
+                "지상파", movies = Movie.mocks()),
+                Category("16",
+                "지상파", movies = Movie.mocks1())
+
         )
 
         fun mocksChannel() = mutableListOf<Category>(

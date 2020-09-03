@@ -37,7 +37,7 @@ class MenuAdapter(val categorys: MutableList<Category>, val context: Context) : 
 //            holder.main.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
         }
 
-        holder.itemView.tag = item
+        holder.itemView.tag = position to item
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

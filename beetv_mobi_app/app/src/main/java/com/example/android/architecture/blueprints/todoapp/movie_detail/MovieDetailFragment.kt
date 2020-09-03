@@ -38,6 +38,7 @@ class MovieDetailFragment : Fragment() {
         fun newInstance() = MovieDetailFragment()
     }
 
+    private var total: String =""
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         viewDataBinding = FragmentMovieDetailBinding.inflate(inflater, container, false).apply {
@@ -58,9 +59,10 @@ class MovieDetailFragment : Fragment() {
 
                 changeBackgroundButton(oldFocus, newFocus)
                 metroViewBorderImpl.getView().setTag(newFocus)
-                val tag = newFocus?.tag as? Category
+                val tag = newFocus?.tag as? Pair<*, *>
                 if (tag != null) {
-
+                    val position = if ((tag.first as Int).plus(1) < 10) "0" + (tag.first as Int).plus(1) else (tag.first as Int).plus(1).toString()
+                    updateNumber(position, total)
                 }
 
             }
@@ -116,8 +118,11 @@ class MovieDetailFragment : Fragment() {
         viewDataBinding.rvChapter.layoutManager = GridLayoutManager(context,1)
 
         viewDataBinding.rvChapter.adapter =adapter
-
+        total = if (category.size < 10) "0" + category.size else category.size.toString()
+        updateNumber("01", total)
 
     }
-
+    private fun updateNumber(currentPosition: String, totalPage: String) {
+        viewDataBinding.tvNumber.text = "${currentPosition}/ ${totalPage} "
+    }
 }

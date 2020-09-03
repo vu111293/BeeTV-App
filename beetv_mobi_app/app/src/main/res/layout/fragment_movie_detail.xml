@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:clipChildren="false"
         android:id="@+id/main"
-        android:background="#CC000000"
+        android:background="@color/mineShaft"
         android:focusable="false">
 
         <LinearLayout
@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginVertical="@dimen/size_24" android:focusable="false"
+            android:paddingVertical="@dimen/size_24" android:focusable="false"
             android:background="@color/black"
             android:orientation="vertical">
 

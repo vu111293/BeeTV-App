@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment() {
         }
         return viewDataBinding.root
     }
-    private var lastView : View ?= null
+    public var lastView : View ?= null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -58,7 +58,6 @@ class HomeFragment : BaseFragment() {
 
 
         val metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
-        metroViewBorderImpl.setBackgroundResource(R.drawable.border_color)
         val metroViewBorderImpl2 = MetroViewBorderImpl(context)
         metroViewBorderImpl2.setBackgroundResource(R.drawable.border_color_red)
         metroViewBorderImpl.attachTo(viewDataBinding.list)
@@ -109,7 +108,7 @@ class HomeFragment : BaseFragment() {
         setupNavigation()
     }
 
-    private fun changeBackgroundButton(oldView: View?, newView: View?) {
+    public fun changeBackgroundButton(oldView: View?, newView: View?) {
 
         if(oldView != null)
         if (oldView is MetroItemFrameLayout) {
@@ -194,30 +193,38 @@ class HomeFragment : BaseFragment() {
 
         fun openLiveMenu() {
 
+            fragment.changeBackgroundButton(fragment.lastView,null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.TV.name)
+
         }
 
         fun openMovieMenu() {
 
+            fragment.changeBackgroundButton(fragment.lastView,null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.MOVIE.name)
         }
 
         fun openDramaMenu() {
 
+            fragment.changeBackgroundButton(fragment.lastView,null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.DRAMA.name)
         }
 
         fun openEntertainmentMenu() {
 
+            fragment.changeBackgroundButton(fragment.lastView,null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.ENTERTAINMENT.name)
         }
 
         fun openEducationMenu() {
 
+            fragment.changeBackgroundButton(fragment.lastView,null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.EDUCATION.name)
         }
 
         fun openChildrenMenu() {
+
+            fragment.changeBackgroundButton(fragment.lastView,null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.CHILDRENTV.name)
 
         }
