@@ -303,8 +303,6 @@
                 android:layout_below="@+id/tvNoti"
                 android:layout_marginVertical="@dimen/size_16"
                 android:focusable="false"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_top_movie" />
         </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
 

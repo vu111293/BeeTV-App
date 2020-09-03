@@ -53,6 +53,7 @@
                 android:layout_marginRight="@dimen/size_10"
                 android:focusable="false"
                 android:gravity="center_vertical"
+                android:textColor="@color/white"
                 android:maxLines="1" />
         </LinearLayout>
 
@@ -109,7 +110,6 @@
             android:layout_marginHorizontal="@dimen/size_5"
             android:layout_marginVertical="@dimen/size_5"
             android:focusable="true"
-          
             app:character="@string/a_en" />
 
         <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView

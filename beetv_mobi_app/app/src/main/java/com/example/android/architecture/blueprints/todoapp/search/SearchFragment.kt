@@ -28,7 +28,7 @@ import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroVi
 import java.security.Key
 
 
-class SearchFragment : BaseFragment() {
+class SearchFragment : BaseFragment(), View.OnClickListener {
     private val viewModel by viewModels<SearchViewModel> { getViewModelFactory() }
     private lateinit var viewDataBinding: FragmentSearchBinding
 
@@ -85,6 +85,7 @@ class SearchFragment : BaseFragment() {
             }
         })
         getListMovie()
+        initButton()
     }
     private fun getListMovie() {
         val gridlayoutManager: GridLayoutManager = AutoLayoutManager(context, 4)
@@ -128,6 +129,45 @@ class SearchFragment : BaseFragment() {
 
     }
 
+    private fun initButton(){
+        viewDataBinding.btA.setOnClickListener (this)
+        viewDataBinding.btB.setOnClickListener (this)
+        viewDataBinding.btC.setOnClickListener (this)
+        viewDataBinding.btD.setOnClickListener (this)
+        viewDataBinding.btE.setOnClickListener (this)
+        viewDataBinding.btF.setOnClickListener (this)
+        viewDataBinding.btG.setOnClickListener (this)
+        viewDataBinding.btH.setOnClickListener (this)
+        viewDataBinding.btI.setOnClickListener (this)
+        viewDataBinding.btJ.setOnClickListener (this)
+        viewDataBinding.btK.setOnClickListener (this)
+        viewDataBinding.btL.setOnClickListener (this)
+        viewDataBinding.btM.setOnClickListener (this)
+        viewDataBinding.btN.setOnClickListener (this)
+        viewDataBinding.btO.setOnClickListener (this)
+        viewDataBinding.btP.setOnClickListener (this)
+        viewDataBinding.btQ.setOnClickListener (this)
+        viewDataBinding.btR.setOnClickListener (this)
+        viewDataBinding.btS.setOnClickListener (this)
+        viewDataBinding.btT.setOnClickListener (this)
+        viewDataBinding.btU.setOnClickListener (this)
+        viewDataBinding.btW.setOnClickListener (this)
+        viewDataBinding.btX.setOnClickListener (this)
+        viewDataBinding.btY.setOnClickListener (this)
+        viewDataBinding.btZ.setOnClickListener (this)
+        viewDataBinding.btV.setOnClickListener (this)
+        viewDataBinding.btOne.setOnClickListener (this)
+        viewDataBinding.btTwo.setOnClickListener (this)
+        viewDataBinding.btThree.setOnClickListener (this)
+        viewDataBinding.btFour.setOnClickListener (this)
+        viewDataBinding.btFive.setOnClickListener (this)
+        viewDataBinding.btSix.setOnClickListener (this)
+        viewDataBinding.btSeven.setOnClickListener (this)
+        viewDataBinding.btEight.setOnClickListener (this)
+        viewDataBinding.btNine.setOnClickListener (this)
+        viewDataBinding.btZero.setOnClickListener (this)
+    }
+
     public class ClickProxy(val viewModel: SearchViewModel, val viewBinding : FragmentSearchBinding, val context : Context) {
 
 
@@ -141,10 +181,6 @@ class SearchFragment : BaseFragment() {
                 viewBinding.etSearch.text.delete(length - 1, length);
             }
         }
-        fun onClick(view : View){
-
-        }
-
         fun changeEnglish(){
             viewBinding.btA.setCharacter(context.getString(R.string.a_en))
             viewBinding.btB.setCharacter(context.getString(R.string.b_en))
@@ -231,6 +267,13 @@ class SearchFragment : BaseFragment() {
             layoutParams.addRule(RelativeLayout.BELOW,R.id.bt_y)
             val layoutParams2 =  viewBinding.btEnglish.layoutParams as RelativeLayout.LayoutParams
             layoutParams2.addRule(RelativeLayout.BELOW,R.id.bt_y)
+        }
+    }
+
+    override fun onClick(v: View?) {
+
+        if(v is KeyboardItemView){
+            viewDataBinding.etSearch.setText(viewDataBinding.etSearch.text.toString().plus(v.getCharacter()))
         }
     }
 }
