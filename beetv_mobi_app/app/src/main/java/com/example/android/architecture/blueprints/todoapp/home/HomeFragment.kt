@@ -144,15 +144,17 @@ class HomeFragment : BaseFragment() {
         val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!,widthItem,heightItem)
         movieAdapter.mOnItemClickListener = ({
             Log.d(TAG, it.title)
-            val intent = Intent(activity, ExoPlayerActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(activity, ExoPlayerActivity::class.java)
+//            startActivity(intent)
+            val action = HomeFragmentDirections.actionHomeFragmentDestToPlayerFragment(it.id)
+            findNavController().navigate(action)
         })
         viewDataBinding.rvMovie.adapter = movieAdapter
         viewDataBinding.rvMovie.scrollToPosition(0)
     }
 
     private fun setupNavigation() {
-        viewModel.openMenuEvent.observe(this, EventObserver {
+        viewModel.openMenuEvent.observe(viewLifecycleOwner, EventObserver {
             openMenu(it)
         })
 

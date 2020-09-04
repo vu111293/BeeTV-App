@@ -151,14 +151,15 @@
             app:destination="@id/menu_fragment_dest" />
     </fragment>
     <fragment
-        android:label="Player"
-        android:name="com.example.android.architecture.blueprints.todoapp.player.ExoPlayerFragment"
-        android:id="@+id/player_fragment">
+        tools:label="Player"
+        android:name="com.example.android.architecture.blueprints.todoapp.player.PlayerFragment"
+        android:id="@+id/player_fragment"
+        tools:layout="@layout/fragment_player">
         <argument
-            android:name="movie"
-            app:argType="com.example.android.architecture.blueprints.todoapp.data.Movie" />
+            android:name="movieID"
+            app:argType="string" />
         <action
-            android:id="@+id/action_player_fragment_to_home_fragment_dest"
+            android:id="@+id/action_movie_player_fragment_dest_to_home_fragment_dest"
             app:destination="@id/home_fragment_dest" />
     </fragment>
 

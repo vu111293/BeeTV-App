@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cv="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="android.view.View" />
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="viewmodel"
+            type="com.example.android.architecture.blueprints.todoapp.player.PlayerViewModel" />
 
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:focusable="false">
+        android:keepScreenOn="true">
 
-        <TextView
-            android:text="Player view yyyyyyyyzzzz"
-            android:textColor="@color/white"
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+            cv:controller_layout_id="@layout/movie_play_back_control_view"
+            android:id="@+id/player" />
 
+    </RelativeLayout>
 </layout>
