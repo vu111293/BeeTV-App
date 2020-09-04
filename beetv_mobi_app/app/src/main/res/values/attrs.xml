@@ -45,7 +45,10 @@
         <attr name="topLeftRadius" format="dimension" />
 
     </declare-styleable>
-
+    <declare-styleable name="SettingItemView">
+        <attr name="settingName" format="string" />
+        <attr name="settingIcon" format="reference" />
+    </declare-styleable>
     <declare-styleable name="CornerVew">
         <attr name="cv_text" format="string" />
         <attr name="cv_text_color" format="color" />

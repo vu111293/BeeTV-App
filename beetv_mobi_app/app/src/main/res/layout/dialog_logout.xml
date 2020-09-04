@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_mineshaft_stroke_tundora"
+    android:padding="@dimen/size_100">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_title"
+            android:focusable="false"
+            android:layout_centerHorizontal="true"
+            android:text="@string/would_you_like_to_log_out"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        android:id="@+id/bt_confirm"
+        android:layout_width="@dimen/size_180"
+        android:layout_height="@dimen/size_80"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="@dimen/size_30"
+        android:background="@color/black"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:text="@string/confirm"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/alto" />
+    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        android:id="@+id/bt_cancel"
+        android:layout_width="@dimen/size_180"
+        android:layout_height="@dimen/size_80"
+        android:layout_marginTop="@dimen/size_30"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_below="@+id/tv_title"
+        android:layout_toEndOf="@+id/bt_confirm"
+        android:background="@color/black"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:text="@string/cancel"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/alto" />
+    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+</com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>

@@ -27,8 +27,10 @@ import com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTa
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
 import com.example.android.architecture.blueprints.todoapp.favorite.FavoriteViewModel
 import com.example.android.architecture.blueprints.todoapp.home.HomeViewModel
+import com.example.android.architecture.blueprints.todoapp.login.LoginViewModel
 import com.example.android.architecture.blueprints.todoapp.menu.MenuViewModel
 import com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailViewModel
+import com.example.android.architecture.blueprints.todoapp.register.RegisterViewModel
 import com.example.android.architecture.blueprints.todoapp.search.SearchViewModel
 import com.example.android.architecture.blueprints.todoapp.splash.SplashViewModel
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsViewModel
@@ -71,6 +73,10 @@ class ViewModelFactory constructor(
                 SplashViewModel()
             isAssignableFrom(FavoriteViewModel::class.java) ->
                 FavoriteViewModel()
+            isAssignableFrom(LoginViewModel::class.java) ->
+                LoginViewModel()
+            isAssignableFrom(RegisterViewModel::class.java) ->
+                RegisterViewModel()
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }

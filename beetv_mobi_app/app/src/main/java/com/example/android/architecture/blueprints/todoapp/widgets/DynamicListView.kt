@@ -18,7 +18,7 @@ class DynamicListView : LinearLayout {
     private var listHashSet: LinkedHashMap<Constants.TYPE_MENU, MutableList<Category>> = linkedMapOf()
     private var recyclerHashSet: LinkedHashMap<Constants.TYPE_MENU, RecyclerView> = linkedMapOf()
     private var lineHashSet: LinkedHashMap<Constants.TYPE_MENU, View> = linkedMapOf()
-    var listener: ((Constants.TYPE_MENU, String) -> Unit)? = null
+    var mOnClickItemListener: ((Constants.TYPE_MENU, Category) -> Unit)? = null
     var mOnRemoveListener: ((Constants.TYPE_MENU, RecyclerView) -> Unit)? = null
 
     constructor(context: Context) : super(context) {
@@ -61,8 +61,8 @@ class DynamicListView : LinearLayout {
             lineHashSet.put(type, line)
         }
 
-        adapter.mOnClickListener = { typeMenu: Constants.TYPE_MENU, s: String ->
-            listener?.invoke(typeMenu, s)
+        adapter.mOnClickListener = { typeMenu: Constants.TYPE_MENU, category: Category ->
+            mOnClickItemListener?.invoke(typeMenu, category)
         }
         if (type == Constants.TYPE_MENU.CHANNEL) {
             if (recyclerHashSet.get(Constants.TYPE_MENU.PROGRAM) != null) {

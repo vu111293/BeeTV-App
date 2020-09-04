@@ -48,7 +48,7 @@ class MenuFragment : BaseFragment() {
     private var lastView5: View? = null
     private var lastView6: View? = null
     private var isInit = false
-    private var total: String =""
+    private var total: String = ""
     private val args: MenuFragmentArgs by navArgs()
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -74,7 +74,6 @@ class MenuFragment : BaseFragment() {
 
         getListMenu()
         display()
-
         showTime()
         setListener()
         setupNavigation()
@@ -84,10 +83,10 @@ class MenuFragment : BaseFragment() {
         metroViewBorderImpl3.attachTo(viewDataBinding.rvMenuItem)
         if (args.category == Constants.TYPE_CATEGORY.TV.name) {
             viewDataBinding.list.hide()
-            viewDataBinding.btSearch.isFocusable =false
-            viewDataBinding.btSetting.isFocusable =false
-            viewDataBinding.btPlayback.isFocusable =false
-            viewDataBinding.btFavorite.isFocusable =false
+            viewDataBinding.btSearch.isFocusable = false
+            viewDataBinding.btSetting.isFocusable = false
+            viewDataBinding.btPlayback.isFocusable = false
+            viewDataBinding.btFavorite.isFocusable = false
 
         } else {
             viewDataBinding.dynamicList.hide()
@@ -276,7 +275,7 @@ class MenuFragment : BaseFragment() {
     }
 
 
-    private fun getListMovie(movie :MutableList<Movie>) {
+    private fun getListMovie(movie: MutableList<Movie>) {
         val gridlayoutManager: GridLayoutManager = AutoLayoutManager(context, 5)
         gridlayoutManager.setOrientation(GridLayoutManager.VERTICAL)
         viewDataBinding.rvDetailList.setLayoutManager(gridlayoutManager)
@@ -305,6 +304,26 @@ class MenuFragment : BaseFragment() {
 
 
     private fun setListener() {
+        viewDataBinding.dynamicList.mOnClickItemListener = { typeMenu: Constants.TYPE_MENU, category: Category ->
+            when (typeMenu) {
+                Constants.TYPE_MENU.CHANNEL -> {
+                    //ds list 2 o day nha anh
+                }
+
+
+                Constants.TYPE_MENU.PROGRAM -> {
+
+                }
+
+
+                Constants.TYPE_MENU.CHAPTER -> {
+
+                }
+                else->{
+
+                }
+            }
+        }
         viewDataBinding.dynamicList.mOnRemoveListener = { typeMenu: Constants.TYPE_MENU, recyclerView: RecyclerView ->
 //            if (typeMenu == Constants.TYPE_MENU.CHAPTER) {
 //                metroViewBorderImpl6.detach()

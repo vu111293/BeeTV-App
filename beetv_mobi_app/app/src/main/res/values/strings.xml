@@ -156,4 +156,19 @@
     <string name="two_ko">9</string>
     <string name="one_ko">8</string>
     <string name="all">전체</string>
+    <string name="aspect_ratio">화면비율</string>
+    <string name="player">플레이어</string>
+    <string name="language">언어</string>
+    <string name="slot">시간대</string>
+    <string name="id">아이디</string>
+    <string name="service_life">서비스 기간</string>
+    <string name="authority">권한</string>
+    <string name="logout">로그아웃</string>
+    <string name="would_you_like_to_log_out">로그아웃 하시겠습니까?</string>
+    <string name="cancel">취소</string>
+    <string name="login">로그인</string>
+    <string name="sign_up">회원가입</string>
+    <string name="password">비밀번호</string>
+    <string name="go_back">뒤로가기</string>
+    <string name="register_successfully">가입완료 되었습니다.</string>
 </resources>

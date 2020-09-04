@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_mineshaft_stroke_tundora"
+    android:padding="@dimen/size_50">
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+        android:id="@+id/bt_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        app:settingIcon="@drawable/ic_screen"
+        app:settingName="@string/aspect_ratio" />
+
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+        android:id="@+id/bt_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_toEndOf="@+id/bt_screen"
+        android:focusable="true"
+        app:settingIcon="@drawable/ic_player"
+        app:settingName="@string/player" />
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+        android:id="@+id/bt_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_screen"
+        android:layout_marginTop="@dimen/size_20"
+        android:focusable="true"
+        app:settingIcon="@drawable/ic_language"
+        app:settingName="@string/language" />
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+        android:id="@+id/bt_slot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_screen"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_toEndOf="@+id/bt_language"
+        android:focusable="true"
+        app:settingIcon="@drawable/ic_language"
+        app:settingName="@string/slot" />
+
+    <LinearLayout
+        android:id="@+id/layoutID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_language"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_30"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/id"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:text="10770303777"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:background="@drawable/bg_black_radius_10"
+            android:paddingHorizontal="@dimen/size_10"
+            android:text="VIP"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/service_life"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:text="2020.10.13"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="109 일"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        android:id="@+id/bt_authority"
+        android:layout_width="@dimen/size_180"
+        android:layout_height="@dimen/size_80"
+        android:layout_below="@+id/layoutService"
+        android:layout_marginTop="@dimen/size_30"
+        android:background="@color/black"
+        android:layout_marginStart="@dimen/size_120"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:text="@string/authority"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/alto" />
+    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        android:id="@+id/bt_log_out"
+        android:layout_width="@dimen/size_180"
+        android:layout_height="@dimen/size_80"
+        android:layout_marginTop="@dimen/size_30"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_below="@+id/layoutService"
+        android:layout_toEndOf="@+id/bt_authority"
+        android:background="@color/black"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:text="@string/logout"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/alto" />
+    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+</com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>

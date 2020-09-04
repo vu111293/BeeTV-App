@@ -11,7 +11,7 @@ import com.example.android.architecture.blueprints.todoapp.data.Category
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 
 class CategoryAdapter(val category: MutableList<Category>, val type: Constants.TYPE_MENU, val context: Context) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-    var mOnClickListener: ((Constants.TYPE_MENU, String) -> Unit)? = null
+    var mOnClickListener: ((Constants.TYPE_MENU, Category) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view =
@@ -44,6 +44,9 @@ class CategoryAdapter(val category: MutableList<Category>, val type: Constants.T
 
 
         holder.itemView.tag = item
+        holder.itemView.setOnClickListener {
+            mOnClickListener?.invoke(type,item)
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#E0333333"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/size_100">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_100"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_icon"
+        android:src="@drawable/ic_login_success"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:focusable="false"
+        android:layout_marginTop="@dimen/size_30"
+        android:text="@string/would_you_like_to_log_out"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

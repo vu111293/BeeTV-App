@@ -98,6 +98,9 @@
         <action
             android:id="@+id/action_home_fragment_dest_to_favorite_fragment_dest"
             app:destination="@id/favorite_fragment_dest" />
+        <action
+            android:id="@+id/action_home_fragment_dest_to_login_fragment_dest"
+            app:destination="@id/login_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/menu_fragment_dest"
@@ -180,6 +183,29 @@
             app:argType="string" />
         <action
             android:id="@+id/action_favorite_fragment_dest_to_home_fragment_dest"
+            app:destination="@id/home_fragment_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment_dest"
+        android:name="com.example.android.architecture.blueprints.todoapp.login.LoginFragment"
+        android:label="Login">
+
+        <action
+            android:id="@+id/action_login_fragment_dest_to_home_fragment_dest"
+            app:destination="@id/home_fragment_dest" />
+        <action
+            android:id="@+id/action_login_fragment_dest_to_register_fragment_dest"
+            app:destination="@id/register_fragment_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register_fragment_dest"
+        android:name="com.example.android.architecture.blueprints.todoapp.register.RegisterFragment"
+        android:label="Register">
+
+        <action
+            android:id="@+id/action_register_fragment_dest_to_home_fragment_dest"
             app:destination="@id/home_fragment_dest" />
     </fragment>
     <argument

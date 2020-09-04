@@ -21,6 +21,7 @@ import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.todoapp.dialogs.NotiDialog
+import com.example.android.architecture.blueprints.todoapp.dialogs.SettingDialog
 import com.example.android.architecture.blueprints.todoapp.player.ExoPlayerActivity
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
@@ -188,6 +189,11 @@ class HomeFragment : BaseFragment() {
         }
 
         fun openSetting() {
+            val settingDialog = SettingDialog()
+            settingDialog.show(fragment.childFragmentManager,"setting")
+            settingDialog.onClickLoginListener = {
+                fragment.findNavController ().navigate(HomeFragmentDirections.actionHomeFragmentDestToLoginFragmentDest())
+            }
 
         }
 

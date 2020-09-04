@@ -28,6 +28,9 @@
     <color name="sunsetOrange">#FF513D</color>
     <color name="fern">#59AF5A</color>
     <color name="deepCerulean">#006EB3</color>
+    <color name="tundora">#4B4B4B</color>
+    <color name="boulder">#7A7A7A</color>
+    <color name="mineShaft3">#333333</color>
     <drawable name="completedTaskBackground">#CCCCCC</drawable>
 
     <drawable name="touchFeedback">#CFD8DC</drawable>
