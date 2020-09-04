@@ -116,15 +116,17 @@ class SearchFragment : BaseFragment(), View.OnClickListener {
             }
         }
 
-        if(newView != null)
+        if(newView != null){
             if (newView is KeyboardItemView) {
                 newView.setColor(R.color.white)
             }
-        if (newView is MetroItemFrameLayout){
-            newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.white))
-            if (newView.getChildAt(0) is TextView){
-                (newView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.black))
+            if (newView is MetroItemFrameLayout){
+                newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.white))
+                if (newView.getChildAt(0) is TextView){
+                    (newView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.black))
+                }
             }
+
         }
 
     }

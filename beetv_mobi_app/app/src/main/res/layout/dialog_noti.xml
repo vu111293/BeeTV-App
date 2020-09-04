@@ -2,10 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:focusable="false"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
+        android:focusable="false"
+        android:id="@+id/main"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
@@ -14,23 +17,36 @@
             android:layout_width="600dp"
             android:layout_height="wrap_content"
             android:src="@drawable/notice"
+            android:focusable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:layout_width="@dimen/size_200"
-            android:layout_height="80dp"
+
+        <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            android:layout_width="@dimen/size_180"
+            android:layout_height="@dimen/size_60"
             android:id="@+id/bt_confirm"
             android:background="@color/black"
-            android:textColor="@color/alto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/confirm"
-            android:layout_marginBottom="@dimen/size_80"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_notice" />
+            app:layout_constraintBottom_toBottomOf="@+id/iv_notice"
+            android:layout_marginBottom="@dimen/size_100"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/confirm"
+                android:focusable="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/alto" />
+        </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

@@ -51,7 +51,7 @@ class HomeFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
-//        showDialog()
+        showDialog()
         showTime()
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
