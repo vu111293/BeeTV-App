@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    android:focusable="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context="com.example.android.architecture.blueprints.todoapp.ads.AdsActivity">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>

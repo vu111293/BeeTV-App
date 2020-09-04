@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.example.android.architecture.blueprints.todoapp.R
+import com.example.android.architecture.blueprints.todoapp.ads.AdsActivity
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentSearchBinding
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentSplashBinding
 import com.example.android.architecture.blueprints.todoapp.search.SearchViewModel
@@ -25,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_splash)
 
         Handler().postDelayed(Runnable {
-            startActivity(Intent(this@SplashActivity, TasksActivity::class.java))
+            startActivity(Intent(this@SplashActivity, AdsActivity::class.java))
             finish()
         }, 2000)
     }
