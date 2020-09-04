@@ -20,13 +20,9 @@ import com.example.android.architecture.blueprints.todoapp.util.getViewModelFact
 
 class SplashActivity : AppCompatActivity() {
     private val viewModel by viewModels<SplashViewModel> { getViewModelFactory() }
-    private lateinit var viewDataBinding: FragmentSplashBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewDataBinding = FragmentSplashBinding.inflate(LayoutInflater.from(this)).apply {
-            viewmodel = viewModel
-        }
+        setContentView(R.layout.fragment_splash)
 
         Handler().postDelayed(Runnable {
             startActivity(Intent(this@SplashActivity, TasksActivity::class.java))
