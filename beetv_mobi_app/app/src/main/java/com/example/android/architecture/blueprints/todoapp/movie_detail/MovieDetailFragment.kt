@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
@@ -19,6 +20,7 @@ import com.example.android.architecture.blueprints.todoapp.data.Category
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentMenuBinding
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentMovieDetailBinding
+import com.example.android.architecture.blueprints.todoapp.home.HomeFragmentDirections
 import com.example.android.architecture.blueprints.todoapp.menu.MenuFragmentArgs
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
@@ -68,7 +70,16 @@ class MovieDetailFragment : Fragment() {
             }
         })
         display(Movie.mocks().get(0))
+        setupGUI()
     }
+
+    fun setupGUI() {
+        viewDataBinding.btPlay.setOnClickListener {
+            val action = MovieDetailFragmentDirections.actionMovieDetailFragmentDestToPlayerFragment(args.movieID)
+            findNavController().navigate(action)
+        }
+    }
+
     private fun changeBackgroundButton(oldView: View?, newView: View?) {
 
         if (oldView != null)

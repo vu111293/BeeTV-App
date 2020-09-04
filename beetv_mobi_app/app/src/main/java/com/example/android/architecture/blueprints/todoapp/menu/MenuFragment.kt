@@ -3,6 +3,7 @@ package com.example.android.architecture.blueprints.todoapp.menu
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MenuFragment : BaseFragment() {
+
+    val TAG = "MenuFragment"
     private val viewModel by viewModels<MenuViewModel> { getViewModelFactory() }
     private lateinit var viewDataBinding: FragmentMenuBinding
     private lateinit var mAdapter: MenuAdapter
@@ -307,18 +310,18 @@ class MenuFragment : BaseFragment() {
         viewDataBinding.dynamicList.mOnClickItemListener = { typeMenu: Constants.TYPE_MENU, category: Category ->
             when (typeMenu) {
                 Constants.TYPE_MENU.CHANNEL -> {
-                    //ds list 2 o day nha anh
+                    // Todo pass zero for trick play default live channel
+                    openLiveChannel("0")
                 }
-
 
                 Constants.TYPE_MENU.PROGRAM -> {
 
                 }
 
-
                 Constants.TYPE_MENU.CHAPTER -> {
 
                 }
+
                 else->{
 
                 }
@@ -335,14 +338,19 @@ class MenuFragment : BaseFragment() {
         }
     }
 
-    private fun openMoviewDetail(movieID: String) {
+    private fun openLiveChannel(channelId: String) {
+        val action = MenuFragmentDirections.actionMenuFragmentDestToPlayerFragment(channelId)
+        findNavController().navigate(action)
+    }
+
+    private fun openMovieDetail(movieID: String) {
         val action = MenuFragmentDirections.actionMenuFragmentDestToMovieDetailFragmentDest(movieID)
         findNavController().navigate(action)
     }
 
     private fun setupNavigation() {
         viewModel.openMovieDetailEvent.observe(this, EventObserver {
-            openMoviewDetail(it)
+            openMovieDetail(it)
         })
 
     }
