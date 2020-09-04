@@ -25,6 +25,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.savedstate.SavedStateRegistryOwner
 import com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTaskViewModel
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
+import com.example.android.architecture.blueprints.todoapp.favorite.FavoriteViewModel
 import com.example.android.architecture.blueprints.todoapp.home.HomeViewModel
 import com.example.android.architecture.blueprints.todoapp.menu.MenuViewModel
 import com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailViewModel
@@ -68,6 +69,8 @@ class ViewModelFactory constructor(
                 SearchViewModel()
             isAssignableFrom(SplashViewModel::class.java) ->
                 SplashViewModel()
+            isAssignableFrom(FavoriteViewModel::class.java) ->
+                FavoriteViewModel()
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }

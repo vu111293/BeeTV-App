@@ -11,7 +11,9 @@ class Constants {
         DRAMA,
         ENTERTAINMENT,
         EDUCATION,
-        CHILDRENTV
+        CHILDRENTV,
+        FAVORITE,
+        PLAYBACK
     }
 
     enum class TYPE_MENU(val type  : Int){

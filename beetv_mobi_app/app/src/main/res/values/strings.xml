@@ -155,4 +155,5 @@
     <string name="three_ko">0</string>
     <string name="two_ko">9</string>
     <string name="one_ko">8</string>
+    <string name="all">전체</string>
 </resources>

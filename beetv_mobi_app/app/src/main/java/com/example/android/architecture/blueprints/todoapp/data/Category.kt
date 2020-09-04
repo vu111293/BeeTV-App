@@ -1,12 +1,15 @@
 package com.example.android.architecture.blueprints.todoapp.data
 
+import android.content.Context
+import com.example.android.architecture.blueprints.todoapp.R
+
 data class Category(
         val id: String,
         val name: String,
-        val content : String= "",
-        val channel : String = "",
+        val content: String = "",
+        val channel: String = "",
         val time: String = "",
-        val movies:MutableList<Movie> = mutableListOf()
+        val movies: MutableList<Movie> = mutableListOf()
 
 
 ) {
@@ -17,7 +20,7 @@ data class Category(
                         "지상파",
                         movies = Movie.mocks()),
                 Category("2",
-                        "종편/뉴스" , movies = Movie.mocks1()),
+                        "종편/뉴스", movies = Movie.mocks1()),
                 Category("3",
                         "오락/음악", movies = Movie.mocks2()),
                 Category("4",
@@ -25,17 +28,17 @@ data class Category(
                 Category("5",
                         "레저/다큐", movies = Movie.mocks1()),
                 Category("6",
-                "스포츠", movies = Movie.mocks2()),
+                        "스포츠", movies = Movie.mocks2()),
                 Category("7",
-                "지상파", movies = Movie.mocks()),
+                        "지상파", movies = Movie.mocks()),
                 Category("8",
-                "지상파", movies = Movie.mocks1()),
+                        "지상파", movies = Movie.mocks1()),
                 Category("9",
-                "지상파", movies = Movie.mocks2()),
+                        "지상파", movies = Movie.mocks2()),
                 Category("10",
-                        "지상파", movies = Movie.mocks()) ,
+                        "지상파", movies = Movie.mocks()),
                 Category("17",
-                "지상파", movies = Movie.mocks1()),
+                        "지상파", movies = Movie.mocks1()),
                 Category("11",
                         "지상파", movies = Movie.mocks2()),
                 Category("12",
@@ -43,11 +46,11 @@ data class Category(
                 Category("13",
                         "지상파", movies = Movie.mocks1()),
                 Category("14",
-                "지상파", movies = Movie.mocks2()),
+                        "지상파", movies = Movie.mocks2()),
                 Category("15",
-                "지상파", movies = Movie.mocks()),
+                        "지상파", movies = Movie.mocks()),
                 Category("16",
-                "지상파", movies = Movie.mocks1())
+                        "지상파", movies = Movie.mocks1())
 
         )
 
@@ -88,7 +91,7 @@ data class Category(
                         "MBC", "뷰티 인사이드", "SBS")
         )
 
-        fun mocksProgram()= mutableListOf<Category>(
+        fun mocksProgram() = mutableListOf<Category>(
                 Category("001",
                         "얼마예요?", time = "11:20"),
                 Category("002",
@@ -125,7 +128,7 @@ data class Category(
                         "얼마예요?", time = "11:20")
         )
 
-        fun mocksChapter()= mutableListOf<Category>(
+        fun mocksChapter() = mutableListOf<Category>(
                 Category("001",
                         "24 수요일"),
                 Category("002",
@@ -143,7 +146,7 @@ data class Category(
 
         )
 
-        fun mocksChapterMovie()= mutableListOf<Category>(
+        fun mocksChapterMovie() = mutableListOf<Category>(
                 Category("001",
                         "제1회"),
                 Category("002",
@@ -174,5 +177,27 @@ data class Category(
                         "제14회")
 
         )
+
+        fun category(context: Context) = mutableListOf<Category>(
+                Category("1",
+                        context.getString(R.string.all),
+                        movies = Movie.mocks()),
+                Category("2",
+                        context.getString(R.string.movie),
+                        movies = Movie.mocks1()),
+                Category("3",
+                        context.getString(R.string.drama),
+                        movies = Movie.mocks2()),
+                Category("4",
+                        context.getString(R.string.entertainment),
+                        movies = Movie.mocks()),
+                Category("5",
+                context.getString(R.string.preview_education),
+                movies = Movie.mocks1()),
+                Category("6",
+                        context.getString(R.string.child),
+                        movies = Movie.mocks2())
+
+                )
     }
 }

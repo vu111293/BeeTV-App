@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Looper.getMainLooper
 import android.util.Log
 import android.view.LayoutInflater
@@ -174,13 +175,16 @@ class HomeFragment : BaseFragment() {
         dialog.show(childFragmentManager,"abc")
     }
 
+
+
     public class ClickProxy(val viewModel: HomeViewModel, val fragment : HomeFragment) {
         fun openSearch() {
             fragment.findNavController ().navigate(HomeFragmentDirections.actionHomeFragmentDestToSearchFragmentDest())
         }
 
         fun openFavorite() {
-
+            val action = HomeFragmentDirections.actionHomeFragmentDestToFavoriteFragmentDest(Constants.TYPE_CATEGORY.FAVORITE.toString())
+            fragment.findNavController().navigate(action)
         }
 
         fun openSetting() {
@@ -188,7 +192,8 @@ class HomeFragment : BaseFragment() {
         }
 
         fun openPlayback() {
-
+            val action = HomeFragmentDirections.actionHomeFragmentDestToFavoriteFragmentDest(Constants.TYPE_CATEGORY.PLAYBACK.toString())
+            fragment.findNavController().navigate(action)
         }
 
         fun openLiveMenu() {
