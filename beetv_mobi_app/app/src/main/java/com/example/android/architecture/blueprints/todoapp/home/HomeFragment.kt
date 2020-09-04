@@ -1,10 +1,9 @@
 package com.example.android.architecture.blueprints.todoapp.home
 
 import android.animation.Animator
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.os.Looper.getMainLooper
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.architecture.blueprints.todoapp.EventObserver
@@ -25,8 +23,6 @@ import com.example.android.architecture.blueprints.todoapp.databinding.FragmentH
 import com.example.android.architecture.blueprints.todoapp.dialogs.NotiDialog
 import com.example.android.architecture.blueprints.todoapp.dialogs.SettingDialog
 import com.example.android.architecture.blueprints.todoapp.dialogs.SuccessDialog
-import com.example.android.architecture.blueprints.todoapp.menu.MenuFragmentArgs
-import com.example.android.architecture.blueprints.todoapp.player.ExoPlayerActivity
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
@@ -53,7 +49,8 @@ class HomeFragment : BaseFragment() {
         }
         return viewDataBinding.root
     }
-    public var lastView : View ?= null
+
+    public var lastView: View? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -79,7 +76,7 @@ class HomeFragment : BaseFragment() {
 
         metroViewBorderImpl2.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
-                if (lastView != null){
+                if (lastView != null) {
                     changeBackgroundButton(lastView, null)
                     lastView = null
                 }
@@ -115,18 +112,18 @@ class HomeFragment : BaseFragment() {
 
     public fun changeBackgroundButton(oldView: View?, newView: View?) {
 
-        if(oldView != null)
-        if (oldView is MetroItemFrameLayout) {
-            if (oldView.getChildAt(0) is CategoryItemView) {
-                (oldView.getChildAt(0) as CategoryItemView).setColor(R.color.mineShaft)
+        if (oldView != null)
+            if (oldView is MetroItemFrameLayout) {
+                if (oldView.getChildAt(0) is CategoryItemView) {
+                    (oldView.getChildAt(0) as CategoryItemView).setColor(R.color.mineShaft)
+                }
             }
-        }
-        if(newView != null)
-        if (newView is MetroItemFrameLayout) {
-            if (newView.getChildAt(0) is CategoryItemView) {
-                (newView.getChildAt(0) as CategoryItemView).setColor(R.color.alto)
+        if (newView != null)
+            if (newView is MetroItemFrameLayout) {
+                if (newView.getChildAt(0) is CategoryItemView) {
+                    (newView.getChildAt(0) as CategoryItemView).setColor(R.color.alto)
+                }
             }
-        }
     }
 
     private fun showTime() {
@@ -141,8 +138,8 @@ class HomeFragment : BaseFragment() {
 
     private fun showMovieList() {
         val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_150)
-        val heightItem = widthItem*406/280
-        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!,widthItem,heightItem)
+        val heightItem = widthItem * 406 / 280
+        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!, widthItem, heightItem)
         movieAdapter.mOnItemClickListener = ({
             Log.d(TAG, it.title)
 //            val intent = Intent(activity, ExoPlayerActivity::class.java)
@@ -166,34 +163,35 @@ class HomeFragment : BaseFragment() {
         findNavController().navigate(action)
     }
 
-    private fun showDialog(){
-        if (!TodoApplication.isShowPopup){
-
+    @SuppressLint("LogNotTimber")
+    private fun showDialog() {
+        if (!TodoApplication.isShowPopup) {
             val dialog = NotiDialog()
-            dialog.show(childFragmentManager,"abc")
+            dialog.show(childFragmentManager, "abc")
             TodoApplication.isShowPopup = true
         }
 
-        if(!args.type.isNullOrEmpty()){
-            if (args.type.equals(Constants.REGISTER)){
+        Log.d("yenyen",arguments?.getString("type").toString())
+        if (!arguments?.getString("type").isNullOrEmpty()) {
+            if (arguments?.getString("type").equals(Constants.REGISTER)) {
                 val successDialog = SuccessDialog()
                 successDialog.icon = R.drawable.ic_register_success
                 successDialog.title = getString(R.string.register_successfully)
-                successDialog.show(childFragmentManager,"success")
+                successDialog.show(childFragmentManager, "success")
             }
 
-            if (args.type.equals(Constants.LOGIN)){
+            if (arguments?.getString("type")                                                                                                                                                                                                                                                                                                                         .equals(Constants.LOGIN)) {
                 val successDialog = SuccessDialog()
-                successDialog.show(childFragmentManager,"success")
+                successDialog.show(childFragmentManager, "success")
             }
+            arguments?.remove("type")
         }
     }
 
 
-
-    public class ClickProxy(val viewModel: HomeViewModel, val fragment : HomeFragment) {
+    public class ClickProxy(val viewModel: HomeViewModel, val fragment: HomeFragment) {
         fun openSearch() {
-            fragment.findNavController ().navigate(HomeFragmentDirections.actionHomeFragmentDestToSearchFragmentDest())
+            fragment.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentDestToSearchFragmentDest())
         }
 
         fun openFavorite() {
@@ -203,9 +201,9 @@ class HomeFragment : BaseFragment() {
 
         fun openSetting() {
             val settingDialog = SettingDialog()
-            settingDialog.show(fragment.childFragmentManager,"setting")
+            settingDialog.show(fragment.childFragmentManager, "setting")
             settingDialog.onClickLoginListener = {
-                fragment.findNavController ().navigate(HomeFragmentDirections.actionHomeFragmentDestToLoginFragmentDest())
+                fragment.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentDestToLoginFragmentDest())
             }
 
         }
@@ -217,38 +215,38 @@ class HomeFragment : BaseFragment() {
 
         fun openLiveMenu() {
 
-            fragment.changeBackgroundButton(fragment.lastView,null)
+            fragment.changeBackgroundButton(fragment.lastView, null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.TV.name)
 
         }
 
         fun openMovieMenu() {
 
-            fragment.changeBackgroundButton(fragment.lastView,null)
+            fragment.changeBackgroundButton(fragment.lastView, null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.MOVIE.name)
         }
 
         fun openDramaMenu() {
 
-            fragment.changeBackgroundButton(fragment.lastView,null)
+            fragment.changeBackgroundButton(fragment.lastView, null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.DRAMA.name)
         }
 
         fun openEntertainmentMenu() {
 
-            fragment.changeBackgroundButton(fragment.lastView,null)
+            fragment.changeBackgroundButton(fragment.lastView, null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.ENTERTAINMENT.name)
         }
 
         fun openEducationMenu() {
 
-            fragment.changeBackgroundButton(fragment.lastView,null)
+            fragment.changeBackgroundButton(fragment.lastView, null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.EDUCATION.name)
         }
 
         fun openChildrenMenu() {
 
-            fragment.changeBackgroundButton(fragment.lastView,null)
+            fragment.changeBackgroundButton(fragment.lastView, null)
             viewModel.openMenu(Constants.TYPE_CATEGORY.CHILDRENTV.name)
 
         }
