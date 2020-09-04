@@ -11,9 +11,12 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentLoginBinding
+import com.example.android.architecture.blueprints.todoapp.home.HomeFragmentDirections
+import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
@@ -38,6 +41,7 @@ class LoginFragment : BaseFragment() {
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
         metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
+        metroViewBorderImpl.attachTo(viewDataBinding.main)
         metroViewBorderImpl.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
                 metroViewBorderImpl.getView().setTag(newFocus)
@@ -71,5 +75,16 @@ class LoginFragment : BaseFragment() {
         }
 
     }
-    public class ClickProxy(val viewModel: LoginViewModel, val loginFragment: LoginFragment) {}
+    public class ClickProxy(val viewModel: LoginViewModel, val fragment: LoginFragment) {
+
+        fun login(){
+            val action = LoginFragmentDirections.actionLoginFragmentDestToHomeFragmentDest(Constants.LOGIN)
+            fragment.findNavController().navigate(action)
+        }
+
+        fun register(){
+            val action = LoginFragmentDirections.actionLoginFragmentDestToRegisterFragmentDest()
+            fragment.findNavController().navigate(action)
+        }
+    }
 }

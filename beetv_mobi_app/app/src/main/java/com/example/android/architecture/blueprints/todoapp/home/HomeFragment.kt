@@ -14,14 +14,18 @@ import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
+import com.example.android.architecture.blueprints.todoapp.TodoApplication
 import com.example.android.architecture.blueprints.todoapp.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
 import com.example.android.architecture.blueprints.todoapp.data.Movie
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.todoapp.dialogs.NotiDialog
 import com.example.android.architecture.blueprints.todoapp.dialogs.SettingDialog
+import com.example.android.architecture.blueprints.todoapp.dialogs.SuccessDialog
+import com.example.android.architecture.blueprints.todoapp.menu.MenuFragmentArgs
 import com.example.android.architecture.blueprints.todoapp.player.ExoPlayerActivity
 import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
@@ -36,6 +40,7 @@ class HomeFragment : BaseFragment() {
     val viewModel by viewModels<HomeViewModel> { getViewModelFactory() }
     val TAG = "Home Fragment"
 
+    private val args: HomeFragmentArgs by navArgs()
     private lateinit var viewDataBinding: FragmentHomeBinding
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -172,8 +177,26 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun showDialog(){
-        val dialog = NotiDialog()
-        dialog.show(childFragmentManager,"abc")
+        if (!TodoApplication.isShowPopup){
+
+            val dialog = NotiDialog()
+            dialog.show(childFragmentManager,"abc")
+            TodoApplication.isShowPopup = true
+        }
+
+        if(!args.type.isNullOrEmpty()){
+            if (args.type.equals(Constants.REGISTER)){
+                val successDialog = SuccessDialog()
+                successDialog.icon = R.drawable.ic_register_success
+                successDialog.title = getString(R.string.register_successfully)
+                successDialog.show(childFragmentManager,"success")
+            }
+
+            if (args.type.equals(Constants.LOGIN)){
+                val successDialog = SuccessDialog()
+                successDialog.show(childFragmentManager,"success")
+            }
+        }
     }
 
 

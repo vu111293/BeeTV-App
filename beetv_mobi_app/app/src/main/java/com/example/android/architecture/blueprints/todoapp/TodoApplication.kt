@@ -44,5 +44,6 @@ class TodoApplication : MultiDexApplication() {
 
     companion object{
         lateinit var context : Context
+        var isShowPopup = false
     }
 }

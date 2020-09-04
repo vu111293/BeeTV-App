@@ -26,13 +26,13 @@
 
         <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
             android:layout_width="@dimen/size_180"
-            android:layout_height="@dimen/size_60"
+            android:layout_height="@dimen/size_80"
             android:id="@+id/bt_confirm"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/iv_notice"
-            android:layout_marginBottom="@dimen/size_100"
+            android:layout_marginBottom="@dimen/size_90"
             android:focusable="true">
 
             <TextView

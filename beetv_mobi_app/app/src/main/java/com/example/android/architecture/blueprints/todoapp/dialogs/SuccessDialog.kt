@@ -47,7 +47,7 @@ class SuccessDialog : DialogFragment() {
 
         Handler().postDelayed(Runnable {
            dismiss()
-        }, 2000)
+        }, 10000)
         return dialog
 
 

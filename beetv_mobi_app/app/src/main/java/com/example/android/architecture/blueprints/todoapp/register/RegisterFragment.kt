@@ -9,8 +9,11 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.databinding.FragmentRegisterBinding
+import com.example.android.architecture.blueprints.todoapp.login.LoginFragmentDirections
+import com.example.android.architecture.blueprints.todoapp.util.Constants
 import com.example.android.architecture.blueprints.todoapp.util.getViewModelFactory
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderHandler
@@ -34,6 +37,7 @@ class RegisterFragment : Fragment() {
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
         metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
+        metroViewBorderImpl.attachTo(viewDataBinding.main)
         metroViewBorderImpl.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
                 metroViewBorderImpl.getView().setTag(newFocus)
@@ -68,5 +72,15 @@ class RegisterFragment : Fragment() {
 
     }
 
-    public class ClickProxy(val viewModel: RegisterViewModel, val loginFragment: RegisterFragment) {}
+    public class ClickProxy(val viewModel: RegisterViewModel, val fragment: RegisterFragment) {
+        fun login(){
+            val action = RegisterFragmentDirections.actionRegisterFragmentDestToLoginFragmentDest()
+            fragment.findNavController().navigate(action)
+        }
+
+        fun register(){
+            val action = RegisterFragmentDirections.actionRegisterFragmentDestToHomeFragmentDest(Constants.REGISTER)
+            fragment.findNavController().navigate(action)
+        }
+    }
 }

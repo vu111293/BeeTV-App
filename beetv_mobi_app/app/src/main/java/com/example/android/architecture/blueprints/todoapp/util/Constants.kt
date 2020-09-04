@@ -2,9 +2,10 @@ package com.example.android.architecture.blueprints.todoapp.util
 
 class Constants {
     companion object{
-
-
+        const val REGISTER = "REGISTER"
+        const val LOGIN = "LOGIN"
     }
+
     enum class TYPE_CATEGORY {
         TV,
         MOVIE,

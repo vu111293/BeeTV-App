@@ -171,4 +171,5 @@
     <string name="password">비밀번호</string>
     <string name="go_back">뒤로가기</string>
     <string name="register_successfully">가입완료 되었습니다.</string>
+    <string name="login_successfully">로드인 되었습니다.</string>
 </resources>

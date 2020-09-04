@@ -2,17 +2,18 @@
 <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
-    android:layout_width="wrap_content"
+    android:layout_width="720dp"
     android:gravity="center"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_mineshaft_stroke_tundora"
-    android:padding="@dimen/size_50">
+    >
 
     <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
         android:id="@+id/bt_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:focusable="true"
+        android:layout_marginTop="@dimen/size_50"
         app:settingIcon="@drawable/ic_screen"
         app:settingName="@string/aspect_ratio" />
 
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_50"
         android:layout_toEndOf="@+id/bt_screen"
         android:focusable="true"
         app:settingIcon="@drawable/ic_player"
@@ -46,7 +48,7 @@
         android:layout_marginTop="@dimen/size_20"
         android:layout_toEndOf="@+id/bt_language"
         android:focusable="true"
-        app:settingIcon="@drawable/ic_language"
+        app:settingIcon="@drawable/ic_time"
         app:settingName="@string/slot" />
 
     <LinearLayout
@@ -124,6 +126,7 @@
         android:layout_marginTop="@dimen/size_30"
         android:background="@color/black"
         android:layout_marginStart="@dimen/size_120"
+        android:layout_marginBottom="@dimen/size_50"
         android:focusable="true">
 
         <TextView
@@ -142,6 +145,7 @@
         android:layout_width="@dimen/size_180"
         android:layout_height="@dimen/size_80"
         android:layout_marginTop="@dimen/size_30"
+        android:layout_marginBottom="@dimen/size_50"
         android:layout_marginStart="@dimen/size_20"
         android:layout_below="@+id/layoutService"
         android:layout_toEndOf="@+id/bt_authority"

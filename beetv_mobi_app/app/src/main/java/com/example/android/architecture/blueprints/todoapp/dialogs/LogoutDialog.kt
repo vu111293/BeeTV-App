@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+import com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderImpl
@@ -30,7 +31,7 @@ class LogoutDialog : DialogFragment() {
         dialog.setContentView(R.layout.dialog_logout)
         val btConfirm = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_confirm)
         val btCancel = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_cancel)
-        val main = dialog.findViewById<ConstraintLayout>(R.id.main)
+        val main = dialog.findViewById<DrawingOrderRelativeLayout>(R.id.main)
         metroViewBorderImpl.attachTo(main)
         btConfirm.setOnClickListener {
             dismiss()
