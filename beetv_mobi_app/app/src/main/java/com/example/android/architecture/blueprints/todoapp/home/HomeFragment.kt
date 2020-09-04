@@ -73,8 +73,6 @@ class HomeFragment : BaseFragment() {
         })
 
         metroViewBorderImpl2.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
-
-
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
                 if (lastView != null){
                     changeBackgroundButton(lastView, null)
@@ -124,8 +122,6 @@ class HomeFragment : BaseFragment() {
                 (newView.getChildAt(0) as CategoryItemView).setColor(R.color.alto)
             }
         }
-
-
     }
 
     private fun showTime() {
@@ -146,7 +142,7 @@ class HomeFragment : BaseFragment() {
             Log.d(TAG, it.title)
 //            val intent = Intent(activity, ExoPlayerActivity::class.java)
 //            startActivity(intent)
-            val action = HomeFragmentDirections.actionHomeFragmentDestToPlayerFragment(it.id)
+            val action = HomeFragmentDirections.actionHomeFragmentDestToMovieDetailFragmentDest(it.id)
             findNavController().navigate(action)
         })
         viewDataBinding.rvMovie.adapter = movieAdapter
@@ -161,16 +157,8 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun openMenu(category: String) {
-        if (category?.equals(Constants.TYPE_CATEGORY.ENTERTAINMENT.name)) {
-//            val action = HomeFragmentDirections.actionHomeFragmentDestToPlayerFragment(Movie.mocks().first())
-//            findNavController().navigate(action)
-
-            val intent = Intent(activity, ExoPlayerActivity::class.java)
-            startActivity(intent)
-        } else {
-            val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
-            findNavController().navigate(action)
-        }
+        val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
+        findNavController().navigate(action)
     }
 
     private fun showDialog(){

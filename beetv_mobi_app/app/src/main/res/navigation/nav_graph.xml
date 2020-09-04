@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_home_fragment_dest_to_login_fragment_dest"
             app:destination="@id/login_fragment_dest" />
+        <action
+            android:id="@+id/action_home_fragment_dest_to_movie_detail_fragment_dest2"
+            app:destination="@id/movie_detail_fragment_dest" />
     </fragment>
     <fragment
         android:id="@+id/menu_fragment_dest"
@@ -138,6 +141,9 @@
         <action
             android:id="@+id/action_movie_detail_fragment_dest_to_home_fragment_dest"
             app:destination="@id/home_fragment_dest" />
+        <action
+            android:id="@+id/action_movie_detail_fragment_dest_to_player_fragment"
+            app:destination="@id/player_fragment" />
 
     </fragment>
     <fragment
