@@ -23,6 +23,7 @@
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="playback_bkg">#88000000</color>
     <color name="alto">#D1D1D1</color>
     <color name="mineShaft">#1F1F1F</color>
     <color name="sunsetOrange">#FF513D</color>

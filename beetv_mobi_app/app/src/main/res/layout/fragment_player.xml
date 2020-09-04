@@ -22,7 +22,15 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             cv:controller_layout_id="@layout/movie_play_back_control_view"
-            android:id="@+id/player" />
+            android:id="@+id/movie_player" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            cv:controller_layout_id="@layout/live_play_back_control_view"
+            android:id="@+id/live_player" />
 
     </RelativeLayout>
 </layout>

@@ -24,6 +24,7 @@ import com.google.android.exoplayer2.drm.ExoMediaCrypto
 import com.google.android.exoplayer2.ext.rtmp.RtmpDataSourceFactory
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
+import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
@@ -54,7 +55,17 @@ class PlayerFragment : BaseFragment() {
     fun setupGUI() {
 //         val movie = Movie.findMovieById(args.movieID)
 //        Log.d(TAG, movie?.name)
-        if (args.movieID == "0") mPlayerType = MediaPlayerType.Live
+        if (args.movieID == "0") {
+            mPlayerType = MediaPlayerType.Live
+            viewDataBinding.moviePlayer.visibility = View.GONE
+            viewDataBinding.livePlayer.visibility = View.VISIBLE
+            playerView = viewDataBinding.livePlayer
+        } else {
+            viewDataBinding.moviePlayer.visibility = View.VISIBLE
+            viewDataBinding.livePlayer.visibility = View.GONE
+            playerView = viewDataBinding.moviePlayer
+        }
+
     }
 
     override fun onStart() {
@@ -75,6 +86,7 @@ class PlayerFragment : BaseFragment() {
 
 
     private var player: SimpleExoPlayer? = null
+    private var playerView: PlayerView? = null
     private var playWhenReady = true
     private var currentWindow = 0
     private var playbackPosition: Long = 0
@@ -105,7 +117,7 @@ class PlayerFragment : BaseFragment() {
         }
 
         val player = SimpleExoPlayer.Builder(context!!).build()
-        viewDataBinding.player.player = player
+        playerView?.player = player
         player.repeatMode = Player.REPEAT_MODE_ALL
         player.prepare(mediaSource)
         player.playWhenReady = true
@@ -113,7 +125,7 @@ class PlayerFragment : BaseFragment() {
     }
 
     private fun releasePlayer() {
-        viewDataBinding.player.player = null
+        playerView?.player = null
         if (player != null) {
             player!!.release()
             player = null
