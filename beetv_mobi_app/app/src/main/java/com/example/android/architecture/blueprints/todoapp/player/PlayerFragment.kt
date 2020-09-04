@@ -52,10 +52,9 @@ class PlayerFragment : BaseFragment() {
     }
 
     fun setupGUI() {
-         val movie = Movie.findMovieById(args.movieID)
-        Log.d(TAG, movie?.name)
-
-        if (movie?.id == "0") mPlayerType = MediaPlayerType.Live
+//         val movie = Movie.findMovieById(args.movieID)
+//        Log.d(TAG, movie?.name)
+        if (args.movieID == "0") mPlayerType = MediaPlayerType.Live
     }
 
     override fun onStart() {
