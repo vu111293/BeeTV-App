@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.architecture.blueprints.beetv.EventObserver
 import com.example.android.architecture.blueprints.beetv.R
-import com.example.android.architecture.blueprints.beetv.TodoApplication
+import com.example.android.architecture.blueprints.beetv.BeeTVApplication
 import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
@@ -165,10 +165,10 @@ class HomeFragment : BaseFragment() {
 
     @SuppressLint("LogNotTimber")
     private fun showDialog() {
-        if (!TodoApplication.isShowPopup) {
+        if (!BeeTVApplication.isShowPopup) {
             val dialog = NotiDialog()
             dialog.show(childFragmentManager, "abc")
-            TodoApplication.isShowPopup = true
+            BeeTVApplication.isShowPopup = true
         }
 
         Log.d("yenyen",arguments?.getString("type").toString())

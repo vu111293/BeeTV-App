@@ -1,7 +1,7 @@
 package com.example.android.architecture.blueprints.beetv.util
 
 import android.util.TypedValue
-import com.example.android.architecture.blueprints.beetv.TodoApplication
+import com.example.android.architecture.blueprints.beetv.BeeTVApplication
 
 class DisplayAdaptive {
 
@@ -16,7 +16,7 @@ class DisplayAdaptive {
     }
 
     fun toLocalPx(pt: Float): Float {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, pt, TodoApplication.context.getResources().getDisplayMetrics())
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, pt, BeeTVApplication.context.getResources().getDisplayMetrics())
     }
 
 }

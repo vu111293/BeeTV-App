@@ -28,7 +28,7 @@ import timber.log.Timber.DebugTree
  *
  * Also, sets up Timber in the DEBUG BuildConfig. Read Timber's documentation for production setups.
  */
-class TodoApplication : MultiDexApplication() {
+class BeeTVApplication : MultiDexApplication() {
 
     // Depends on the flavor,
 

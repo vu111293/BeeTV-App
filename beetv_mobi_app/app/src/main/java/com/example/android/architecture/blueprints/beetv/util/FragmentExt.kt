@@ -21,16 +21,16 @@ package com.example.android.architecture.blueprints.beetv.util
 
 import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
-import com.example.android.architecture.blueprints.beetv.TodoApplication
+import com.example.android.architecture.blueprints.beetv.BeeTVApplication
 import com.example.android.architecture.blueprints.beetv.ViewModelFactory
 
 fun Fragment.getViewModelFactory(): ViewModelFactory {
-    val repository = (requireContext().applicationContext as TodoApplication).taskRepository
+    val repository = (requireContext().applicationContext as BeeTVApplication).taskRepository
     return ViewModelFactory(repository, this)
 }
 
 
 fun ComponentActivity.getViewModelFactory(): ViewModelFactory {
-    val repository = (applicationContext as TodoApplication).taskRepository
+    val repository = (applicationContext as BeeTVApplication).taskRepository
     return ViewModelFactory(repository, this)
 }

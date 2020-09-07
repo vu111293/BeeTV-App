@@ -11,7 +11,7 @@ import com.example.android.architecture.blueprints.beetv.data.adapter.SlideAdapt
 import com.example.android.architecture.blueprints.beetv.data.models.Slide
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderImpl
-import com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeActivity
 
 class AdsActivity : AppCompatActivity() {
 
@@ -34,7 +34,7 @@ class AdsActivity : AppCompatActivity() {
                    val position = newFocus.tag as Int
                     if (position == Slide.mocks().size -1){
                         Handler().postDelayed(Runnable {
-                            startActivity(Intent(this@AdsActivity, TasksActivity::class.java))
+                            startActivity(Intent(this@AdsActivity, HomeActivity::class.java))
                             finish()
                         }, 2000)
                     }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.architecture.blueprints.todoapp.tasks
+package com.example.android.architecture.blueprints.beetv.modules.home
 
 import android.app.Activity
 import android.os.Bundle
@@ -26,13 +26,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.android.architecture.blueprints.beetv.R
-import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
 import com.google.android.material.navigation.NavigationView
 
 /**
  * Main activity for the todoapp. Holds the Navigation Host Fragment and the Drawer, Toolbar, etc.
  */
-class TasksActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
