@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.example.android.architecture.blueprints.beetv.R
+import com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderImpl
@@ -29,12 +30,8 @@ class NotiDialog : DialogFragment() {
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_noti)
         val btConfirm = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_confirm)
-        val main = dialog.findViewById<ConstraintLayout>(R.id.main)
+        val main = dialog.findViewById<DrawingOrderRelativeLayout>(R.id.main)
         metroViewBorderImpl.attachTo(main)
-        btConfirm.setOnClickListener {
-            dismiss()
-        }
-        dialog.show()
 
         metroViewBorderImpl.getViewBorder().addOnFocusChanged(object : MetroViewBorderHandler.FocusListener {
             override fun onFocusChanged(oldFocus: View?, newFocus: View?) {
@@ -42,6 +39,11 @@ class NotiDialog : DialogFragment() {
                 changeBackgroundButton(oldFocus, newFocus)
             }
         })
+        btConfirm.setOnClickListener {
+            dismiss()
+        }
+        dialog.show()
+
         return dialog
 
 

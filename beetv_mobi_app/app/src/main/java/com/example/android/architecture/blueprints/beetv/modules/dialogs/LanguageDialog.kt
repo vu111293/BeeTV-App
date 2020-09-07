@@ -55,7 +55,7 @@ class LanguageDialog : DialogFragment() {
         if(oldView != null){
 
             if (oldView is MetroItemFrameLayout){
-                oldView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.black))
+                oldView.setBackgroundColor(ContextCompat.getColor(context!!,android.R.color.transparent))
                 if (oldView.getChildAt(0) is TextView){
                     (oldView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!,R.color.white))
                 }
@@ -64,7 +64,7 @@ class LanguageDialog : DialogFragment() {
 
         if(newView != null){
             if (newView is MetroItemFrameLayout){
-                newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.white))
+                newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.alto))
                 if (newView.getChildAt(0) is TextView){
                     (newView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.black))
                 }

@@ -29,8 +29,8 @@
 
         <LinearLayout
             android:id="@+id/layoutEditText"
-            android:layout_width="290dp"
-            android:layout_height="@dimen/size_40"
+            android:layout_width="230dp"
+            android:layout_height="@dimen/size_30"
             android:layout_marginHorizontal="@dimen/size_5"
             android:layout_marginVertical="@dimen/size_5"
             android:background="@drawable/bg_black_radius_20"
@@ -39,8 +39,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="@dimen/size_30"
-                android:layout_height="@dimen/size_30"
+                android:layout_width="@dimen/size_20"
+                android:layout_height="@dimen/size_20"
                 android:layout_marginHorizontal="@dimen/size_10"
                 android:focusable="false"
                 android:src="@drawable/ic_search" />
@@ -48,10 +48,11 @@
             <EditText
                 android:id="@+id/et_search"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_40"
+                android:layout_height="@dimen/size_30"
                 android:layout_marginEnd="@dimen/size_10"
                 android:layout_marginRight="@dimen/size_10"
                 android:focusable="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:gravity="center_vertical"
                 android:textColor="@color/white"
                 android:maxLines="1" />
@@ -60,8 +61,8 @@
 
         <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:id="@+id/bt_empty"
-            android:layout_width="@dimen/size_140"
-            android:layout_height="@dimen/size_40"
+            android:layout_width="@dimen/size_110"
+            android:layout_height="@dimen/size_30"
             android:layout_below="@+id/layoutEditText"
             android:layout_marginHorizontal="@dimen/size_5"
             android:layout_marginVertical="@dimen/size_5"
@@ -75,14 +76,14 @@
                 android:layout_gravity="center"
                 android:focusable="false"
                 android:text="@string/empty"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/white" />
         </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
         <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:id="@+id/bt_delete"
-            android:layout_width="@dimen/size_140"
-            android:layout_height="@dimen/size_40"
+            android:layout_width="@dimen/size_110"
+            android:layout_height="@dimen/size_30"
             android:layout_below="@+id/layoutEditText"
             android:layout_marginHorizontal="@dimen/size_5"
             android:layout_marginVertical="@dimen/size_5"
@@ -92,14 +93,26 @@
             android:focusable="true"
             android:onClick="@{()->click.deleteSearch()}">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:focusable="false"
-                android:text="@string/delete"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/white" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/size_20"
+                    android:layout_height="@dimen/size_20"
+                    android:src="@drawable/ic_delete"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:layout_marginStart="@dimen/size_5"
+                    android:text="@string/delete"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
         </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
         <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
@@ -561,8 +574,8 @@
 
         <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:id="@+id/bt_korean"
-            android:layout_width="@dimen/size_140"
-            android:layout_height="@dimen/size_40"
+            android:layout_width="@dimen/size_110"
+            android:layout_height="@dimen/size_30"
             android:layout_below="@+id/bt_six"
             android:layout_marginHorizontal="@dimen/size_5"
             android:layout_marginVertical="@dimen/size_5"
@@ -575,15 +588,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/korean"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/white" />
         </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
         <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/bt_english"
-            android:layout_width="@dimen/size_140"
-            android:layout_height="@dimen/size_40"
+            android:layout_width="@dimen/size_110"
+            android:layout_height="@dimen/size_30"
             android:layout_below="@+id/bt_six"
             android:layout_marginHorizontal="@dimen/size_5"
             android:layout_marginVertical="@dimen/size_5"
@@ -599,7 +612,27 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/english"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white" />
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
+
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/bt_search"
+            android:layout_width="230dp"
+            android:layout_height="@dimen/size_30"
+            android:layout_below="@+id/bt_korean"
+            android:layout_marginHorizontal="@dimen/size_5"
+            android:layout_marginVertical="@dimen/size_5"
+            android:onClick="@{()->click.search()}"
+            android:background="@color/black"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/search"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/white" />
         </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
@@ -616,7 +649,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/size_40"
+                android:layout_height="@dimen/size_30"
                 android:layout_marginVertical="@dimen/size_5"
                 android:focusable="false"
                 android:gravity="center_vertical"

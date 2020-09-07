@@ -22,6 +22,10 @@ import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFrag
 import com.example.android.architecture.blueprints.beetv.data.models.Category
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
 import com.example.android.architecture.blueprints.beetv.databinding.FragmentMenuBinding
+import com.example.android.architecture.blueprints.beetv.modules.dialogs.SettingDialog
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeFragment
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeFragmentDirections
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel
 import com.example.android.architecture.blueprints.beetv.util.Constants
 import com.example.android.architecture.blueprints.beetv.util.getViewModelFactory
 import com.example.android.architecture.blueprints.beetv.util.hide
@@ -58,6 +62,7 @@ class MenuFragment : BaseFragment() {
             savedInstanceState: Bundle?
     ): View? {
         viewDataBinding = FragmentMenuBinding.inflate(inflater, container, false).apply {
+            click = ClickProxy(this@MenuFragment)
             viewmodel = viewModel
         }
         return viewDataBinding.root
@@ -356,5 +361,32 @@ class MenuFragment : BaseFragment() {
 
     private fun updateNumber(currentPosition: String, totalPage: String) {
         viewDataBinding.tvNumber.text = "${currentPosition}/ ${totalPage} "
+    }
+
+    public class ClickProxy( val fragment: MenuFragment) {
+        fun openSearch() {
+            fragment.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentDestToSearchFragmentDest())
+        }
+
+        fun openFavorite() {
+            val action = MenuFragmentDirections.actionMenuFragmentDestToFavoriteFragmentDest(Constants.TYPE_CATEGORY.FAVORITE.toString())
+            fragment.findNavController().navigate(action)
+        }
+
+        fun openSetting() {
+            val settingDialog = SettingDialog()
+            settingDialog.show(fragment.childFragmentManager, "setting")
+            settingDialog.onClickLoginListener = {
+                fragment.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentDestToLoginFragmentDest())
+            }
+
+        }
+
+        fun openPlayback() {
+            val action = HomeFragmentDirections.actionHomeFragmentDestToFavoriteFragmentDest(Constants.TYPE_CATEGORY.PLAYBACK.toString())
+            fragment.findNavController().navigate(action)
+        }
+
+
     }
 }

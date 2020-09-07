@@ -7,6 +7,9 @@
         <import type="android.view.View" />
 
         <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="click"
+            type="com.example.android.architecture.blueprints.beetv.modules.menu.MenuFragment.ClickProxy" />
 
         <variable
             name="viewmodel"
@@ -117,6 +120,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
+                android:onClick="@{()->click.openSearch()}"
                 android:layout_toStartOf="@+id/bt_favorite"
                 android:layout_toLeftOf="@+id/bt_favorite"
                 android:focusable="true">
@@ -133,6 +137,7 @@
                 android:id="@+id/bt_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{()->click.openFavorite()}"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
@@ -156,6 +161,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
+                android:onClick="@{()->click.openPlayback()}"
                 android:layout_toStartOf="@+id/bt_setting"
                 android:layout_toLeftOf="@+id/bt_setting"
                 android:focusable="true">
@@ -176,6 +182,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
+                android:onClick="@{()->click.openSetting()}"
                 android:layout_marginRight="5dp"
                 android:focusable="true">
 

@@ -7,16 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.architecture.blueprints.beetv.R
 import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
 import com.example.android.architecture.blueprints.beetv.databinding.FragmentSearchBinding
+import com.example.android.architecture.blueprints.beetv.modules.dialogs.SettingDialog
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeFragment
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeFragmentDirections
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel
+import com.example.android.architecture.blueprints.beetv.util.Constants
 import com.example.android.architecture.blueprints.beetv.util.getViewModelFactory
 import com.example.android.architecture.blueprints.beetv.util.hide
 import com.example.android.architecture.blueprints.beetv.util.show
@@ -94,10 +101,11 @@ class SearchFragment : BaseFragment(), View.OnClickListener {
         val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_130)
         val heightItem = widthItem*384/265
         val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!, widthItem, heightItem)
-//
-//        movieAdapter.mOnItemClickListener={
-//            viewModel.openMovieDetail(it.id)
-//        }
+
+        movieAdapter.mOnItemClickListener={
+            val action = SearchFragmentDirections.actionSearchFragmentDestToMovieDetailFragmentDest(it.id)
+            findNavController().navigate(action)
+        }
         viewDataBinding.rvResult.adapter = movieAdapter
 
     }
@@ -112,6 +120,13 @@ class SearchFragment : BaseFragment(), View.OnClickListener {
                 if (oldView.getChildAt(0) is TextView){
                     (oldView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!,R.color.white))
                 }
+
+                if (oldView.getChildAt(0) is ImageView){
+                    (oldView.getChildAt(0) as ImageView).setColorFilter(ContextCompat.getColor(context!!,R.color.white))
+                    if (oldView.getChildAt(1) is TextView){
+                        (oldView.getChildAt(1) as TextView).setTextColor(ContextCompat.getColor(context!!,R.color.white))
+                    }
+                }
             }
         }
 
@@ -123,6 +138,13 @@ class SearchFragment : BaseFragment(), View.OnClickListener {
                 newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.white))
                 if (newView.getChildAt(0) is TextView){
                     (newView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.black))
+                }
+
+                if (newView.getChildAt(0) is ImageView){
+                    (newView.getChildAt(0) as ImageView).setColorFilter(ContextCompat.getColor(context!!,R.color.white))
+                    if (newView.getChildAt(1) is TextView){
+                        (newView.getChildAt(1) as TextView).setTextColor(ContextCompat.getColor(context!!,R.color.white))
+                    }
                 }
             }
 
@@ -269,7 +291,12 @@ class SearchFragment : BaseFragment(), View.OnClickListener {
             val layoutParams2 =  viewBinding.btEnglish.layoutParams as RelativeLayout.LayoutParams
             layoutParams2.addRule(RelativeLayout.BELOW,R.id.bt_y)
         }
+
+        fun search(){
+            val keyword = viewBinding.etSearch.text.toString()
+        }
     }
+
 
     override fun onClick(v: View?) {
 

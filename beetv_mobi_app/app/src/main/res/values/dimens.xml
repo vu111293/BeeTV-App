@@ -56,4 +56,5 @@
     <dimen name="size_80">80dp</dimen>
     <dimen name="size_3">3dp</dimen>
     <dimen name="size_90">90dp</dimen>
+    <dimen name="size_110">110dp</dimen>
 </resources>
