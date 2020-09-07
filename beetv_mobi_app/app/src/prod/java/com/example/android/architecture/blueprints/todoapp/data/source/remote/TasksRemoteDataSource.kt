@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.architecture.blueprints.todoapp.data.source.remote
+package com.example.android.architecture.blueprints.beetv.data.source.remote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
-import com.example.android.architecture.blueprints.todoapp.data.Result
-import com.example.android.architecture.blueprints.todoapp.data.Result.Error
-import com.example.android.architecture.blueprints.todoapp.data.Result.Success
-import com.example.android.architecture.blueprints.todoapp.data.Task
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
+import com.example.android.architecture.blueprints.beetv.data.models.Result
+import com.example.android.architecture.blueprints.beetv.data.models.Result.Error
+import com.example.android.architecture.blueprints.beetv.data.models.Result.Success
+import com.example.android.architecture.blueprints.beetv.data.models.Task
+import com.example.android.architecture.blueprints.beetv.data.source.TasksDataSource
 import kotlinx.coroutines.delay
 
 /**

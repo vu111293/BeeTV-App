@@ -8,7 +8,7 @@
         <import type="androidx.core.content.ContextCompat" />
         <variable
             name="viewmodel"
-            type="com.example.android.architecture.blueprints.todoapp.player.PlayerViewModel" />
+            type="com.example.android.architecture.blueprints.beetv.modules.player.PlayerViewModel" />
 
     </data>
 

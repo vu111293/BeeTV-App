@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="300dp"
     android:layout_height="90dp"
@@ -47,4 +47,4 @@
 
     </LinearLayout>
 
-</com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+</com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>

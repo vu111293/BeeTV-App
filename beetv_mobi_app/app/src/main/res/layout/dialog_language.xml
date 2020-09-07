@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="500dp"
@@ -19,7 +19,7 @@
         android:textColor="@color/white" />
 
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+    <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
         android:id="@+id/bt_korean"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_80"
@@ -36,10 +36,10 @@
             android:text="@string/korean"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/alto" />
-    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+    </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+    <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
         android:id="@+id/bt_english"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_80"
@@ -56,5 +56,5 @@
             android:text="@string/english_ko"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/alto" />
-    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
-</com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+    </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
+</com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>

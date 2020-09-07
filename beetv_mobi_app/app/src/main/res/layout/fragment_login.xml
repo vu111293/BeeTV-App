@@ -9,11 +9,11 @@
 
         <variable
             name="click"
-            type="com.example.android.architecture.blueprints.todoapp.login.LoginFragment.ClickProxy" />
+            type="com.example.android.architecture.blueprints.beetv.modules.login.LoginFragment.ClickProxy" />
 
         <variable
             name="viewmodel"
-            type="com.example.android.architecture.blueprints.todoapp.login.LoginViewModel" />
+            type="com.example.android.architecture.blueprints.beetv.modules.login.LoginViewModel" />
 
     </data>
 
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout
             android:id="@+id/main"
             android:layout_width="wrap_content"
             android:layout_centerInParent="true"
@@ -93,7 +93,7 @@
             </TableLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_login"
                 android:layout_width="@dimen/size_180"
                 android:layout_height="@dimen/size_80"
@@ -112,10 +112,10 @@
                     android:text="@string/login"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/alto" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_sign_up"
                 android:layout_width="@dimen/size_180"
                 android:layout_height="@dimen/size_80"
@@ -135,9 +135,9 @@
                     android:text="@string/sign_up"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/alto" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>
 
     </RelativeLayout>
 </layout>

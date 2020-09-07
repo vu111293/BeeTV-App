@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:focusable="true"
     android:layout_height="match_parent">
@@ -16,4 +16,4 @@
         android:focusable="false"
         android:id="@+id/progressBar"
         android:layout_centerInParent="true" />
-</com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+</com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>

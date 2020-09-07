@@ -11,11 +11,11 @@
 
         <variable
             name="click"
-            type="com.example.android.architecture.blueprints.todoapp.home.HomeFragment.ClickProxy" />
+            type="com.example.android.architecture.blueprints.beetv.modules.home.HomeFragment.ClickProxy" />
 
         <variable
             name="viewmodel"
-            type="com.example.android.architecture.blueprints.todoapp.home.HomeViewModel" />
+            type="com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel" />
 
     </data>
 
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvClock" />
 
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,7 +56,7 @@
             android:clipToPadding="false"
             android:focusable="false">
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,15 +68,15 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openSearch()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.FunctionItemView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     app:functionIcon="@drawable/ic_search"
                     app:functionName="@string/search" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,16 +88,16 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openFavorite()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.FunctionItemView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     app:functionIcon="@drawable/ic_scrap"
                     app:functionName="@string/favorites" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_playback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,15 +109,15 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openPlayback()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.FunctionItemView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     app:functionIcon="@drawable/ic_search"
                     app:functionName="@string/playback_record" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,13 +129,13 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openSetting()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.FunctionItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.FunctionItemView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:functionIcon="@drawable/ic_setting"
                     android:focusable="false"
                     app:functionName="@string/setting" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
             <TextView
@@ -151,7 +151,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/sunsetOrange" />
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_tv"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
@@ -162,7 +162,7 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openLiveMenu()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.CategoryItemView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -171,9 +171,9 @@
                     app:icon="@drawable/ic_tv" />
 
 
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_movie"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
@@ -186,7 +186,7 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openMovieMenu()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.CategoryItemView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -194,10 +194,10 @@
                     app:categoryName="@string/movie"
                     app:icon="@drawable/ic_movie" />
 
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_drama"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
@@ -210,7 +210,7 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openDramaMenu()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.CategoryItemView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:focusable="false"
@@ -219,10 +219,10 @@
                     app:icon="@drawable/ic_drama" />
 
 
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_entertainment"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
@@ -235,7 +235,7 @@
                 android:focusable="true"
                 android:onClick="@{()->click.openEntertainmentMenu()}">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.CategoryItemView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -244,10 +244,10 @@
                     app:icon="@drawable/ic_entertainment" />
 
 
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_education"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
@@ -261,7 +261,7 @@
                 android:onClick="@{()->click.openEducationMenu()}">
 
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.CategoryItemView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -270,9 +270,9 @@
                     app:icon="@drawable/ic_current_affairs" />
 
 
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_children"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
@@ -284,7 +284,7 @@
                 android:background="@color/mineShaft"
                 android:focusable="true"
                 android:onClick="@{()->click.openChildrenMenu()}">
-                <com.example.android.architecture.blueprints.todoapp.widgets.CategoryItemView
+                <com.example.android.architecture.blueprints.beetv.widgets.CategoryItemView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -292,7 +292,7 @@
                     android:focusable="false"
                     app:icon="@drawable/ic_childrentv" />
 
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -306,7 +306,7 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_top_movie" />
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

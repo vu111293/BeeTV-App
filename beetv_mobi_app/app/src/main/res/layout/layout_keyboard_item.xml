@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bt_character"
     android:layout_width="@dimen/size_40"
     android:layout_height="@dimen/size_40"
@@ -17,4 +17,4 @@
         android:focusable="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white" />
-</com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+</com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>

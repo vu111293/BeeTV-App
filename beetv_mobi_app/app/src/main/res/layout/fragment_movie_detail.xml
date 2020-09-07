@@ -10,11 +10,11 @@
 
         <variable
             name="viewmodel"
-            type="com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailViewModel" />
+            type="com.example.android.architecture.blueprints.beetv.modules.movie_detail.MovieDetailViewModel" />
 
     </data>
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+    <com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
@@ -47,7 +47,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <com.example.android.architecture.blueprints.todoapp.widgets.metro.CornerVew
+                <com.example.android.architecture.blueprints.beetv.widgets.metro.CornerVew
                     android:id="@+id/tv_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -313,7 +313,7 @@
 
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_play"
                 android:layout_width="@dimen/size_180"
                 android:layout_height="@dimen/size_60"
@@ -332,9 +332,9 @@
                     android:text="@string/play"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/alto" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_favorite"
                 android:layout_width="@dimen/size_180"
                 android:layout_height="@dimen/size_60"
@@ -355,7 +355,7 @@
                     android:text="@string/favorites"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/alto" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-    </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+    </com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>
 </layout>

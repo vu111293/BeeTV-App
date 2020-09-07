@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.android.architecture.blueprints.todoapp">
+    package="com.example.android.architecture.blueprints.beetv">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".TodoApplication"
+        android:name="com.example.android.architecture.blueprints.beetv.TodoApplication"
         android:allowBackup="true"
         android:banner="@mipmap/ic_launcher"
         android:icon="@mipmap/ic_launcher"
@@ -15,25 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Leanback"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ads.AdsActivity"
+        <activity android:name="com.example.android.architecture.blueprints.beetv.modules.ads.AdsActivity"
             android:theme="@style/AppTheme.OverlapSystemBar"></activity>
         <activity
-            android:name=".tasks.TasksActivity"
+            android:name="com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.OverlapSystemBar"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".modules.splash.SplashActivity"
             android:theme="@style/AppTheme.OverlapSystemBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+q
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".player.ExoPlayerActivity" />
+        <activity android:name="com.example.android.architecture.blueprints.beetv.modules.player.ExoPlayerActivity" />
     </application>
 
 </manifest>

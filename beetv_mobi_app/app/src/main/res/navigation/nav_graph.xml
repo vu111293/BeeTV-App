@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/task_detail_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.taskdetail.TaskDetailFragment"
         android:label="Task Details">
         <action
             android:id="@+id/action_taskDetailFragment_to_addEditTaskFragment"
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/statistics_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.statistics.StatisticsFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.statistics.StatisticsFragment"
         android:label="@string/app_name">
         <action
             android:id="@+id/action_statisticsFragment_to_tasksFragment"
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/tasks_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.tasks.TasksFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.tasks.TasksFragment"
         android:label="@string/app_name">
         <action
             android:id="@+id/action_tasksFragment_to_statisticsFragment"
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_edit_task_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTaskFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.addedittask.AddEditTaskFragment"
         android:label="{title}">
         <argument
             android:name="taskId"
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/home_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.home.HomeFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <argument
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.menu.MenuFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.menu.MenuFragment"
         android:label="Menu"
         tools:layout="@layout/fragment_menu">
 
@@ -138,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/movie_detail_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.movie_detail.MovieDetailFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.movie_detail.MovieDetailFragment"
         android:label="Movie Detail">
 
         <argument
@@ -154,7 +154,7 @@
     </fragment>
     <fragment
         android:id="@+id/search_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.search.SearchFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.search.SearchFragment"
         android:label="Search">
 
 
@@ -167,7 +167,7 @@
     </fragment>
     <fragment
         tools:label="Player"
-        android:name="com.example.android.architecture.blueprints.todoapp.player.PlayerFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.player.PlayerFragment"
         android:id="@+id/player_fragment"
         tools:layout="@layout/fragment_player">
         <argument
@@ -183,19 +183,19 @@
 
     <!--    <fragment-->
     <!--        tools:label="Movie Detail"-->
-    <!--        android:name="com.example.android.architecture.blueprints.todoapp.moviedetail.MovieDetailFragment"-->
+    <!--        android:name="com.example.android.architecture.blueprints.beetv.moviedetail.MovieDetailFragment"-->
     <!--        android:id="@+id/movie_detail_fragment"-->
     <!--        tools:layout="@layout/fragment_movie_detail">-->
     <!--        <argument-->
     <!--            android:name="movie"-->
-    <!--            app:argType="com.example.android.architecture.blueprints.todoapp.data.Movie" />-->
+    <!--            app:argType="com.example.android.architecture.blueprints.beetv.data.models.Movie" />-->
     <!--        <action-->
     <!--            android:id="@+id/action_movie_detail_fragment_to_home_fragment_dest"-->
     <!--            app:destination="@id/home_fragment_dest" />-->
     <!--    </fragment>-->
     <fragment
         android:id="@+id/favorite_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.favorite.FavoriteFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.favorite.FavoriteFragment"
         android:label="Favorite">
         <argument
             android:name="category"
@@ -207,7 +207,7 @@
 
     <fragment
         android:id="@+id/login_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.login.LoginFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.login.LoginFragment"
         android:label="Login">
 
         <action
@@ -220,7 +220,7 @@
 
     <fragment
         android:id="@+id/register_fragment_dest"
-        android:name="com.example.android.architecture.blueprints.todoapp.register.RegisterFragment"
+        android:name="com.example.android.architecture.blueprints.beetv.modules.register.RegisterFragment"
         android:label="Register">
 
         <action

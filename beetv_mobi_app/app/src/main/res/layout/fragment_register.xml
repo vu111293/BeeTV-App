@@ -9,11 +9,11 @@
 
         <variable
             name="click"
-            type="com.example.android.architecture.blueprints.todoapp.register.RegisterFragment.ClickProxy" />
+            type="com.example.android.architecture.blueprints.beetv.modules.register.RegisterFragment.ClickProxy" />
 
         <variable
             name="viewmodel"
-            type="com.example.android.architecture.blueprints.todoapp.register.RegisterViewModel" />
+            type="com.example.android.architecture.blueprints.beetv.modules.register.RegisterViewModel" />
 
     </data>
 
@@ -23,7 +23,7 @@
         android:focusable="false"
         android:layout_height="match_parent">
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout
             android:id="@+id/main"
             android:layout_width="wrap_content"
             android:layout_centerInParent="true"
@@ -98,7 +98,7 @@
             </TableLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_back"
                 android:layout_width="@dimen/size_180"
                 android:layout_height="@dimen/size_80"
@@ -117,10 +117,10 @@
                     android:text="@string/go_back"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/alto" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-            <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+            <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
                 android:id="@+id/bt_confirm"
                 android:layout_width="@dimen/size_180"
                 android:layout_height="@dimen/size_80"
@@ -140,10 +140,10 @@
                     android:text="@string/confirm"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/alto" />
-            </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+            </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>
 
     </RelativeLayout>
 </layout>

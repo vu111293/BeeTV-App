@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="720dp"
@@ -8,7 +8,7 @@
     android:background="@drawable/bg_mineshaft_stroke_tundora"
     >
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+    <com.example.android.architecture.blueprints.beetv.widgets.SettingItemView
         android:id="@+id/bt_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:settingName="@string/aspect_ratio" />
 
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+    <com.example.android.architecture.blueprints.beetv.widgets.SettingItemView
         android:id="@+id/bt_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:settingIcon="@drawable/ic_player"
         app:settingName="@string/player" />
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+    <com.example.android.architecture.blueprints.beetv.widgets.SettingItemView
         android:id="@+id/bt_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         app:settingIcon="@drawable/ic_language"
         app:settingName="@string/language" />
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
+    <com.example.android.architecture.blueprints.beetv.widgets.SettingItemView
         android:id="@+id/bt_slot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+    <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
         android:id="@+id/bt_authority"
         android:layout_width="@dimen/size_180"
         android:layout_height="@dimen/size_80"
@@ -137,10 +137,10 @@
             android:text="@string/authority"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/alto" />
-    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+    </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+    <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
         android:id="@+id/bt_log_out"
         android:layout_width="@dimen/size_180"
         android:layout_height="@dimen/size_80"
@@ -160,6 +160,6 @@
             android:text="@string/logout"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/alto" />
-    </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+    </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-</com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+</com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>

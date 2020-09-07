@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.example.android.architecture.blueprints.todoapp
+package com.example.android.architecture.blueprints.beetv
 
 import android.content.Context
 import androidx.annotation.VisibleForTesting
 import androidx.room.Room
-import com.example.android.architecture.blueprints.todoapp.data.source.DefaultTasksRepository
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
-import com.example.android.architecture.blueprints.todoapp.data.source.local.TasksLocalDataSource
-import com.example.android.architecture.blueprints.todoapp.data.source.local.ToDoDatabase
-import com.example.android.architecture.blueprints.todoapp.data.source.remote.TasksRemoteDataSource
+import com.example.android.architecture.blueprints.beetv.data.source.DefaultTasksRepository
+import com.example.android.architecture.blueprints.beetv.data.source.TasksDataSource
+import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
+import com.example.android.architecture.blueprints.beetv.data.source.local.TasksLocalDataSource
+import com.example.android.architecture.blueprints.beetv.data.source.local.ToDoDatabase
+import com.example.android.architecture.blueprints.beetv.data.source.remote.TasksRemoteDataSource
 import kotlinx.coroutines.runBlocking
 
 /**

@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:layout_width="@dimen/size_180"
             android:layout_height="@dimen/size_80"
             android:id="@+id/bt_confirm"
@@ -43,7 +43,7 @@
                 android:focusable="false"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/alto" />
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
 

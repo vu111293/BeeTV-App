@@ -10,15 +10,15 @@
 
         <variable
             name="click"
-            type="com.example.android.architecture.blueprints.todoapp.search.SearchFragment.ClickProxy" />
+            type="com.example.android.architecture.blueprints.beetv.modules.search.SearchFragment.ClickProxy" />
 
         <variable
             name="viewmodel"
-            type="com.example.android.architecture.blueprints.todoapp.search.SearchViewModel" />
+            type="com.example.android.architecture.blueprints.beetv.modules.search.SearchViewModel" />
 
     </data>
 
-    <com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
+    <com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,7 +58,7 @@
         </LinearLayout>
 
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:id="@+id/bt_empty"
             android:layout_width="@dimen/size_140"
             android:layout_height="@dimen/size_40"
@@ -77,9 +77,9 @@
                 android:text="@string/empty"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white" />
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:id="@+id/bt_delete"
             android:layout_width="@dimen/size_140"
             android:layout_height="@dimen/size_40"
@@ -100,9 +100,9 @@
                 android:text="@string/delete"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white" />
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
             android:focusable="true"
             app:character="@string/a_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             android:focusable="true"
             app:character="@string/b_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
             android:focusable="true"
             app:character="@string/c_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
             android:focusable="true"
             app:character="@string/d_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
             android:focusable="true"
             app:character="@string/e_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_f"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
             android:focusable="true"
             app:character="@string/f_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_g"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
             android:focusable="true"
             app:character="@string/g_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
             android:focusable="true"
             app:character="@string/h_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_i"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
             android:focusable="true"
             app:character="@string/i_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_j"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
             android:focusable="true"
             app:character="@string/j_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_k"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -242,7 +242,7 @@
             android:focusable="true"
             app:character="@string/k_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_l"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
             android:focusable="true"
             app:character="@string/l_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -266,7 +266,7 @@
           
             app:character="@string/m_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -279,7 +279,7 @@
             android:focusable="true"
             app:character="@string/n_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
             android:focusable="true"
             app:character="@string/o_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_p"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -305,7 +305,7 @@
             android:focusable="true"
             app:character="@string/p_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_q"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -318,7 +318,7 @@
             android:focusable="true"
             app:character="@string/q_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_r"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -331,7 +331,7 @@
             android:focusable="true"
             app:character="@string/r_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_s"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -342,7 +342,7 @@
             android:focusable="true"
             app:character="@string/s_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -355,7 +355,7 @@
             android:focusable="true"
             app:character="@string/t_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_u"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -368,7 +368,7 @@
             android:focusable="true"
             app:character="@string/u_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_v"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -381,7 +381,7 @@
             android:focusable="true"
             app:character="@string/v_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_w"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -394,7 +394,7 @@
             android:focusable="true"
             app:character="@string/w_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_x"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -407,7 +407,7 @@
             android:focusable="true"
             app:character="@string/x_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_y"
             android:layout_width="wrap_content"
           
@@ -418,7 +418,7 @@
             android:focusable="true"
             app:character="@string/y_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -431,7 +431,7 @@
             android:focusable="true"
             app:character="@string/z_en" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -444,7 +444,7 @@
             android:focusable="true"
             app:character="@string/one" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -457,7 +457,7 @@
             android:focusable="true"
             app:character="@string/two" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -470,7 +470,7 @@
             android:focusable="true"
             app:character="@string/three" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_four"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -483,7 +483,7 @@
             android:focusable="true"
             app:character="@string/four" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_five"
             android:layout_width="wrap_content"
           
@@ -494,7 +494,7 @@
             android:focusable="true"
             app:character="@string/five" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_six"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -507,7 +507,7 @@
             android:focusable="true"
             app:character="@string/six" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_seven"
             android:layout_width="wrap_content"
           
@@ -520,7 +520,7 @@
             android:focusable="true"
             app:character="@string/seven" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_eight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -533,7 +533,7 @@
             android:focusable="true"
             app:character="@string/eight" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_nine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -546,7 +546,7 @@
             android:focusable="true"
             app:character="@string/nine" />
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
+        <com.example.android.architecture.blueprints.beetv.widgets.KeyboardItemView
             android:id="@+id/bt_zero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -559,7 +559,7 @@
             app:character="@string/zero" />
 
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
             android:id="@+id/bt_korean"
             android:layout_width="@dimen/size_140"
             android:layout_height="@dimen/size_40"
@@ -577,10 +577,10 @@
                 android:text="@string/korean"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white" />
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
-        <com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/bt_english"
             android:layout_width="@dimen/size_140"
             android:layout_height="@dimen/size_40"
@@ -601,7 +601,7 @@
                 android:text="@string/english"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white" />
-        </com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout>
+        </com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
 
 
         <LinearLayout
@@ -634,6 +634,6 @@
                 android:focusable="false" />
         </LinearLayout>
 
-    </com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout>
+    </com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOrderRelativeLayout>
 </layout>
 

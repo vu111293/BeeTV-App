@@ -25,8 +25,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.example.android.architecture.blueprints.todoapp.R
-import com.example.android.architecture.blueprints.todoapp.base.BaseFragment
+import com.example.android.architecture.blueprints.beetv.R
+import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
 import com.google.android.material.navigation.NavigationView
 
 /**
