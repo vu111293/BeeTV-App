@@ -12,16 +12,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.widgets.KeyboardItemView
-import com.example.android.architecture.blueprints.todoapp.widgets.SettingItemView
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.DrawingOrderRelativeLayout
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.todoapp.widgets.metro.MetroViewBorderImpl
 
-class SettingDialog : DialogFragment() {
-
-
-    var onClickLoginListener : (() -> Unit) ?=null
+class LanguageDialog : DialogFragment() {
     private lateinit var metroViewBorderImpl: MetroViewBorderImpl
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val roundedFrameLayout = FrameLayout(context)
@@ -32,34 +28,17 @@ class SettingDialog : DialogFragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_setting)
-        val btAuthority = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_authority)
-        val btLogout = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_log_out)
-        val btLanguage = dialog.findViewById<SettingItemView>(R.id.bt_language)
-        val btScreen = dialog.findViewById<SettingItemView>(R.id.bt_screen)
-        val btSlot = dialog.findViewById<SettingItemView>(R.id.bt_slot)
-        val btPlayer = dialog.findViewById<SettingItemView>(R.id.bt_player)
+        dialog.setContentView(R.layout.dialog_language)
+        val btEnglish = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_english)
+        val btKorean = dialog.findViewById<MetroItemFrameLayout>(R.id.bt_korean)
         val main = dialog.findViewById<DrawingOrderRelativeLayout>(R.id.main)
-        btLanguage.setValue(getString(R.string.korean))
-        btScreen.setValue("기존비율")
-        btPlayer.setValue("시스템 플레이어")
-        btSlot.setValue("시스템 시간")
         metroViewBorderImpl.attachTo(main)
-        btAuthority.setOnClickListener {
+        btEnglish.setOnClickListener {
             dismiss()
-            onClickLoginListener?.invoke()
         }
 
-        btLogout.setOnClickListener {
-
+        btKorean.setOnClickListener {
             dismiss()
-            val logoutDialog = LogoutDialog()
-            logoutDialog.show(childFragmentManager,"logout")
-        }
-
-        btLanguage.setOnClickListener {
-            val languageDialog = LanguageDialog()
-            languageDialog.show(childFragmentManager,"language")
         }
         dialog.show()
 
@@ -84,24 +63,14 @@ class SettingDialog : DialogFragment() {
                     (oldView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!,R.color.white))
                 }
             }
-
-            if (oldView is SettingItemView){
-                oldView.setColor(R.color.black)
-
-            }
         }
 
         if(newView != null){
             if (newView is MetroItemFrameLayout){
-                newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.alto))
+                newView.setBackgroundColor(ContextCompat.getColor(context!!,R.color.white))
                 if (newView.getChildAt(0) is TextView){
                     (newView.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(context!!, R.color.black))
                 }
-            }
-
-            if (newView is SettingItemView){
-                newView.setColor(R.color.alto)
-
             }
         }
 
