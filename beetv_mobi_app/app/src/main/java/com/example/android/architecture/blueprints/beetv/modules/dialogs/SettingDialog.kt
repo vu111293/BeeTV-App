@@ -14,6 +14,7 @@ import com.example.android.architecture.blueprints.beetv.widgets.metro.DrawingOr
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderImpl
+import java.sql.Time
 
 class SettingDialog : DialogFragment() {
 
@@ -57,6 +58,11 @@ class SettingDialog : DialogFragment() {
         btLanguage.setOnClickListener {
             val languageDialog = LanguageDialog()
             languageDialog.show(childFragmentManager,"language")
+        }
+
+        btSlot.setOnClickListener {
+            val timeZonesDialog = TimeZonesDialog()
+            timeZonesDialog.show(childFragmentManager,"timezone")
         }
         dialog.show()
 

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/size_80"
     android:layout_below="@+id/bt_korean"
-    android:layout_marginBottom="@dimen/size_100"
     android:focusable="true">
 
     <TextView
@@ -13,7 +12,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="@dimen/size_50"
         android:focusable="false"
-        android:text="@string/english_ko"
         android:id="@+id/tv_time"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/alto" />

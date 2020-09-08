@@ -13,11 +13,11 @@ import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.android.architecture.blueprints.beetv.BeeTVApplication
 import com.example.android.architecture.blueprints.beetv.EventObserver
 import com.example.android.architecture.blueprints.beetv.R
-import com.example.android.architecture.blueprints.beetv.BeeTVApplication
-import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
+import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
 import com.example.android.architecture.blueprints.beetv.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.beetv.modules.dialogs.NotiDialog
@@ -29,6 +29,7 @@ import com.example.android.architecture.blueprints.beetv.widgets.CategoryItemVie
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderImpl
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,6 +60,7 @@ class HomeFragment : BaseFragment() {
         showTime()
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
+
 
 
         val metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
@@ -108,6 +110,7 @@ class HomeFragment : BaseFragment() {
         })
         showMovieList()
         setupNavigation()
+
     }
 
     public fun changeBackgroundButton(oldView: View?, newView: View?) {
@@ -171,8 +174,7 @@ class HomeFragment : BaseFragment() {
             BeeTVApplication.isShowPopup = true
         }
 
-        Log.d("yenyen",arguments?.getString("type").toString())
-        if (!arguments?.getString("type").isNullOrEmpty()) {
+          if (!arguments?.getString("type").isNullOrEmpty()) {
             if (arguments?.getString("type").equals(Constants.REGISTER)) {
                 val successDialog = SuccessDialog()
                 successDialog.icon = R.drawable.ic_register_success
@@ -252,5 +254,6 @@ class HomeFragment : BaseFragment() {
         }
 
     }
+
 
 }
