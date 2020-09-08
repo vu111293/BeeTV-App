@@ -26,11 +26,13 @@ import com.example.android.architecture.blueprints.beetv.ViewModelFactory
 
 fun Fragment.getViewModelFactory(): ViewModelFactory {
     val repository = (requireContext().applicationContext as BeeTVApplication).taskRepository
-    return ViewModelFactory(repository, this)
+    val movieRepository = (requireContext().applicationContext as BeeTVApplication).movieRepository
+    return ViewModelFactory(repository, movieRepository,this)
 }
 
 
 fun ComponentActivity.getViewModelFactory(): ViewModelFactory {
     val repository = (applicationContext as BeeTVApplication).taskRepository
-    return ViewModelFactory(repository, this)
+    val movieRepository = (applicationContext as BeeTVApplication).movieRepository
+    return ViewModelFactory(repository, movieRepository, this)
 }

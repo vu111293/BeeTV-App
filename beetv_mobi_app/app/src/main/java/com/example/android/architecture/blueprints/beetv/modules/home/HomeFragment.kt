@@ -18,7 +18,10 @@ import com.example.android.architecture.blueprints.beetv.EventObserver
 import com.example.android.architecture.blueprints.beetv.R
 import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
 import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
+import com.example.android.architecture.blueprints.beetv.data.models.BaseResponse
+import com.example.android.architecture.blueprints.beetv.data.models.LiveModel
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
+import com.example.android.architecture.blueprints.beetv.data.models.Status
 import com.example.android.architecture.blueprints.beetv.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.beetv.modules.dialogs.NotiDialog
 import com.example.android.architecture.blueprints.beetv.modules.dialogs.SettingDialog
@@ -29,7 +32,6 @@ import com.example.android.architecture.blueprints.beetv.widgets.CategoryItemVie
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderHandler
 import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroViewBorderImpl
-import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,6 +41,8 @@ class HomeFragment : BaseFragment() {
 
     private val args: HomeFragmentArgs by navArgs()
     private lateinit var viewDataBinding: FragmentHomeBinding
+    public var lastView: View? = null
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -51,11 +55,37 @@ class HomeFragment : BaseFragment() {
         return viewDataBinding.root
     }
 
-    public var lastView: View? = null
+    private fun setupGUI() {
+        viewModel.getLiveList().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            it?.let { resource -> {
+                Log.d(TAG, "Get top movie status " + resource.status)
+               when(resource.status) {
+                   Status.SUCCESS -> {
+                       resource.data?.let { movie  -> retrieveTopLiveList(movie) }
+
+                   }
+
+                   Status.LOADING -> {
+
+                   }
+
+                   Status.ERROR -> {
+
+                   }
+               }
+            }}
+        })
+    }
+
+    private fun retrieveTopLiveList(list: BaseResponse<LiveModel>) {
+        Log.d(TAG, "movie number: " + list.results.objects.rows.size)
+    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+        setupGUI()
         showDialog()
         showTime()
         val roundedFrameLayout = FrameLayout(context)

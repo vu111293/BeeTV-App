@@ -18,6 +18,9 @@ package com.example.android.architecture.blueprints.beetv
 
 import android.content.Context
 import androidx.multidex.MultiDexApplication
+import com.example.android.architecture.blueprints.beetv.data.api.ApiHelper
+import com.example.android.architecture.blueprints.beetv.data.api.RetrofitBuilder
+import com.example.android.architecture.blueprints.beetv.data.repository.MovieRepository
 import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -32,8 +35,8 @@ class BeeTVApplication : MultiDexApplication() {
 
     // Depends on the flavor,
 
-    val taskRepository: TasksRepository
-        get() = ServiceLocator.provideTasksRepository(this)
+    val taskRepository: TasksRepository get() = ServiceLocator.provideTasksRepository(this)
+    val movieRepository: MovieRepository get() = MovieRepository(ApiHelper(RetrofitBuilder.apiService))
 
     override fun onCreate() {
         super.onCreate()

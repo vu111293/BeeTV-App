@@ -20,6 +20,9 @@ import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
+import com.example.android.architecture.blueprints.beetv.data.api.ApiHelper
+import com.example.android.architecture.blueprints.beetv.data.api.RetrofitBuilder
+import com.example.android.architecture.blueprints.beetv.data.repository.MovieRepository
 import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
 import com.example.android.architecture.blueprints.beetv.modules.favorite.FavoriteViewModel
 import com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel
@@ -37,6 +40,7 @@ import com.example.android.architecture.blueprints.beetv.modules.player.PlayerVi
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory constructor(
         private val tasksRepository: TasksRepository,
+        private val movieRepository: MovieRepository,
         owner: SavedStateRegistryOwner,
         defaultArgs: Bundle? = null
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
@@ -47,7 +51,7 @@ class ViewModelFactory constructor(
             handle: SavedStateHandle
     ) = with(modelClass) {
         when {
-            isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(tasksRepository, handle)
+            isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(movieRepository, handle)
             isAssignableFrom(MenuViewModel::class.java) -> MenuViewModel(tasksRepository, handle)
             isAssignableFrom(MovieDetailViewModel::class.java) -> MovieDetailViewModel(tasksRepository, handle)
             isAssignableFrom(SearchViewModel::class.java) -> SearchViewModel()

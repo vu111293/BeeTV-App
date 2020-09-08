@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.architecture.blueprints.beetv.R
 import com.example.android.architecture.blueprints.beetv.modules.ads.AdsActivity
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeActivity
 import com.example.android.architecture.blueprints.beetv.util.getViewModelFactory
 
 class SplashActivity : AppCompatActivity() {
@@ -16,7 +17,8 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_splash)
 
         Handler().postDelayed(Runnable {
-            startActivity(Intent(this@SplashActivity, AdsActivity::class.java))
+//            startActivity(Intent(this@SplashActivity, AdsActivity::class.java))
+            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
             finish()
         }, 2000)
     }
