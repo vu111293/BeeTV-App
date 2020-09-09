@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.lifecycle.Observer
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -56,29 +57,26 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupGUI() {
-        viewModel.getLiveList().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            it?.let { resource -> {
-                Log.d(TAG, "Get top movie status " + resource.status)
-               when(resource.status) {
-                   Status.SUCCESS -> {
-                       resource.data?.let { movie  -> retrieveTopLiveList(movie) }
-
-                   }
-
-                   Status.LOADING -> {
-
-                   }
-
-                   Status.ERROR -> {
-
-                   }
-               }
-            }}
+        viewModel.getLiveList().observe(viewLifecycleOwner, Observer {
+            it -> run {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        retrieveTopLiveList(it?.data)
+                        Log.d(TAG, "Get top movie success ")
+                    }
+                    Status.LOADING -> {
+                        Log.d(TAG, "Get top movie loading")
+                    }
+                    Status.ERROR -> {
+                        Log.d(TAG, "Get top movie error ")
+                    }
+                }
+            }
         })
     }
 
-    private fun retrieveTopLiveList(list: BaseResponse<LiveModel>) {
-        Log.d(TAG, "movie number: " + list.results.objects.rows.size)
+    private fun retrieveTopLiveList(list: BaseResponse<LiveModel>?) {
+        Log.d(TAG, "movie number: " + list?.results?.objects?.rows?.count())
     }
 
 

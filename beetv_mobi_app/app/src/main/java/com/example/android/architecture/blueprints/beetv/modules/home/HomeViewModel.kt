@@ -3,13 +3,11 @@ package com.example.android.architecture.blueprints.beetv.modules.home
 import androidx.lifecycle.*
 import com.example.android.architecture.blueprints.beetv.Event
 import com.example.android.architecture.blueprints.beetv.data.models.Resource
-import com.example.android.architecture.blueprints.beetv.data.repository.MovieRepository
-import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
+import com.example.android.architecture.blueprints.beetv.data.repository.MediaRepository
 import kotlinx.coroutines.Dispatchers
-import okhttp3.Dispatcher
 
 class HomeViewModel(
-        private val movieRepository: MovieRepository,
+        private val movieRepository: MediaRepository,
         private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 

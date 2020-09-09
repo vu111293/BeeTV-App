@@ -20,9 +20,7 @@ import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
-import com.example.android.architecture.blueprints.beetv.data.api.ApiHelper
-import com.example.android.architecture.blueprints.beetv.data.api.RetrofitBuilder
-import com.example.android.architecture.blueprints.beetv.data.repository.MovieRepository
+import com.example.android.architecture.blueprints.beetv.data.repository.MediaRepository
 import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
 import com.example.android.architecture.blueprints.beetv.modules.favorite.FavoriteViewModel
 import com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel
@@ -40,7 +38,7 @@ import com.example.android.architecture.blueprints.beetv.modules.player.PlayerVi
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory constructor(
         private val tasksRepository: TasksRepository,
-        private val movieRepository: MovieRepository,
+        private val movieRepository: MediaRepository,
         owner: SavedStateRegistryOwner,
         defaultArgs: Bundle? = null
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {

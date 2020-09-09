@@ -4,6 +4,46 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
 
+
+data class BMovie(
+        val id: String,
+        val name: String,
+        val director: String,
+        val starring: String,
+        val screenwriter: String,
+        val release: String,
+        val country: String,
+        val language: String,
+        val years: Int,
+        val duration: Int,
+        val episode: String,
+        val score: Int,
+        val billing: String,
+        val remarks: String,
+        val introduction: String,
+        val cover_image: String,
+        val created_at_unix_timestamp: String,
+        val status: Boolean,
+        val created_at: String,
+        val updated_at: String,
+        val videos: List<BVideo>
+){}
+
+
+data class BVideo(
+        val id: String,
+        val title: String,
+        val name: String,
+        val synopsis: String,
+        val position: Int,
+        val movie_id: String,
+        val created_at_unix_timestamp: String,
+        val status: Boolean,
+        val created_at: String,
+        val updated_at: String
+){}
+
+
 data class Movie(
         val id: String,
         val title: String,

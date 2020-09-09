@@ -7,10 +7,13 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
+
+    @GET("topMovie")
+    suspend fun getTopMovies(): BaseResponse<List<Movie>>
+
     @GET("movie")
-    suspend fun getMovies(): List<Movie>
+    suspend fun getMovies(): BaseResponse<List<Movie>>
 
     @GET("live")
-//    suspend fun getLives(): BaseResponse<LiveModel>
     suspend fun getLives(@Query("fields") fields: String): BaseResponse<LiveModel>
 }
