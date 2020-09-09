@@ -7,7 +7,7 @@ import com.example.android.architecture.blueprints.beetv.data.repository.MediaRe
 import kotlinx.coroutines.Dispatchers
 
 class HomeViewModel(
-        private val movieRepository: MediaRepository,
+        private val mediaRepository: MediaRepository,
         private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -20,7 +20,25 @@ class HomeViewModel(
     fun getTopMovie() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = movieRepository.getMovies()))
+            emit(Resource.success(data = mediaRepository.getTopMovies()))
+        } catch (exception: Exception) {
+            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+        }
+    }
+
+    fun getMovies() = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        try {
+            emit(Resource.success(data = mediaRepository.getMovies()))
+        } catch (exception: Exception) {
+            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+        }
+    }
+
+    fun getCategories() = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        try {
+            emit(Resource.success(data = mediaRepository.getCategories()))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
@@ -30,7 +48,7 @@ class HomeViewModel(
     fun getLiveList() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = movieRepository.getLives()))
+            emit(Resource.success(data = mediaRepository.getLives()))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }

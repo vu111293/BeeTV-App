@@ -3,6 +3,21 @@ package com.example.android.architecture.blueprints.beetv.data.models
 import android.content.Context
 import com.example.android.architecture.blueprints.beetv.R
 
+
+
+data class BCategory(
+        val id: String,
+        val name: String,
+        val position: Int,
+        val created_at_unix_timestamp: String,
+        val status: Boolean,
+        val parent_id: String,
+        val type: String,
+        val created_at: String,
+        val updated_at: String
+){}
+
+
 data class Category(
         val id: String,
         val name: String,
