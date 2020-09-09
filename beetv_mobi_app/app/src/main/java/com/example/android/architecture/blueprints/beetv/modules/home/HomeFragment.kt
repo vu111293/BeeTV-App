@@ -121,6 +121,22 @@ class HomeFragment : BaseFragment() {
             }
         }
         })
+
+        viewModel.getFavoriteList().observe(viewLifecycleOwner, Observer {
+            it -> run {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    Log.d(TAG, "Get top movie success ")
+                }
+                Status.LOADING -> {
+                    Log.d(TAG, "Get top movie loading")
+                }
+                Status.ERROR -> {
+                    Log.d(TAG, "Get top movie error ")
+                }
+            }
+        }
+        })
     }
 
     private fun retrieveTopLiveList(list: BaseResponse<LiveModel>?) {

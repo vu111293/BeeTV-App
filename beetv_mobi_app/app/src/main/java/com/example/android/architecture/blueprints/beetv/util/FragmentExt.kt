@@ -21,18 +21,23 @@ package com.example.android.architecture.blueprints.beetv.util
 
 import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
+import androidx.savedstate.SavedStateRegistryOwner
 import com.example.android.architecture.blueprints.beetv.BeeTVApplication
 import com.example.android.architecture.blueprints.beetv.ViewModelFactory
 
 fun Fragment.getViewModelFactory(): ViewModelFactory {
-    val repository = (requireContext().applicationContext as BeeTVApplication).taskRepository
-    val movieRepository = (requireContext().applicationContext as BeeTVApplication).movieRepository
-    return ViewModelFactory(repository, movieRepository,this)
+    return buildViewModelFactory(app = requireContext().applicationContext as BeeTVApplication, owner = this)
 }
 
 
 fun ComponentActivity.getViewModelFactory(): ViewModelFactory {
-    val repository = (applicationContext as BeeTVApplication).taskRepository
-    val movieRepository = (applicationContext as BeeTVApplication).movieRepository
-    return ViewModelFactory(repository, movieRepository, this)
+    return buildViewModelFactory(app = applicationContext as BeeTVApplication, owner = this)
+}
+
+
+fun buildViewModelFactory(app: BeeTVApplication, owner: SavedStateRegistryOwner): ViewModelFactory {
+    val repository = app.taskRepository
+    val movieRepository =  app.movieRepository
+    val accountRepository = app.accountRepository
+    return ViewModelFactory(repository, movieRepository, accountRepository, owner)
 }

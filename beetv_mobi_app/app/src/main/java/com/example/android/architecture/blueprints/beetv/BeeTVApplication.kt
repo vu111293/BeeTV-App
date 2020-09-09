@@ -20,6 +20,7 @@ import android.content.Context
 import androidx.multidex.MultiDexApplication
 import com.example.android.architecture.blueprints.beetv.data.api.ApiHelper
 import com.example.android.architecture.blueprints.beetv.data.api.RetrofitBuilder
+import com.example.android.architecture.blueprints.beetv.data.repository.AccountRepository
 import com.example.android.architecture.blueprints.beetv.data.repository.MediaRepository
 import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
 import timber.log.Timber
@@ -37,6 +38,7 @@ class BeeTVApplication : MultiDexApplication() {
 
     val taskRepository: TasksRepository get() = ServiceLocator.provideTasksRepository(this)
     val movieRepository: MediaRepository get() = MediaRepository(ApiHelper(RetrofitBuilder.apiService))
+    val accountRepository: AccountRepository get() = AccountRepository(ApiHelper(RetrofitBuilder.apiService))
 
     override fun onCreate() {
         super.onCreate()

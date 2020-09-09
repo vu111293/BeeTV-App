@@ -20,6 +20,7 @@ import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
+import com.example.android.architecture.blueprints.beetv.data.repository.AccountRepository
 import com.example.android.architecture.blueprints.beetv.data.repository.MediaRepository
 import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
 import com.example.android.architecture.blueprints.beetv.modules.favorite.FavoriteViewModel
@@ -39,6 +40,7 @@ import com.example.android.architecture.blueprints.beetv.modules.player.PlayerVi
 class ViewModelFactory constructor(
         private val tasksRepository: TasksRepository,
         private val movieRepository: MediaRepository,
+        private val accountRepository: AccountRepository,
         owner: SavedStateRegistryOwner,
         defaultArgs: Bundle? = null
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
@@ -49,7 +51,7 @@ class ViewModelFactory constructor(
             handle: SavedStateHandle
     ) = with(modelClass) {
         when {
-            isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(movieRepository, handle)
+            isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(movieRepository, accountRepository, handle)
             isAssignableFrom(MenuViewModel::class.java) -> MenuViewModel(tasksRepository, handle)
             isAssignableFrom(MovieDetailViewModel::class.java) -> MovieDetailViewModel(tasksRepository, handle)
             isAssignableFrom(SearchViewModel::class.java) -> SearchViewModel()

@@ -7,4 +7,6 @@ class MediaRepository(private val apiHelper: ApiHelper) {
     suspend fun getTopMovies() = apiHelper.getTopMovies()
     suspend fun getMovies() = apiHelper.getMovies()
     suspend fun getLives() = apiHelper.getLives()
+    suspend fun getLiveTimeTable(channelId: String, startTime: Long, endTime: Long)
+            = apiHelper.getLiveTimeTable(channelId, startTime, endTime)
 }
