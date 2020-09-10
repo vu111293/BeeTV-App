@@ -17,7 +17,7 @@ data class BMovie(
         val years: Int,
         val duration: Int,
         val episode: String,
-        val score: Double,
+        val score: String,
         val billing: String,
         val remarks: String,
         val introduction: String,

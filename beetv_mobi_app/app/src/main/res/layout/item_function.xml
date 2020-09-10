@@ -5,16 +5,19 @@
     android:gravity="center"
     android:paddingHorizontal="@dimen/size_30"
     android:layout_marginHorizontal="@dimen/size_5"
+    android:focusable="false"
     android:layout_height="@dimen/size_40">
 
     <ImageView
         android:layout_width="@dimen/size_25"
         android:layout_height="@dimen/size_25"
+        android:focusable="false"
         android:id="@+id/iv_icon"/>
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:textColor="@color/alto"
+       android:focusable="false"
        android:id="@+id/tv_name"
        android:layout_marginStart="@dimen/size_16"
        android:textAppearance="@style/TextAppearance.AppCompat.Medium"

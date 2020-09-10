@@ -1,50 +1,51 @@
 package com.example.android.architecture.blueprints.beetv.data.adapter
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.example.android.architecture.blueprints.beetv.R
 import com.example.android.architecture.blueprints.beetv.data.models.BAds
+import com.example.android.architecture.blueprints.beetv.data.models.BMovie
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
-import com.example.android.architecture.blueprints.beetv.data.models.Slide
 import com.example.android.architecture.blueprints.beetv.databinding.ItemSlideBinding
+import com.example.android.architecture.blueprints.beetv.databinding.ItemTopMovieBinding
 import com.example.android.architecture.blueprints.beetv.modules.ads.AdsViewModel
-import com.example.android.architecture.blueprints.beetv.util.hide
+import com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel
+import com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
 
-class SlideAdapter(private val viewModel: AdsViewModel) :
-        ListAdapter<BAds, SlideAdapter.ViewHolder>(AdsDiffCallback()) {
+class TopMovieAdapter2(private val viewModel: HomeViewModel,
+                      val widthItem : Int, val heightItem : Int) :
+        ListAdapter<BMovie, TopMovieAdapter2.ViewHolder>(MovieDiffCallback()) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(val binding: ItemSlideBinding) :
+    class ViewHolder private constructor(val binding: ItemTopMovieBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(viewModel: AdsViewModel, item: BAds) {
+        fun bind(viewModel: HomeViewModel, item: BMovie,widthItem : Int,  heightItem : Int) {
 
             binding.viewmodel = viewModel
-            binding.ads = item
+            binding.movie = item
             binding.executePendingBindings()
-            itemView.tag = position
+            binding.main.layoutParams.width = widthItem
+            binding.main.layoutParams.height = heightItem
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemSlideBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemTopMovieBinding.inflate(layoutInflater, parent, false)
 
                 return ViewHolder(binding)
             }
@@ -53,17 +54,16 @@ class SlideAdapter(private val viewModel: AdsViewModel) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(viewModel,item)
+        holder.bind(viewModel,item, widthItem,heightItem)
+
     }
-
 }
-
-class AdsDiffCallback : DiffUtil.ItemCallback<BAds>() {
-    override fun areItemsTheSame(oldItem: BAds, newItem: BAds): Boolean {
+class MovieDiffCallback : DiffUtil.ItemCallback<BMovie>() {
+    override fun areItemsTheSame(oldItem: BMovie, newItem: BMovie): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: BAds, newItem: BAds): Boolean {
+    override fun areContentsTheSame(oldItem: BMovie, newItem: BMovie): Boolean {
         return oldItem == newItem
     }
 }

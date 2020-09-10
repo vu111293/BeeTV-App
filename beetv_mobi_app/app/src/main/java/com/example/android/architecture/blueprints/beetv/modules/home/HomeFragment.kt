@@ -19,6 +19,7 @@ import com.example.android.architecture.blueprints.beetv.EventObserver
 import com.example.android.architecture.blueprints.beetv.R
 import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
 import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
+import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter2
 import com.example.android.architecture.blueprints.beetv.data.models.BaseResponse
 import com.example.android.architecture.blueprints.beetv.data.models.LiveModel
 import com.example.android.architecture.blueprints.beetv.data.models.Movie
@@ -43,6 +44,7 @@ class HomeFragment : BaseFragment() {
     private val args: HomeFragmentArgs by navArgs()
     private lateinit var viewDataBinding: FragmentHomeBinding
     public var lastView: View? = null
+    private lateinit var adapter: TopMovieAdapter2
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -90,37 +92,9 @@ class HomeFragment : BaseFragment() {
         }
         })
 
-        viewModel.getTopMovie().observe(viewLifecycleOwner, Observer {
-            it -> run {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Log.d(TAG, "Get top movie success ")
-                }
-                Status.LOADING -> {
-                    Log.d(TAG, "Get top movie loading")
-                }
-                Status.ERROR -> {
-                    Log.d(TAG, "Get top movie error ")
-                }
-            }
-        }
-        })
 
-        viewModel.getCategories().observe(viewLifecycleOwner, Observer {
-            it -> run {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Log.d(TAG, "Get top movie success ")
-                }
-                Status.LOADING -> {
-                    Log.d(TAG, "Get top movie loading")
-                }
-                Status.ERROR -> {
-                    Log.d(TAG, "Get top movie error ")
-                }
-            }
-        }
-        })
+
+
 
         viewModel.getFavoriteList().observe(viewLifecycleOwner, Observer {
             it -> run {
@@ -138,37 +112,7 @@ class HomeFragment : BaseFragment() {
         }
         })
 
-        viewModel.getAdsList().observe(viewLifecycleOwner, Observer {
-            it -> run {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Log.d(TAG, "Get top movie success ")
-                }
-                Status.LOADING -> {
-                    Log.d(TAG, "Get top movie loading")
-                }
-                Status.ERROR -> {
-                    Log.d(TAG, "Get top movie error ")
-                }
-            }
-        }
-        })
 
-        viewModel.getNoticeList().observe(viewLifecycleOwner, Observer {
-            it -> run {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Log.d(TAG, "Get top movie success ")
-                }
-                Status.LOADING -> {
-                    Log.d(TAG, "Get top movie loading")
-                }
-                Status.ERROR -> {
-                    Log.d(TAG, "Get top movie error ")
-                }
-            }
-        }
-        })
     }
 
     private fun retrieveTopLiveList(list: BaseResponse<LiveModel>?) {
@@ -232,7 +176,7 @@ class HomeFragment : BaseFragment() {
             override fun onAnimationCancel(animation: Animator) {}
             override fun onAnimationRepeat(animation: Animator) {}
         })
-        showMovieList()
+        setUpTopMovie()
         setupNavigation()
 
     }
@@ -263,30 +207,25 @@ class HomeFragment : BaseFragment() {
         }, 10)
     }
 
-    private fun showMovieList() {
-        val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_150)
-        val heightItem = widthItem * 406 / 280
-        val movieAdapter = TopMovieAdapter(Movie.mocks(), context!!, widthItem, heightItem)
-        movieAdapter.mOnItemClickListener = ({
-            Log.d(TAG, it.title)
-//            val intent = Intent(activity, ExoPlayerActivity::class.java)
-//            startActivity(intent)
-            val action = HomeFragmentDirections.actionHomeFragmentDestToMovieDetailFragmentDest(it.id)
-            findNavController().navigate(action)
-        })
-        viewDataBinding.rvMovie.adapter = movieAdapter
-        viewDataBinding.rvMovie.scrollToPosition(0)
-    }
+
 
     private fun setupNavigation() {
         viewModel.openMenuEvent.observe(viewLifecycleOwner, EventObserver {
             openMenu(it)
         })
 
+        viewModel.openMovieDetailEvent.observe(viewLifecycleOwner, EventObserver {
+            openMovieDetail(it)
+        })
+
     }
 
     private fun openMenu(category: String) {
         val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
+        findNavController().navigate(action)
+    }
+    private fun openMovieDetail(id: String) {
+        val action = HomeFragmentDirections.actionHomeFragmentDestToMovieDetailFragmentDest(id)
         findNavController().navigate(action)
     }
 
@@ -379,5 +318,12 @@ class HomeFragment : BaseFragment() {
 
     }
 
+    private fun setUpTopMovie(){
+        val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_150)
+        val heightItem = widthItem * 406 / 280
+        adapter = TopMovieAdapter2(viewModel, widthItem, heightItem)
+        viewDataBinding.rvMovie.adapter = adapter
+        viewDataBinding.rvMovie.scrollToPosition(0)
+    }
 
 }

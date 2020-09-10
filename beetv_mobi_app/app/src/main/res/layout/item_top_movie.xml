@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="movie"
+            type="com.example.android.architecture.blueprints.beetv.data.models.BMovie" />
+        <variable
+            name="viewmodel"
+            type="com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel" />
+
+    </data>
+<com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout
     xmlns:cv="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
-    android:layout_width="150dp"
-    android:layout_height="250dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="@{() -> viewmodel.openMovieDetail(movie.id)}"
     android:layout_margin="5dp"
     android:focusable="true">
 
@@ -12,6 +30,8 @@
         android:id="@+id/iv_cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:load="@{movie.cover_image}"
+        android:focusable="false"
         android:scaleType="centerCrop" />
 
     <com.example.android.architecture.blueprints.beetv.widgets.metro.CornerVew
@@ -23,6 +43,7 @@
         cv:cv_background_color="@color/fern"
         cv:cv_fill_triangle="true"
         cv:cv_gravity="TOP_LEFT"
+        android:focusable="false"
         cv:cv_text="VIP"
         cv:cv_text_size="15sp" />
 
@@ -31,6 +52,7 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:background="#85000000"
+        android:focusable="false"
         android:layout_height="50dp">
         <TextView
             android:id="@+id/tv_name"
@@ -40,20 +62,22 @@
             android:maxLines="1"
             android:ellipsize="end"
             android:padding="15px"
-            android:text="魔兽：最强游戏IP电影"
+            android:text="@{movie.name}"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:focusable="false"
+            android:textSize="18sp" />
         <TextView
             android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:ellipsize="end"
+            android:focusable="false"
             android:padding="15px"
-            android:text="5.0"
+            android:text="@{movie.score}"
             android:textColor="@color/sunsetOrange"
             android:textSize="18sp" />
 
     </LinearLayout>
 
-</com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout>
+</com.example.android.architecture.blueprints.beetv.widgets.metro.MetroItemFrameLayout></layout>

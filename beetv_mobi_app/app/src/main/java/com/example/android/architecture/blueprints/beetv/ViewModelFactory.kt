@@ -23,6 +23,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import com.example.android.architecture.blueprints.beetv.data.repository.AccountRepository
 import com.example.android.architecture.blueprints.beetv.data.repository.MediaRepository
 import com.example.android.architecture.blueprints.beetv.data.source.TasksRepository
+import com.example.android.architecture.blueprints.beetv.modules.ads.AdsViewModel
 import com.example.android.architecture.blueprints.beetv.modules.favorite.FavoriteViewModel
 import com.example.android.architecture.blueprints.beetv.modules.home.HomeViewModel
 import com.example.android.architecture.blueprints.beetv.modules.login.LoginViewModel
@@ -55,11 +56,12 @@ class ViewModelFactory constructor(
             isAssignableFrom(MenuViewModel::class.java) -> MenuViewModel(tasksRepository, handle)
             isAssignableFrom(MovieDetailViewModel::class.java) -> MovieDetailViewModel(tasksRepository, handle)
             isAssignableFrom(SearchViewModel::class.java) -> SearchViewModel()
-            isAssignableFrom(SplashViewModel::class.java) -> SplashViewModel()
+            isAssignableFrom(SplashViewModel::class.java) -> SplashViewModel(movieRepository, accountRepository)
             isAssignableFrom(FavoriteViewModel::class.java) -> FavoriteViewModel()
             isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel()
             isAssignableFrom(RegisterViewModel::class.java) -> RegisterViewModel()
             isAssignableFrom(PlayerViewModel::class.java) -> PlayerViewModel(tasksRepository, handle)
+            isAssignableFrom(AdsViewModel::class.java) -> AdsViewModel()
 
             else ->
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

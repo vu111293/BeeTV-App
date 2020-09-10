@@ -22,6 +22,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:focusable="false"
         android:layout_height="match_parent">
 
         <TextView
@@ -303,6 +304,7 @@
                 android:layout_below="@+id/tvNoti"
                 android:layout_marginVertical="@dimen/size_16"
                 android:focusable="false"
+                app:items="@{viewmodel.topMovieList}"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_top_movie" />
