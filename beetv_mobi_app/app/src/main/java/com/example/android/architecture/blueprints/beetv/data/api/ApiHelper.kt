@@ -12,6 +12,8 @@ class ApiHelper(private val apiService: ApiService) {
             fields = "[\"\$all\"]",
             filter = "{\"start_time\":{\"\$between\": [${startTime}, ${endTime}]}}"
     )
+    suspend fun getAds() = apiService.getAds(fields = "[\"\$all\"]")
+    suspend fun getNotices() = apiService.getNotices(fields = "[\"\$all\"]")
 
 
 

@@ -49,5 +49,10 @@ interface ApiService {
 
     // Notice & Ads group
 
+    @GET("carousel")
+    suspend fun getAds(@Query("fields") fields: String): BaseResponse<BAds>
+
+    @GET("notice")
+    suspend fun getNotices(@Query("fields") fields: String): BaseResponse<BNotice>
 
 }
