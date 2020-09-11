@@ -11,5 +11,5 @@ data class BFavorite(
     val created_at: String,
     val updated_at: String,
     val movie: BMovie,
-    val live: LiveModel
+    val live: BLive
 ) {}

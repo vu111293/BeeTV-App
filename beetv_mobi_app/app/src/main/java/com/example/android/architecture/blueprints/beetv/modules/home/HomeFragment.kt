@@ -10,19 +10,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.lifecycle.Observer
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.architecture.blueprints.beetv.BeeTVApplication
 import com.example.android.architecture.blueprints.beetv.EventObserver
 import com.example.android.architecture.blueprints.beetv.R
 import com.example.android.architecture.blueprints.beetv.common.basegui.BaseFragment
-import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter
 import com.example.android.architecture.blueprints.beetv.data.adapter.TopMovieAdapter2
 import com.example.android.architecture.blueprints.beetv.data.models.BaseResponse
-import com.example.android.architecture.blueprints.beetv.data.models.LiveModel
-import com.example.android.architecture.blueprints.beetv.data.models.Movie
+import com.example.android.architecture.blueprints.beetv.data.models.BLive
 import com.example.android.architecture.blueprints.beetv.data.models.Status
 import com.example.android.architecture.blueprints.beetv.databinding.FragmentHomeBinding
 import com.example.android.architecture.blueprints.beetv.modules.dialogs.NotiDialog
@@ -59,8 +57,8 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupGUI() {
-        viewModel.getLiveList().observe(viewLifecycleOwner, Observer {
-            it -> run {
+        viewModel.getLiveList().observe(viewLifecycleOwner, Observer { it ->
+            run {
                 when (it.status) {
                     Status.SUCCESS -> {
                         retrieveTopLiveList(it?.data)
@@ -76,46 +74,45 @@ class HomeFragment : BaseFragment() {
             }
         })
 
-        viewModel.getMovies().observe(viewLifecycleOwner, Observer {
-            it -> run {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Log.d(TAG, "Get top movie success ")
-                }
-                Status.LOADING -> {
-                    Log.d(TAG, "Get top movie loading")
-                }
-                Status.ERROR -> {
-                    Log.d(TAG, "Get top movie error ")
+
+        viewModel.getMovies().observe(viewLifecycleOwner, Observer { it ->
+            run {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        Log.d(TAG, "Get top movie success ")
+                    }
+                    Status.LOADING -> {
+                        Log.d(TAG, "Get top movie loading")
+                    }
+                    Status.ERROR -> {
+                        Log.d(TAG, "Get top movie error ")
+                    }
                 }
             }
-        }
         })
 
 
 
-
-
-        viewModel.getFavoriteList().observe(viewLifecycleOwner, Observer {
-            it -> run {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    Log.d(TAG, "Get top movie success ")
-                }
-                Status.LOADING -> {
-                    Log.d(TAG, "Get top movie loading")
-                }
-                Status.ERROR -> {
-                    Log.d(TAG, "Get top movie error ")
+        viewModel.getFavoriteList().observe(viewLifecycleOwner, Observer { it ->
+            run {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        Log.d(TAG, "Get top movie success ")
+                    }
+                    Status.LOADING -> {
+                        Log.d(TAG, "Get top movie loading")
+                    }
+                    Status.ERROR -> {
+                        Log.d(TAG, "Get top movie error ")
+                    }
                 }
             }
-        }
         })
 
 
     }
 
-    private fun retrieveTopLiveList(list: BaseResponse<LiveModel>?) {
+    private fun retrieveTopLiveList(list: BaseResponse<BLive>?) {
         Log.d(TAG, "movie number: " + list?.results?.objects?.rows?.count())
     }
 
@@ -128,7 +125,6 @@ class HomeFragment : BaseFragment() {
         showTime()
         val roundedFrameLayout = FrameLayout(context)
         roundedFrameLayout.clipChildren = false
-
 
 
         val metroViewBorderImpl = MetroViewBorderImpl(roundedFrameLayout)
@@ -208,7 +204,6 @@ class HomeFragment : BaseFragment() {
     }
 
 
-
     private fun setupNavigation() {
         viewModel.openMenuEvent.observe(viewLifecycleOwner, EventObserver {
             openMenu(it)
@@ -224,6 +219,7 @@ class HomeFragment : BaseFragment() {
         val action = HomeFragmentDirections.actionHomeFragmentDestToMenuFragmentDest(category)
         findNavController().navigate(action)
     }
+
     private fun openMovieDetail(id: String) {
         val action = HomeFragmentDirections.actionHomeFragmentDestToMovieDetailFragmentDest(id)
         findNavController().navigate(action)
@@ -237,7 +233,7 @@ class HomeFragment : BaseFragment() {
             BeeTVApplication.isShowPopup = true
         }
 
-          if (!arguments?.getString("type").isNullOrEmpty()) {
+        if (!arguments?.getString("type").isNullOrEmpty()) {
             if (arguments?.getString("type").equals(Constants.REGISTER)) {
                 val successDialog = SuccessDialog()
                 successDialog.icon = R.drawable.ic_register_success
@@ -245,7 +241,7 @@ class HomeFragment : BaseFragment() {
                 successDialog.show(childFragmentManager, "success")
             }
 
-            if (arguments?.getString("type")                                                                                                                                                                                                                                                                                                                         .equals(Constants.LOGIN)) {
+            if (arguments?.getString("type").equals(Constants.LOGIN)) {
                 val successDialog = SuccessDialog()
                 successDialog.show(childFragmentManager, "success")
             }
@@ -318,7 +314,7 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    private fun setUpTopMovie(){
+    private fun setUpTopMovie() {
         val widthItem = context!!.resources.getDimensionPixelOffset(R.dimen.size_150)
         val heightItem = widthItem * 406 / 280
         adapter = TopMovieAdapter2(viewModel, widthItem, heightItem)

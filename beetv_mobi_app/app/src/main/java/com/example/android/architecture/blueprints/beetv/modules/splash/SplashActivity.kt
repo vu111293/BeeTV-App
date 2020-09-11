@@ -31,7 +31,6 @@ class SplashActivity : AppCompatActivity() {
         getData()
     }
 
-
     private fun getData(){
         viewModel.getCategories().observe(this, Observer {
             it -> run {
@@ -70,8 +69,6 @@ class SplashActivity : AppCompatActivity() {
             }
         }
         })
-
-
 
 
         viewModel.getAdsList().observe(this, Observer {
@@ -118,7 +115,8 @@ class SplashActivity : AppCompatActivity() {
     private fun checkLoadData() {
         if (isLoadCategories && isLoadTopMovie  && isLoadNotice && isLoadADS){
 
-            startActivity(Intent(this@SplashActivity, AdsActivity::class.java))
+//            startActivity(Intent(this@SplashActivity, AdsActivity::class.java))
+            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
             finish()
         }
 

@@ -1,6 +1,6 @@
 package com.example.android.architecture.blueprints.beetv.data.models
 
-data class LiveModel(
+data class BLive(
         val id: String,
         val name: String,
         val address: String,

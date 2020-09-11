@@ -13,6 +13,7 @@ data class BCategory(
         val status: Boolean,
         val parent_id: String,
         val type: String,
+        val tags: List<String>,
         val created_at: String,
         val updated_at: String
 ){}

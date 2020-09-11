@@ -20,7 +20,7 @@ interface ApiService {
     suspend fun getMovies(): BaseResponse<BMovie>
 
     @GET("live")
-    suspend fun getLives(@Query("fields") fields: String): BaseResponse<LiveModel>
+    suspend fun getLives(@Query("fields") fields: String): BaseResponse<BLive>
 
     @GET("favorite")
     suspend fun getFavorites(@Query("fields") fields: String): BaseResponse<BFavorite>

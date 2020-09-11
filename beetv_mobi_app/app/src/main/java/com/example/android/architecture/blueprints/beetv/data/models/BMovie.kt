@@ -27,9 +27,20 @@ data class BMovie(
         val status: Boolean,
         val created_at: String,
         val updated_at: String,
-        val videos: List<BVideo>
+        val videos: List<BVideo>,
+        val category_movies: List<BCategoryInMovie>
 ){}
 
+
+data class BCategoryInMovie(
+        val id: String,
+        val status: Boolean,
+        val category: BObjectId
+){}
+
+data class BObjectId(
+        val id: String
+){}
 
 data class BVideo(
         val id: String,

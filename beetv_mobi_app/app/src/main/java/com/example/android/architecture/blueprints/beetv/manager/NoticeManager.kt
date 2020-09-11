@@ -1,7 +1,6 @@
 package com.example.android.architecture.blueprints.beetv.manager
 
 import com.example.android.architecture.blueprints.beetv.data.models.BNotice
-import com.example.android.architecture.blueprints.beetv.data.models.Notice
 
 class NoticeManager {
 
