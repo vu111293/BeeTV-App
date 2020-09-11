@@ -19,6 +19,9 @@ interface ApiService {
     @GET("movie")
     suspend fun getMovies(): BaseResponse<BMovie>
 
+    @GET("category_movie")
+    suspend fun getMoviesByCategoryId(@Query("fields") fields: String, @Query("filter") filter: String): BaseResponse<BMovieNestCategory>
+
     @GET("live")
     suspend fun getLives(@Query("fields") fields: String): BaseResponse<BLive>
 

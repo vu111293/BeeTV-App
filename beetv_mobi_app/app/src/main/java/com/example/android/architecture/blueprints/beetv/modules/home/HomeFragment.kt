@@ -57,59 +57,68 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupGUI() {
-        viewModel.getLiveList().observe(viewLifecycleOwner, Observer { it ->
-            run {
-                when (it.status) {
-                    Status.SUCCESS -> {
-                        retrieveTopLiveList(it?.data)
-                        Log.d(TAG, "Get top movie success ")
-                    }
-                    Status.LOADING -> {
-                        Log.d(TAG, "Get top movie loading")
-                    }
-                    Status.ERROR -> {
-                        Log.d(TAG, "Get top movie error ")
-                    }
-                }
-            }
-        })
+//        viewModel.getLiveList().observe(viewLifecycleOwner, Observer { it ->
+//            run {
+//                when (it.status) {
+//                    Status.SUCCESS -> {
+//                        retrieveTopLiveList(it?.data)
+//                        Log.d(TAG, "Get top movie success ")
+//                    }
+//                    Status.LOADING -> {
+//                        Log.d(TAG, "Get top movie loading")
+//                    }
+//                    Status.ERROR -> {
+//                        Log.d(TAG, "Get top movie error ")
+//                    }
+//                }
+//            }
+//        })
+//        viewModel.getMovies().observe(viewLifecycleOwner, Observer { it ->
+//            run {
+//                when (it.status) {
+//                    Status.SUCCESS -> {
+//                        Log.d(TAG, "Get top movie success ")
+//                    }
+//                    Status.LOADING -> {
+//                        Log.d(TAG, "Get top movie loading")
+//                    }
+//                    Status.ERROR -> {
+//                        Log.d(TAG, "Get top movie error ")
+//                    }
+//                }
+//            }
+//        })
+//        viewModel.getFavoriteList().observe(viewLifecycleOwner, Observer { it ->
+//            run {
+//                when (it.status) {
+//                    Status.SUCCESS -> {
+//                        Log.d(TAG, "Get top movie success ")
+//                    }
+//                    Status.LOADING -> {
+//                        Log.d(TAG, "Get top movie loading")
+//                    }
+//                    Status.ERROR -> {
+//                        Log.d(TAG, "Get top movie error ")
+//                    }
+//                }
+//            }
+//        })
 
-
-        viewModel.getMovies().observe(viewLifecycleOwner, Observer { it ->
-            run {
-                when (it.status) {
-                    Status.SUCCESS -> {
-                        Log.d(TAG, "Get top movie success ")
-                    }
-                    Status.LOADING -> {
-                        Log.d(TAG, "Get top movie loading")
-                    }
-                    Status.ERROR -> {
-                        Log.d(TAG, "Get top movie error ")
-                    }
-                }
-            }
-        })
-
-
-
-        viewModel.getFavoriteList().observe(viewLifecycleOwner, Observer { it ->
-            run {
-                when (it.status) {
-                    Status.SUCCESS -> {
-                        Log.d(TAG, "Get top movie success ")
-                    }
-                    Status.LOADING -> {
-                        Log.d(TAG, "Get top movie loading")
-                    }
-                    Status.ERROR -> {
-                        Log.d(TAG, "Get top movie error ")
-                    }
-                }
-            }
-        })
-
-
+//        viewModel.getMovieListByCategoryId(categoryId = "85fdb7e0-f31d-11ea-9434-cdcec689b3a6").observe(viewLifecycleOwner, Observer { it ->
+//            run {
+//                when (it.status) {
+//                    Status.SUCCESS -> {
+//                        Log.d(TAG, "Get top movie success ")
+//                    }
+//                    Status.LOADING -> {
+//                        Log.d(TAG, "Get top movie loading")
+//                    }
+//                    Status.ERROR -> {
+//                        Log.d(TAG, "Get top movie error ")
+//                    }
+//                }
+//            }
+//        })
     }
 
     private fun retrieveTopLiveList(list: BaseResponse<BLive>?) {

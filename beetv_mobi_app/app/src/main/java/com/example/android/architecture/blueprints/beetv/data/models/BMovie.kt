@@ -55,6 +55,10 @@ data class BVideo(
         val updated_at: String
 ){}
 
+data class BMovieNestCategory(
+        val movie: BMovie
+){}
+
 
 data class Movie(
         val id: String,

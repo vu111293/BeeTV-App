@@ -18,7 +18,6 @@ data class BCategory(
         val updated_at: String
 ){}
 
-
 data class Category(
         val id: String,
         val name: String,
